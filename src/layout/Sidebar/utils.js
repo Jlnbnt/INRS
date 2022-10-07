@@ -3,7 +3,7 @@ import NoAccountsOutlinedIcon from "@mui/icons-material/NoAccountsOutlined";
 export const sideLinks = [
   {
     title: "HOME",
-    link: "home",
+    link: "",
     icon: <MoodOutlinedIcon />,
   },
   {

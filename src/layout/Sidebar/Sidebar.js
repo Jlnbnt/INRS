@@ -14,6 +14,8 @@ import MailIcon from "@mui/icons-material/Mail";
 
 import { sideLinks } from "./utils";
 
+import { Link } from "react-router-dom";
+
 export default function Sidebar({ open, toggleDrawer }) {
   return (
     <>
@@ -23,32 +25,32 @@ export default function Sidebar({ open, toggleDrawer }) {
             <ListItemButton>
               <ListItemText>CLOSE BTN</ListItemText>
               <ListItemIcon
-                sx={{
-                  alignItems: "center",
-                }}
+                className="items-center"
                 onClick={toggleDrawer(false)}
               >
-                <ListItemText sx={{ marginRight: "10px" }}>Close</ListItemText>
+                <ListItemText className="mr-3">Close</ListItemText>
                 <CloseIcon />
               </ListItemIcon>
             </ListItemButton>
           </ListItem>
         </List>
-        <Box sx={{ width: 300 }} role="presentation">
+        <Box className="w-[300px]" role="presentation">
           <Divider />
           <List>
             {sideLinks.map((link) => (
-              <ListItem
-                key={link.title}
-                disablePadding
-                onClick={toggleDrawer(false)}
-                onKeyDown={toggleDrawer(false)}
-              >
-                <ListItemButton>
-                  <ListItemIcon>{link.icon}</ListItemIcon>
-                  <ListItemText>{link.title}</ListItemText>
-                </ListItemButton>
-              </ListItem>
+              <Link to={link.link}>
+                <ListItem
+                  key={link.title}
+                  disablePadding
+                  onClick={toggleDrawer(false)}
+                  onKeyDown={toggleDrawer(false)}
+                >
+                  <ListItemButton>
+                    <ListItemIcon>{link.icon}</ListItemIcon>
+                    <ListItemText>{link.title}</ListItemText>
+                  </ListItemButton>
+                </ListItem>
+              </Link>
             ))}
           </List>
           <Divider />

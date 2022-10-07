@@ -32,28 +32,14 @@ export default function Navbar() {
             edge="start"
             color="inherit"
             aria-label="menu"
-            sx={{ mr: 2, zIndex: "1" }}
+            className="z-10"
             onClick={toggleDrawer(true)}
           >
             <MenuIcon />
           </IconButton>
-          <Box
-            sx={{
-              flexGrow: 1,
-              position: "absolute",
-              height: "100%",
-              width: "100% !important",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              left: "0",
-              top: "0",
-            }}
-          >
+          <Box className="absolute w-full left-0 flex justify-center">
             <Button onClick={() => console.log("lol")}>
-              <span style={{ color: "#ffffff", fontSize: "20px" }}>
-                TravelCompany
-              </span>
+              <span className="text-white text-lg">TravelCompany</span>
             </Button>
           </Box>
         </Toolbar>
