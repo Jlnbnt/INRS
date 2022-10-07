@@ -5,9 +5,13 @@ import Homepage from "./pages/Homepage";
 import Missing from "./pages/Missing";
 import About from "./pages/About";
 
+import { useThemeContext } from "./context/ThemeProvider";
+
 function App() {
+  const { theme } = useThemeContext();
+  console.log(theme);
   return (
-    <div className="App">
+    <div className={`${theme}`}>
       <BrowserRouter>
         <Routes>
           {/* Routes inside Layout Component */}

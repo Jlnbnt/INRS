@@ -15,8 +15,11 @@ import MailIcon from "@mui/icons-material/Mail";
 import { sideLinks } from "./utils";
 
 import { Link } from "react-router-dom";
+import { useThemeContext } from "../../context/ThemeProvider";
 
+import SwitchMode from "./SwitchMode";
 export default function Sidebar({ open, toggleDrawer }) {
+  const { setTheme, theme } = useThemeContext();
   return (
     <>
       <Drawer anchor="left" open={open} onClose={toggleDrawer(false)}>
@@ -38,9 +41,8 @@ export default function Sidebar({ open, toggleDrawer }) {
           <Divider />
           <List>
             {sideLinks.map((link) => (
-              <Link to={link.link}>
+              <Link to={link.link} key={link.title}>
                 <ListItem
-                  key={link.title}
                   disablePadding
                   onClick={toggleDrawer(false)}
                   onKeyDown={toggleDrawer(false)}
@@ -71,6 +73,20 @@ export default function Sidebar({ open, toggleDrawer }) {
               </ListItemIcon>
               <ListItemText>NOT CLOSING CLICK</ListItemText>
             </ListItemButton>
+          </ListItem>
+          <Divider />
+          <ListItem disablePadding>
+            <SwitchMode />
+            {/* <ListItemButton
+              onClick={() => {
+                theme == `light` ? setTheme(`dark`) : setTheme(`light`);
+              }}
+            >
+              <ListItemIcon>
+                <MailIcon />
+              </ListItemIcon>
+              <ListItemText>NMODE</ListItemText>
+            </ListItemButton> */}
           </ListItem>
         </List>
       </Drawer>

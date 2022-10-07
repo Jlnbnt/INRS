@@ -23,9 +23,12 @@ export default function Navbar() {
     console.log(open);
   };
   return (
-    <Box sx={{ flexGrow: 1, position: "relative" }}>
+    <>
       <Sidebar open={open} toggleDrawer={toggleDrawer} />
-      <AppBar position="static">
+      <AppBar
+        position="sticky"
+        className="relative bg-red-500 dark:bg-green-500"
+      >
         <Toolbar>
           <IconButton
             size="large"
@@ -44,6 +47,6 @@ export default function Navbar() {
           </Box>
         </Toolbar>
       </AppBar>
-    </Box>
+    </>
   );
 }
