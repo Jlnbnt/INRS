@@ -8,10 +8,10 @@ import About from "./pages/About";
 import { useThemeContext } from "./context/ThemeProvider";
 
 function App() {
-  const { theme } = useThemeContext();
-  console.log(theme);
+  const { themeChoice } = useThemeContext();
+
   return (
-    <div className={`${theme}`}>
+    <div className={`${themeChoice}`}>
       <BrowserRouter>
         <Routes>
           {/* Routes inside Layout Component */}

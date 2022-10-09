@@ -3,27 +3,27 @@ import { createContext, useState, useContext } from "react";
 const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState("");
+  const [themeChoice, setThemeChoice] = useState("");
 
   useEffect(() => {
     const storedTheme = localStorage.getItem("themeMode");
     if (storedTheme) {
-      setTheme(storedTheme);
+      setThemeChoice(storedTheme);
     } else {
       localStorage.setItem("themeMode", `light`);
-      setTheme(`light`);
+      setThemeChoice(`light`);
     }
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("themeMode", theme);
-  }, [theme]);
+    localStorage.setItem("themeMode", themeChoice);
+  }, [themeChoice]);
 
   return (
     <ThemeContext.Provider
       value={{
-        theme,
-        setTheme,
+        themeChoice,
+        setThemeChoice,
       }}
     >
       {children}

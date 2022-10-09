@@ -1,15 +1,49 @@
-import React, { useState } from "react";
+import * as React from "react";
+import { styled } from "@mui/material/styles";
 import Switch from "@mui/material/Switch";
-
 import { useThemeContext } from "../../context/ThemeProvider";
 
-export default function SwitchMode() {
-  const { theme, setTheme } = useThemeContext();
-  return (
+export default function CustomizedSwitches() {
+  const { themeChoice, setThemeChoice } = useThemeContext();
+  const IOSSwitch = styled((props) => (
     <Switch
-      checked={theme === "dark"}
-      onChange={() => (theme == `light` ? setTheme(`dark`) : setTheme(`light`))}
-      inputProps={{ "aria-label": "controlled" }}
+      {...props}
+      checked={themeChoice === "dark"}
+      onChange={() =>
+        themeChoice == `light`
+          ? setThemeChoice(`dark`)
+          : setThemeChoice(`light`)
+      }
     />
-  );
+  ))(({}) => ({
+    width: 42,
+    height: 26,
+    padding: 0,
+    "& .MuiSwitch-switchBase": {
+      padding: 0,
+      margin: 2,
+      transitionDuration: "300ms",
+      "&.Mui-checked": {
+        transform: "translateX(16px)",
+        color: "#fff",
+        "& + .MuiSwitch-track": {
+          backgroundColor: "#49C5B6",
+          opacity: 1,
+          border: 0,
+        },
+      },
+    },
+    "& .MuiSwitch-thumb": {
+      boxSizing: "border-box",
+      width: 22,
+      height: 22,
+    },
+    "& .MuiSwitch-track": {
+      borderRadius: 26 / 2,
+      backgroundColor: "#36454F",
+      opacity: 1,
+    },
+  }));
+
+  return <IOSSwitch sx={{ m: 1 }} />;
 }
