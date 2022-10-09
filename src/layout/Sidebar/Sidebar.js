@@ -91,7 +91,7 @@ export default function Sidebar({ open, toggleDrawer }) {
         }}
       >
         <List disablePadding className="text-xs">
-          <NavAction name="Awwwards" link="/" customFunc={toggleDrawer(false)}>
+          <NavAction name="Mysite" link="/" customFunc={toggleDrawer(false)}>
             <button
               onClick={toggleDrawer(false)}
               disableTypography
