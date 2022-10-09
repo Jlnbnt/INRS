@@ -7,7 +7,6 @@ import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 
 import CloseIcon from "@mui/icons-material/Close";
@@ -16,7 +15,7 @@ import SwitchMode from "./SwitchMode";
 
 export default function Sidebar({ open, toggleDrawer }) {
   /* NavLink props : name, link, children */
-  const NavLink = ({ ...props }) => {
+  const NavLink = (props) => {
     return (
       <>
         <Link to={props.link}>
@@ -42,34 +41,24 @@ export default function Sidebar({ open, toggleDrawer }) {
       </>
     );
   };
-  /* NavAction props : name, children */
-  const NavAction = ({ ...props }) => {
+  /* NavAction props : name, link, customFunc children */
+  const NavAction = (props) => {
     return (
       <>
-        <ListItem className="hover:bg-white dark:hover:bg-gray-700">
-          <ListItem
-            className="flex justify-between"
-            disableRipple
-            sx={{
-              "&.MuiButtonBase-root:hover": {
-                bgcolor: "transparent",
-              },
-            }}
-          >
-            <div>
-              <Link to={props.link}>
-                <ListItemText onClick={props.customFunc} disableTypography>
-                  {props.name}
-                </ListItemText>
-              </Link>
-            </div>
-            <div>{props.children}</div>
-          </ListItem>
+        <ListItem className="p-5 hover:bg-white dark:hover:bg-gray-700 flex justify-between">
+          <div>
+            <Link to={props.link}>
+              <ListItemText onClick={props.customFunc} disableTypography>
+                {props.name}
+              </ListItemText>
+            </Link>
+          </div>
+          <div>{props.children}</div>
         </ListItem>
       </>
     );
   };
-  /* A AJOUTER : CLOSE WHEN CLIK OUTSIDE */
+
   return (
     /* Panneau Sidebar */
     <>
@@ -94,7 +83,6 @@ export default function Sidebar({ open, toggleDrawer }) {
           <NavAction name="Mysite" link="/" customFunc={toggleDrawer(false)}>
             <button
               onClick={toggleDrawer(false)}
-              disableTypography
               className="text-light dark:text-dark flex items-center justify-end gap-1 p-0 m-0"
             >
               CLOSE
@@ -112,10 +100,6 @@ export default function Sidebar({ open, toggleDrawer }) {
           <NavAction name="DARKMODE">{<SwitchMode />}</NavAction>
         </List>
       </Drawer>
-      <div
-        className={`z-20 top-0 left-0 opacity-10 ${open ? "flex" : "hidden"}`}
-        onClick={toggleDrawer(false)}
-      />
     </>
   );
 }
