@@ -7,6 +7,7 @@ import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 
 import MenuIcon from "@mui/icons-material/Menu";
+import { Link } from "react-router-dom";
 
 export default function Navbar({ toggleDrawer }) {
   return (
@@ -23,9 +24,11 @@ export default function Navbar({ toggleDrawer }) {
             <MenuIcon className="text-light dark:text-dark" />
           </IconButton>
           <Box className="absolute w-full left-0 flex justify-center">
-            <Button className="text-light dark:text-dark text-lg hover:bg-transparent">
-              TravelCompany
-            </Button>
+            <Link to="/">
+              <Button className="text-light dark:text-dark text-lg hover:bg-transparent">
+                TravelCompany
+              </Button>
+            </Link>
           </Box>
         </Toolbar>
       </AppBar>
