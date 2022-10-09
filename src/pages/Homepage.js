@@ -1,5 +1,6 @@
 import React from "react";
 import { gql, useQuery } from "@apollo/client";
+
 const GET_DOGS = gql`
   query {
     actualites {
@@ -17,6 +18,7 @@ const GET_DOGS = gql`
     }
   }
 `;
+
 const Homepage = () => {
   const { loading, error, data } = useQuery(GET_DOGS);
 
