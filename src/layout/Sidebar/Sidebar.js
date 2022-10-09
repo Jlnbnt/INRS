@@ -1,6 +1,7 @@
 import React from "react";
 
-import Box from "@mui/material/Box";
+import { Link } from "react-router-dom";
+
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
@@ -11,8 +12,8 @@ import ListItemText from "@mui/material/ListItemText";
 
 import CloseIcon from "@mui/icons-material/Close";
 
-import { Link } from "react-router-dom";
 import SwitchMode from "./SwitchMode";
+
 export default function Sidebar({ open, toggleDrawer }) {
   /* NavLink props : name, link, children */
   const NavLink = ({ ...props }) => {
@@ -46,7 +47,8 @@ export default function Sidebar({ open, toggleDrawer }) {
     return (
       <>
         <ListItem className="hover:bg-white dark:hover:bg-gray-700">
-          <ListItemButton
+          <ListItem
+            className="flex justify-between"
             disableRipple
             sx={{
               "&.MuiButtonBase-root:hover": {
@@ -54,9 +56,15 @@ export default function Sidebar({ open, toggleDrawer }) {
               },
             }}
           >
-            <ListItemText disableTypography>{props.name}</ListItemText>
-            {props.children}
-          </ListItemButton>
+            <div>
+              <Link to={props.link}>
+                <ListItemText onClick={props.customFunc} disableTypography>
+                  {props.name}
+                </ListItemText>
+              </Link>
+            </div>
+            <div>{props.children}</div>
+          </ListItem>
         </ListItem>
       </>
     );
@@ -82,17 +90,16 @@ export default function Sidebar({ open, toggleDrawer }) {
             "bg-light dark:bg-dark w-[300px] text-light dark:text-dark font-semibold",
         }}
       >
-        <List disablePadding>
-          <NavAction name="ENGLISH">
-            <ListItemIcon
-              className="items-center text-light dark:text-dark"
+        <List disablePadding className="text-xs">
+          <NavAction name="Awwwards" link="/" customFunc={toggleDrawer(false)}>
+            <button
               onClick={toggleDrawer(false)}
+              disableTypography
+              className="text-light dark:text-dark flex items-center justify-end gap-1 p-0 m-0"
             >
-              <ListItemText disableTypography className="mr-3">
-                Close
-              </ListItemText>
-              <CloseIcon />
-            </ListItemIcon>
+              CLOSE
+              <CloseIcon fontSize="small" />
+            </button>
           </NavAction>
           <Divider />
         </List>
