@@ -45,7 +45,7 @@ const Footer = () => {
     );
   };
   return (
-    <footer className="p-4 bg-alabaster sm:p-6 dark:bg-gray-800">
+    <footer className="p-4 bg-alabaster sm:p-6 dark:bg-pewter">
       <div className="md:flex md:justify-around">
         <div className="mb-6 md:mb-0">
           <Button className="p-0">

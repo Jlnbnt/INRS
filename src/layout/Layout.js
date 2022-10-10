@@ -25,7 +25,7 @@ const Layout = () => {
       <div className="h-screen w-screen bg-dark ">sdfsdf</div> */}
       <Sidebar open={open} toggleDrawer={toggleDrawer} />
       <Navbar toggleDrawer={toggleDrawer} />
-      <div className="h-[500px] w-full bg-light dark:bg-dark p-5">
+      <div className="h-full w-full bg-light dark:bg-dark p-5">
         <Outlet />
       </div>
 

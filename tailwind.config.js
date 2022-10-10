@@ -12,9 +12,10 @@ module.exports = {
         xl: "1536px",
       },
       backgroundColor: {
-        dark: "#36454F",
+        dark: "#181818",
         light: "#F9F6EE",
         alabaster: "#EDEADE",
+        pewter: "#333333",
       },
       textColor: {
         light: "#36454F",
