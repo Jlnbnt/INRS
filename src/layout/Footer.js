@@ -14,14 +14,17 @@ const Footer = () => {
       <div>
         <h2 className="mb-6 text-sm font-semibold uppercase">{props.title}</h2>
         <ul>
-          <Link to={props.link1} className="hover:underline underline-offset-4">
+          <Link
+            to={props.link1}
+            className="hover:text-gray-400 dark:hover:text-gray-400 duration-300"
+          >
             {props.subtitle1}
           </Link>
           <li className="mb-4"></li>
           <li>
             <Link
               to={props.link2}
-              className="hover:underline underline-offset-4"
+              className="hover:text-gray-400 dark:hover:text-gray-400 duration-300"
             >
               {props.subtitle2}
             </Link>
@@ -42,7 +45,7 @@ const Footer = () => {
     );
   };
   return (
-    <footer className="p-4 bg-linen sm:p-6 dark:bg-gray-800">
+    <footer className="p-4 bg-alabaster sm:p-6 dark:bg-gray-800">
       <div className="md:flex md:justify-around">
         <div className="mb-6 md:mb-0">
           <Button className="p-0">
@@ -82,7 +85,7 @@ const Footer = () => {
       <div className="sm:flex sm:items-center sm:justify-between text-light dark:text-dark">
         <Link to="/home" className="text-sm sm:text-center">
           ©2022
-          <span className=" hover:underline underline-offset-4">
+          <span className="hover:text-gray-400 dark:hover:text-gray-400 duration-300">
             TravelCompany™
           </span>
           . All Rights Reserved.
