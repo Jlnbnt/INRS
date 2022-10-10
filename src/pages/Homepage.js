@@ -1,5 +1,5 @@
 import React from "react";
-import { gql, useQuery } from "@apollo/client";
+/* import { gql, useQuery } from "@apollo/client";
 
 const GET_DOGS = gql`
   query {
@@ -18,16 +18,13 @@ const GET_DOGS = gql`
     }
   }
 `;
-
+ */
 const Homepage = () => {
-  const { loading, error, data } = useQuery(GET_DOGS);
+  /*   const { loading, error, data } = useQuery(GET_DOGS);
 
   if (loading) return "Loading...";
-  if (error) return `Error! ${error.message}`;
+  if (error) return `Error! ${error.message}`; */
 
-  if (data) {
-    console.log(data);
-  }
   return <div>Homepage</div>;
 };
 

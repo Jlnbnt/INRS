@@ -13,6 +13,11 @@ import CloseIcon from "@mui/icons-material/Close";
 
 import SwitchMode from "./SwitchMode";
 
+import { SocialLink } from "../Navbar";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import SearchIcon from "@mui/icons-material/Search";
 export default function Sidebar({ open, toggleDrawer }) {
   /* NavLink props : name, link, children */
   const NavLink = (props) => {
@@ -25,12 +30,13 @@ export default function Sidebar({ open, toggleDrawer }) {
             onKeyDown={toggleDrawer(false)}
           >
             <ListItemButton
+              className="hover:bg-transparent"
               disableRipple
-              sx={{
+              /*  sx={{
                 "&.MuiButtonBase-root:hover": {
                   bgcolor: "transparent",
                 },
-              }}
+              }} */
             >
               <ListItemText disableTypography>{props.name}</ListItemText>
               {props.children}

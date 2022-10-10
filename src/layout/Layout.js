@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
 
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 import Sidebar from "./Sidebar/Sidebar";
 
 const Layout = () => {
@@ -21,9 +22,10 @@ const Layout = () => {
     <>
       <Sidebar open={open} toggleDrawer={toggleDrawer} />
       <Navbar toggleDrawer={toggleDrawer} />
-      <div className="h-full w-full bg-light dark:bg-dark p-5">
+      <div className="h-screen w-screen bg-light dark:bg-dark p-5">
         <Outlet />
       </div>
+      <Footer />
     </>
   );
 };
