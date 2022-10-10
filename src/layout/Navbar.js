@@ -14,7 +14,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import SearchIcon from "@mui/icons-material/Search";
-
+import AirplaneTicketIcon from "@mui/icons-material/AirplaneTicket";
 export default function Navbar({ toggleDrawer }) {
   const SocialLink = (props) => {
     return (
@@ -45,6 +45,7 @@ export default function Navbar({ toggleDrawer }) {
             </button>
             <Link to="/">
               <Button className="text-light font-semibold dark:text-dark text-lg hover:bg-transparent">
+                <AirplaneTicketIcon className="text-light dark:text-dark mr-3 h-8" />
                 TravelCompany
               </Button>
             </Link>

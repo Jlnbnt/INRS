@@ -13,11 +13,7 @@ import CloseIcon from "@mui/icons-material/Close";
 
 import SwitchMode from "./SwitchMode";
 
-import { SocialLink } from "../Navbar";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import SearchIcon from "@mui/icons-material/Search";
+import AirplaneTicketIcon from "@mui/icons-material/AirplaneTicket";
 export default function Sidebar({ open, toggleDrawer }) {
   /* NavLink props : name, link, children */
   const NavLink = (props) => {
@@ -86,7 +82,11 @@ export default function Sidebar({ open, toggleDrawer }) {
         }}
       >
         <List disablePadding className="text-xs">
-          <NavAction name="Mysite" link="/" customFunc={toggleDrawer(false)}>
+          <NavAction
+            name={<AirplaneTicketIcon />}
+            link="/"
+            customFunc={toggleDrawer(false)}
+          >
             <button
               onClick={toggleDrawer(false)}
               className="text-light dark:text-dark flex items-center justify-end gap-1 p-0 m-0"
