@@ -1,6 +1,6 @@
 import React from "react";
 
-import Card from "../components/Cards/ActuCard";
+import NewsCard from "../components/Cards/NewsCard";
 
 import { gql, useQuery } from "@apollo/client";
 import { CircularProgress } from "@mui/material";
@@ -10,13 +10,12 @@ const GET_ALL_POSTS_PREVIEWS = gql`
     actualites {
       nodes {
         actualites_custom_fields {
+          tag
           maintext
           mainImage {
             sourceUrl(size: THUMBNAIL)
             altText
           }
-          tags
-          keyWords
         }
         title
         date
@@ -44,7 +43,7 @@ const Homepage = () => {
     <div className="flex flex-wrap justify-center align-center">
       {data?.actualites?.nodes.length ? (
         data?.actualites?.nodes?.map((item) => (
-          <Card key={item.title} props={item}></Card>
+          <NewsCard key={item.title} props={item} />
         ))
       ) : (
         <h1 className="text-light dark:text-dark text-6xl font-semibold p-16">
