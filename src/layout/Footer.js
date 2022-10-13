@@ -14,18 +14,12 @@ const Footer = () => {
       <div>
         <h2 className="mb-6 text-sm font-semibold uppercase">{props.title}</h2>
         <ul>
-          <Link
-            to={props.link1}
-            className="hover:text-gray-400 dark:hover:text-gray-400 duration-300"
-          >
+          <Link to={props.link1} className="hover:text-gray-400 duration-300">
             {props.subtitle1}
           </Link>
           <li className="mb-4"></li>
           <li>
-            <Link
-              to={props.link2}
-              className="hover:text-gray-400 dark:hover:text-gray-400 duration-300"
-            >
+            <Link to={props.link2} className="hover:text-gray-400 duration-300">
               {props.subtitle2}
             </Link>
           </li>
@@ -38,7 +32,7 @@ const Footer = () => {
     return (
       <ListItem
         disablePadding
-        className="text-light dark:text-dark hover:text-gray-400 dark:hover:text-gray-400 hover:bg-transparent duration-300"
+        className="text-light dark:text-dark hover:text-gray-400 hover:bg-transparent duration-300"
       >
         <Link to={props.link}>{props.icon}</Link>
       </ListItem>
@@ -85,7 +79,7 @@ const Footer = () => {
       <div className="sm:flex sm:items-center sm:justify-between text-light dark:text-dark">
         <Link to="/home" className="text-sm sm:text-center">
           ©2022
-          <span className="hover:text-gray-400 dark:hover:text-gray-400 duration-300">
+          <span className="hover:text-gray-400 duration-300">
             TravelCompany™
           </span>
           . All Rights Reserved.

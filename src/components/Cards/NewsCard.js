@@ -10,48 +10,49 @@ import { Link } from "react-router-dom";
 
 const NewsCard = (props) => {
   const acf = props.props.actualites_custom_fields;
+
   return (
     <div className="w-full sm:w-1/2 md:w-1/3 lg:my-4 lg:px-4 lg:w-1/4 p-4">
       <article className="overflow-hidden shadow-lg bg-alabaster dark:bg-pewter text-light dark:text-dark">
-        <Link to="/about">
-          <div className="group relative w-full h-full overflow-hidden bg:light darl:bg-dark">
+        <div className="group relative w-full h-full overflow-hidden bg:light dark:bg-dark">
+          <Link>
             <img
               alt={acf.mainImage.altText}
               className="max-w-full w-full group-hover:scale-110 duration-700 ease-in-out"
               src={acf.mainImage.sourceUrl}
             />
-            <div className="absolute left-0 top-0">
-              <ul className="flex gap-3 p-4 text-dark dark:text-white">
-                <SocialLinkIcon link="/" icon={<InstagramIcon />} />
-                <SocialLinkIcon link="/" icon={<TwitterIcon />} />
-                <SocialLinkIcon link="/" icon={<WhatsAppIcon />} />
-              </ul>
-            </div>
-            <div className="absolute right-0 top-0">
-              <ul className="flex gap-3 p-4 text-dark dark:text-white">
-                <a href="#">
-                  <li className="hover:text-gray-400 hover:border-gray-300 flex justify-center items-center px-3 py-1 duration-300 transition-all opacity-0 group-hover:opacity-100 ease-in-out rounded-full border-[1px] border-white ">
-                    <button>Button</button>
-                  </li>
-                </a>
-              </ul>
-            </div>
-            <div className="absolute right-0 bottom-0">
-              <ul className="flex gap-3 p-4 text-dark dark:text-white">
-                <a href="#">
-                  <li className="scale-x-[-1] hover:text-gray-400 hover:border-gray-300 flex justify-center items-center p-4 duration-300 transition-all opacity-0 group-hover:opacity-100 ease-in-out rounded-full w-8 h-8 border-[1px] border-white ">
-                    <ReplyIcon fontSize="small" />
-                  </li>
-                </a>
-              </ul>
-            </div>
+          </Link>
+          <div className="absolute left-0 top-0">
+            <ul className="flex gap-3 p-4 text-dark dark:text-white">
+              <SocialLinkIcon link="/" icon={<InstagramIcon />} />
+              <SocialLinkIcon link="/" icon={<TwitterIcon />} />
+              <SocialLinkIcon link="/" icon={<WhatsAppIcon />} />
+            </ul>
           </div>
-        </Link>
-        <div className="p-4 whitespace-nowrap">
-          <h3 className="text-sm font-semibold pb-3 truncate  ">
+          <div className="absolute right-0 top-0">
+            <ul className="flex gap-3 p-4 text-dark dark:text-white">
+              <Link to="#">
+                <li className="hover:text-gray-400 hover:border-gray-300 flex justify-center items-center px-3 py-1 duration-300 transition-all opacity-0 group-hover:opacity-100 ease-in-out rounded-full border-[1px] border-white ">
+                  <button>Button</button>
+                </li>
+              </Link>
+            </ul>
+          </div>
+          <div className="absolute right-0 bottom-0">
+            <ul className="flex gap-3 p-4 text-dark dark:text-white">
+              <Link to="#">
+                <li className="scale-x-[-1] hover:text-gray-400 hover:border-gray-300 flex justify-center items-center p-4 duration-300 transition-all opacity-0 group-hover:opacity-100 ease-in-out rounded-full w-8 h-8 border-[1px] border-white ">
+                  <ReplyIcon fontSize="small" />
+                </li>
+              </Link>
+            </ul>
+          </div>
+        </div>
+        <div className="p-4">
+          <h3 className="text-sm font-semibold h-[40px]">
             {props.props.title}
           </h3>
-          <div className="flex justify-between text-xs">
+          <div className="flex justify-between text-xs py-3">
             <h4>From Japan</h4>
             <h4>{props.props.date}</h4>
           </div>

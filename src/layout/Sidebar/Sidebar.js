@@ -21,12 +21,12 @@ export default function Sidebar({ open, toggleDrawer }) {
       <>
         <Link to={props.link}>
           <ListItem
-            className="hover:bg-white dark:hover:bg-gray-700"
+            className="hover:bg-white dark:hover:bg-gray-700 duration-300"
             onClick={toggleDrawer(false)}
             onKeyDown={toggleDrawer(false)}
           >
             <ListItemButton
-              className="hover:bg-transparent"
+              className="hover:bg-transparent "
               disableRipple
               /*  sx={{
                 "&.MuiButtonBase-root:hover": {
@@ -47,7 +47,7 @@ export default function Sidebar({ open, toggleDrawer }) {
   const NavAction = (props) => {
     return (
       <>
-        <ListItem className="p-5 hover:bg-white dark:hover:bg-gray-700 flex justify-between">
+        <ListItem className="p-5 hover:bg-white dark:hover:bg-gray-700 flex justify-between duration-300">
           <div>
             <Link to={props.link}>
               <ListItemText onClick={props.customFunc} disableTypography>
