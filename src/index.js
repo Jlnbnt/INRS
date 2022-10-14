@@ -7,14 +7,17 @@ import App from "./App";
 
 import { ThemeProvider } from "./context/ThemeProvider";
 import { ApolloProvider } from "@apollo/client";
+import { StateProvider } from "./context/StateProvider";
 
-import client from "./hooks/apollo";
+import client from "./graphql/apollo";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <ApolloProvider client={client}>
-    <ThemeProvider>
-      <App />
-    </ThemeProvider>
+    <StateProvider>
+      <ThemeProvider>
+        <App />
+      </ThemeProvider>
+    </StateProvider>
   </ApolloProvider>
 );

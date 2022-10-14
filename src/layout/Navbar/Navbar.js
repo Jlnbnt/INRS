@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import AppBar from "@mui/material/AppBar";
 import Searchbar from "./Searchbar";
@@ -23,7 +23,7 @@ export default function Navbar({ toggleDrawer }) {
     return (
       <ListItem
         disablePadding
-        className="text-light dark:text-dark hover:text-gray-400  hover:bg-transparent"
+        className="text-light dark:text-dark hover:text-gray-400 duration-300  hover:bg-transparent dark:hover:text-gray-400"
       >
         <Link to={props.link}>{props.icon}</Link>
       </ListItem>
@@ -33,30 +33,31 @@ export default function Navbar({ toggleDrawer }) {
     <>
       <AppBar position="sticky" className="bg-light dark:bg-dark border-none">
         <Toolbar>
-          {searchActive ? (
-            <Searchbar setSearchActive={setSearchActive} />
-          ) : (
-            <Box className="absolute w-full h-full left-0 flex justify-between items-center px-6">
-              <button
-                size="large"
-                edge="start"
-                aria-label="menu"
-                className="z-10 hover:bg-transparent gap-3 flex items-center"
-                onClick={toggleDrawer(true)}
-              >
-                <MenuIcon className="text-light dark:text-dark" />
+          <Box className="absolute w-full h-full left-0 flex justify-between items-center px-6">
+            <button
+              size="large"
+              edge="start"
+              aria-label="menu"
+              className="z-10 hover:bg-transparent gap-3 flex items-center"
+              onClick={toggleDrawer(true)}
+            >
+              <MenuIcon className="text-light dark:text-dark" />
 
-                <span className="hidden sm:block text-sm font-semibold text-light dark:text-dark">
-                  MENU
-                </span>
-              </button>
+              <span className="hidden sm:block text-sm font-semibold text-light dark:text-dark">
+                MENU
+              </span>
+            </button>
 
-              <div className="hidden sm:flex h-full w-[1px] bg-dark dark:bg-light opacity-30 mx-6" />
-
+            <div className="hidden sm:flex h-full w-[1px] bg-dark dark:bg-light opacity-30 mx-6" />
+            {searchActive ? (
+              <Searchbar setSearchActive={setSearchActive} />
+            ) : (
               <div className="flex w-full justify-between">
                 <div className="invisible sm:visible flex">
-                  {/* <SocialLink icon={<SearchIcon />} /> */}
-                  <button onClick={() => setSearchActive(true)}>
+                  <button
+                    className="text-light dark:text-dark hover:text-gray-400 duration-300 dark:hover:text-gray-400"
+                    onClick={() => setSearchActive(true)}
+                  >
                     <SearchIcon />
                   </button>
                   {/* To impletement */}
@@ -82,14 +83,17 @@ export default function Navbar({ toggleDrawer }) {
                   />
                 </div>
                 <div className="flex sm:hidden">
-                  <button onClick={() => setSearchActive(true)}>
+                  <button
+                    className="text-light dark:text-dark hover:text-gray-400 duration-300 dark:hover:text-gray-400"
+                    onClick={() => setSearchActive(true)}
+                  >
                     <SearchIcon />
                   </button>
                   {/* To impletement */}
                 </div>
               </div>
-            </Box>
-          )}
+            )}
+          </Box>
         </Toolbar>
       </AppBar>
     </>
