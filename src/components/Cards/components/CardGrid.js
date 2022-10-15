@@ -18,6 +18,8 @@ const CardGrid = ({ searchQuery, graphlQLQuery, postType }) => {
   if (loading) return <CircularProgress className="m-8" />;
   if (error) return `Error! ${error.message}`;
 
+  console.log(data);
+
   return (
     <div className="flex w-full flex-wrap  align-center">
       {data && data?.[postType]?.nodes.length ? (

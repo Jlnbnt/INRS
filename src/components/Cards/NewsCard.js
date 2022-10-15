@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TwitterIcon from "@mui/icons-material/Twitter";
@@ -10,12 +10,12 @@ import { Link } from "react-router-dom";
 
 const NewsCard = ({ post }) => {
   const acf = post.actualites_acf;
-
+  console.log(post);
   return (
     <div className="w-full sm:w-1/2 md:w-1/3 lg:my-4 lg:px-4 lg:w-1/4 p-4">
       <article className="overflow-hidden shadow-lg bg-alabaster dark:bg-pewter text-light dark:text-dark">
         <div className="group relative w-full h-full overflow-hidden bg:light dark:bg-dark">
-          <Link>
+          <Link to={`/actualite/${post.id}`}>
             <img
               alt={acf.mainImage.altText}
               className="max-w-full w-full group-hover:scale-110 duration-700 ease-in-out"
@@ -24,28 +24,37 @@ const NewsCard = ({ post }) => {
           </Link>
           <div className="absolute left-0 top-0">
             <ul className="flex gap-3 p-4 text-dark dark:text-white">
-              <SocialLinkIcon link="/" icon={<InstagramIcon />} />
-              <SocialLinkIcon link="/" icon={<TwitterIcon />} />
-              <SocialLinkIcon link="/" icon={<WhatsAppIcon />} />
+              <SocialLinkIcon
+                link="https://www.instagram.com/"
+                icon={<InstagramIcon />}
+              />
+              <SocialLinkIcon
+                link="https://www.twitter.com/"
+                icon={<TwitterIcon />}
+              />
+              <SocialLinkIcon
+                link="https://www.instagram.com/"
+                icon={<WhatsAppIcon />}
+              />
             </ul>
           </div>
           <div className="absolute right-0 top-0">
-            <ul className="flex gap-3 p-4 text-dark dark:text-white">
+            {/* <div className="flex gap-3 p-4 text-dark dark:text-white">
               <Link to="#">
                 <li className="hover:text-gray-400 hover:border-gray-300 flex justify-center items-center px-3 py-1 duration-300 transition-all opacity-0 group-hover:opacity-100 ease-in-out rounded-full border-[1px] border-white ">
                   <button>Button</button>
                 </li>
               </Link>
-            </ul>
+            </div> */}
           </div>
           <div className="absolute right-0 bottom-0">
-            <ul className="flex gap-3 p-4 text-dark dark:text-white">
-              <Link to="#">
+            <div className="flex gap-3 p-4 text-dark dark:text-white">
+              <Link to={`/actualite/${post.id}`}>
                 <li className="scale-x-[-1] hover:text-gray-400 hover:border-gray-300 flex justify-center items-center p-4 duration-300 transition-all opacity-0 group-hover:opacity-100 ease-in-out rounded-full w-8 h-8 border-[1px] border-white ">
                   <ReplyIcon fontSize="small" />
                 </li>
               </Link>
-            </ul>
+            </div>
           </div>
         </div>
         <div className="p-4">

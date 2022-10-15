@@ -19,10 +19,14 @@ import SearchIcon from "@mui/icons-material/Search";
 import AirplaneTicketIcon from "@mui/icons-material/AirplaneTicket";
 import { useStateContext } from "../../context/StateProvider";
 import { useLocation } from "react-router-dom";
+
 export default function Navbar({ toggleDrawer }) {
   const { searchActive, setSearchActive } = useStateContext();
   /*   const [searchActive, setSearchActive] = useState(false); */
   const path = useLocation().pathname;
+  useEffect(() => {
+    setSearchActive(false);
+  }, [path]);
 
   const SocialLink = (props) => {
     return (

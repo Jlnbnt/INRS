@@ -9,15 +9,16 @@ import { TagInfo, SocialLinkIcon } from "./components/CardComponents";
 import { Link } from "react-router-dom";
 
 import { useStateContext } from "../../context/StateProvider";
-
+import { useParams } from "react-router-dom";
 const EventsCard = ({ post }) => {
   const acf = post.evenements_acf;
-
+  const id = useParams();
+  console.log(id);
   return (
     <div className="w-full sm:w-1/2 md:w-1/3 lg:my-4 lg:px-4 lg:w-1/4 p-4">
       <article className="overflow-hidden shadow-lg bg-alabaster dark:bg-pewter text-light dark:text-dark">
         <div className="group relative w-full h-full overflow-hidden bg:light dark:bg-dark">
-          <Link>
+          <Link to={`/evenement/${post.id}`}>
             <img
               alt={acf.mainImage.altText}
               className="max-w-full w-full group-hover:scale-110 duration-700 ease-in-out"
@@ -51,7 +52,7 @@ const EventsCard = ({ post }) => {
           </div>
           <div className="absolute right-0 bottom-0">
             <div className="flex gap-3 p-4 text-dark dark:text-white">
-              <Link to={`/news:id`}>
+              <Link to={`/evenement/${post.id}`}>
                 <li className="scale-x-[-1] hover:text-gray-400 hover:border-gray-300 flex justify-center items-center p-4 duration-300 transition-all opacity-0 group-hover:opacity-100 ease-in-out rounded-full w-8 h-8 border-[1px] border-white ">
                   <ReplyIcon fontSize="small" />
                 </li>
