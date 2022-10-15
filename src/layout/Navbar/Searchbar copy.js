@@ -2,16 +2,14 @@ import React from "react";
 
 import CloseIcon from "@mui/icons-material/Close";
 import { useStateContext } from "../../context/StateProvider";
-
 const Searchbar = ({ setSearchActive }) => {
-  const { setSearchQuery, searchQuery } = useStateContext();
+  const { setSearchQuery } = useStateContext();
   return (
     <div
       id="searchbar"
       className="text-light dark:text-dark w-full flex justify-between items-center h-full bg-light dark:bg-dark"
     >
       <input
-        value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value.toLowerCase())}
         type="text"
         placeholder="Recherchez une actualité, un événement..."

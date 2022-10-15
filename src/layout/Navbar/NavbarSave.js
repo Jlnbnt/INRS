@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import AppBar from "@mui/material/AppBar";
 import Searchbar from "./Searchbar";
-
+import Filter from "../../components/Filter/Filter";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
@@ -17,12 +17,8 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import SearchIcon from "@mui/icons-material/Search";
 import AirplaneTicketIcon from "@mui/icons-material/AirplaneTicket";
-import { useStateContext } from "../../context/StateProvider";
-import { useLocation } from "react-router-dom";
 export default function Navbar({ toggleDrawer }) {
-  const { searchActive, setSearchActive } = useStateContext();
   /*   const [searchActive, setSearchActive] = useState(false); */
-  const path = useLocation().pathname;
 
   const SocialLink = (props) => {
     return (
@@ -36,6 +32,7 @@ export default function Navbar({ toggleDrawer }) {
   };
   return (
     <>
+      <Filter />
       <AppBar position="sticky" className="bg-light dark:bg-dark border-none">
         <Toolbar>
           <Box className="absolute w-full h-full left-0 flex justify-between items-center px-6">
@@ -65,6 +62,7 @@ export default function Navbar({ toggleDrawer }) {
                   >
                     <SearchIcon />
                   </button>
+                  {/* To impletement */}
                 </div>
                 <Link to="/">
                   <Button className="text-light font-semibold dark:text-dark text-lg hover:bg-transparent lg:mr-14 mr-6 sm:mr-0">

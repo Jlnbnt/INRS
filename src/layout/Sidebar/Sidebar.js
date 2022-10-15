@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { Link } from "react-router-dom";
 
@@ -12,9 +12,10 @@ import ListItemText from "@mui/material/ListItemText";
 import CloseIcon from "@mui/icons-material/Close";
 
 import SwitchMode from "./SwitchMode";
-
+import { useStateContext } from "../../context/StateProvider";
 import AirplaneTicketIcon from "@mui/icons-material/AirplaneTicket";
 export default function Sidebar({ open, toggleDrawer }) {
+  const { setSearchActive, setSearchQuery } = useStateContext();
   /* NavLink props : name, link, children */
   const NavLink = (props) => {
     return (
@@ -49,10 +50,12 @@ export default function Sidebar({ open, toggleDrawer }) {
       <>
         <ListItem className="p-5 hover:bg-white dark:hover:bg-gray-700 flex justify-between duration-300">
           <div>
-            <Link to={props.link}>
-              <ListItemText onClick={props.customFunc} disableTypography>
-                {props.name}
-              </ListItemText>
+            <Link to={props.link} onClick={props.clear}>
+              <div onClick={props.reset}>
+                <ListItemText onClick={props.customFunc} disableTypography>
+                  {props.name}
+                </ListItemText>
+              </div>
             </Link>
           </div>
           <div>{props.children}</div>
@@ -86,6 +89,8 @@ export default function Sidebar({ open, toggleDrawer }) {
             name={<AirplaneTicketIcon />}
             link="/"
             customFunc={toggleDrawer(false)}
+            reset={() => setSearchActive(false)}
+            clear={() => setSearchQuery("")}
           >
             <button
               onClick={toggleDrawer(false)}

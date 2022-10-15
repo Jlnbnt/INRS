@@ -8,8 +8,8 @@ import ReplyIcon from "@mui/icons-material/Reply";
 import { TagInfo, SocialLinkIcon } from "./components/CardComponents";
 import { Link } from "react-router-dom";
 
-const NewsCard = ({ actu }) => {
-  const acf = actu.actualites_acf;
+const NewsCard = ({ post }) => {
+  const acf = post.actualites_acf;
 
   return (
     <div className="w-full sm:w-1/2 md:w-1/3 lg:my-4 lg:px-4 lg:w-1/4 p-4">
@@ -52,23 +52,28 @@ const NewsCard = ({ actu }) => {
           <h3 className="text-sm font-semibold h-[40px]">{acf.mainTitle}</h3>
           <div className="flex justify-between text-xs py-3">
             <h4>From Japan</h4>
-            <h4>{actu.date}</h4>
+            <h4>{`${new Date(post.date).toLocaleString("fr-FR", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })}`}</h4>
           </div>
           <hr className="my-4 border-light sm:mx-auto dark:border-dark" />
           <div className="flex justify-between ">
             <div className="flex items-center flex-wrap flex-1" href="#">
               <img
-                alt={`${actu.author.node.name}'s avatar`}
+                alt={`${post.author.node.name}'s avatar`}
                 className="rounded-full w-[32px] h-[32px]"
-                src={actu.author.node.avatar.url}
+                src={post.author.node.avatar.url}
               />
               <p className="ml-2 text-xs uppercase">
                 by
-                <span className="font-bold ">{actu.author.node.name}</span>
+                <span className="font-bold ">{post.author.node.name}</span>
               </p>
             </div>
             <div className="flex justify-end items-center gap-1 flex-1 flex-wrap">
               <TagInfo
+                type={`${post.__typename}s`}
                 bgColor={
                   acf.tag === "Business"
                     ? "#957DAD"

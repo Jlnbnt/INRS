@@ -5,12 +5,18 @@ const StateContext = createContext();
 
 export const StateProvider = ({ children }) => {
   const [searchQuery, setSearchQuery] = useState("");
+  const [searchActive, setSearchActive] = useState(false);
+  const [allTags, setAllTags] = useState("");
 
   return (
     <StateContext.Provider
       value={{
         searchQuery,
         setSearchQuery,
+        searchActive,
+        setSearchActive,
+        allTags,
+        setAllTags,
       }}
     >
       {children}
