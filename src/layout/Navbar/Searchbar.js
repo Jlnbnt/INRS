@@ -1,13 +1,17 @@
 import React from "react";
 
-import CloseIcon from "@mui/icons-material/Close";
 import { useStateContext } from "../../context/StateProvider";
+
 import { useNavigate } from "react-router-dom";
+
+import CloseIcon from "@mui/icons-material/Close";
 
 const Searchbar = ({ setSearchActive }) => {
   const navigate = useNavigate();
+
   const { setSearchQuery, searchQuery } = useStateContext();
-  const testFunc = (e) => {
+
+  const tsearchFunc = (e) => {
     e.preventDefault();
     console.log("sumbitted");
     navigate("/search");
@@ -16,7 +20,7 @@ const Searchbar = ({ setSearchActive }) => {
 
   return (
     <form
-      onSubmit={(e) => testFunc(e)}
+      onSubmit={(e) => tsearchFunc(e)}
       className="text-light dark:text-dark w-full flex justify-between items-center h-full bg-light dark:bg-dark"
     >
       <input

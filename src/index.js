@@ -6,9 +6,9 @@ import "./index.css";
 import App from "./App";
 
 import { ThemeProvider } from "./context/ThemeProvider";
-import { ApolloProvider } from "@apollo/client";
 import { StateProvider } from "./context/StateProvider";
 
+import { ApolloProvider } from "@apollo/client";
 import client from "./graphql/apollo";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

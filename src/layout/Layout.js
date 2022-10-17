@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
+
+import { useStateContext } from "../context/StateProvider";
 
 import { Outlet } from "react-router-dom";
 
@@ -7,16 +9,7 @@ import Footer from "./Footer";
 import Sidebar from "./Sidebar/Sidebar";
 
 const Layout = () => {
-  const [open, setOpen] = useState(false);
-  const toggleDrawer = (open) => (event) => {
-    if (
-      event.type === "keydown" &&
-      (event.key === "Tab" || event.key === "Shift")
-    ) {
-      return;
-    }
-    setOpen(open);
-  };
+  const { open, toggleDrawer } = useStateContext();
 
   return (
     <>

@@ -1,12 +1,13 @@
-import React, { useEffect } from "react";
+import React from "react";
 
-import { useStateContext } from "../context/StateProvider";
+import { useStateContext } from "../../context/StateProvider";
 
-import { GET_NEWS_PREVIEWS, GET_EVENTS_PREVIEWS } from "../graphql/Queries";
-import CardGridRow from "../components/Cards/components/CardGridRow";
-import { useLocation } from "react-router-dom";
+import { GET_NEWS_PREVIEWS, GET_EVENTS_PREVIEWS } from "../../graphql/Queries";
+
+import CardGridRow from "../../components/Cards/components/CardGridRow";
+
 const SearchResults = () => {
-  const { searchQuery, setSearchQuery, setSearchActive } = useStateContext();
+  const { searchQuery } = useStateContext();
 
   return (
     <>

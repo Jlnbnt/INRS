@@ -1,32 +1,63 @@
 import React, { useEffect, useState } from "react";
 
-import AppBar from "@mui/material/AppBar";
+import { useStateContext } from "../../context/StateProvider";
+
+import { useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
+
 import Searchbar from "./Searchbar";
 
+import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
-
-import MenuIcon from "@mui/icons-material/Menu";
-import { Link } from "react-router-dom";
-
 import ListItem from "@mui/material/ListItem";
 
+import MenuIcon from "@mui/icons-material/Menu";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import SearchIcon from "@mui/icons-material/Search";
 import AirplaneTicketIcon from "@mui/icons-material/AirplaneTicket";
-import { useStateContext } from "../../context/StateProvider";
-import { useLocation } from "react-router-dom";
 
 export default function Navbar({ toggleDrawer }) {
   const { searchActive, setSearchActive } = useStateContext();
-  /*   const [searchActive, setSearchActive] = useState(false); */
+
   const path = useLocation().pathname;
+
   useEffect(() => {
     setSearchActive(false);
   }, [path]);
+
+  const [awayFromTop, setAwayfromTop] = useState();
+
+  const listenToScroll = () => {
+    let heightToHideFrom = 200;
+    const winScroll =
+      document.body.scrollTop || document.documentElement.scrollTop;
+
+    if (winScroll > heightToHideFrom) {
+      setAwayfromTop(false);
+    } else {
+      setAwayfromTop(true);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", listenToScroll);
+    return () => window.removeEventListener("scroll", listenToScroll);
+  }, []);
+
+  useEffect(() => {
+    if (searchActive === true) {
+      const executeScroll = () =>
+        document.getElementById("anchorCards")?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      executeScroll();
+    }
+  }, [searchActive]);
 
   const SocialLink = (props) => {
     return (
@@ -73,7 +104,7 @@ export default function Navbar({ toggleDrawer }) {
                 <Link to="/">
                   <Button className="text-light font-semibold dark:text-dark text-lg hover:bg-transparent lg:mr-14 mr-6 sm:mr-0">
                     <AirplaneTicketIcon className="text-light dark:text-dark mr-3 h-8" />
-                    TravelCompany
+                    {awayFromTop === true && <span>TravelCompany</span>}
                   </Button>
                 </Link>
                 <div className="hidden sm:flex gap-3">
@@ -97,7 +128,6 @@ export default function Navbar({ toggleDrawer }) {
                   >
                     <SearchIcon />
                   </button>
-                  {/* To impletement */}
                 </div>
               </div>
             )}

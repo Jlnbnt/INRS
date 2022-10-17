@@ -1,7 +1,10 @@
 import * as React from "react";
-import { styled } from "@mui/material/styles";
-import Switch from "@mui/material/Switch";
+
 import { useThemeContext } from "../../context/ThemeProvider";
+
+import Switch from "@mui/material/Switch";
+
+import { styled } from "@mui/material/styles";
 
 export default function CustomizedSwitches() {
   const { themeChoice, setThemeChoice } = useThemeContext();

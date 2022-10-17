@@ -1,6 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
+
+import { useStateContext } from "../../context/StateProvider";
 
 import { Link } from "react-router-dom";
+
+import SwitchMode from "./SwitchMode";
 
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
@@ -10,13 +14,11 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 
 import CloseIcon from "@mui/icons-material/Close";
-
-import SwitchMode from "./SwitchMode";
-import { useStateContext } from "../../context/StateProvider";
 import AirplaneTicketIcon from "@mui/icons-material/AirplaneTicket";
+
 export default function Sidebar({ open, toggleDrawer }) {
   const { setSearchActive, setSearchQuery } = useStateContext();
-  /* NavLink props : name, link, children */
+
   const NavLink = (props) => {
     return (
       <>
@@ -26,15 +28,7 @@ export default function Sidebar({ open, toggleDrawer }) {
             onClick={toggleDrawer(false)}
             onKeyDown={toggleDrawer(false)}
           >
-            <ListItemButton
-              className="hover:bg-transparent "
-              disableRipple
-              /*  sx={{
-                "&.MuiButtonBase-root:hover": {
-                  bgcolor: "transparent",
-                },
-              }} */
-            >
+            <ListItemButton className="hover:bg-transparent " disableRipple>
               <ListItemText disableTypography>{props.name}</ListItemText>
               {props.children}
             </ListItemButton>
@@ -44,7 +38,7 @@ export default function Sidebar({ open, toggleDrawer }) {
       </>
     );
   };
-  /* NavAction props : name, link, customFunc children */
+
   const NavAction = (props) => {
     return (
       <>
@@ -65,7 +59,6 @@ export default function Sidebar({ open, toggleDrawer }) {
   };
 
   return (
-    /* Panneau Sidebar */
     <>
       {open && (
         <div
@@ -96,7 +89,7 @@ export default function Sidebar({ open, toggleDrawer }) {
               onClick={toggleDrawer(false)}
               className="text-light dark:text-dark flex items-center justify-end gap-1 p-0 m-0"
             >
-              CLOSE
+              <span className="customHover dark:before:bg-light">CLOSE</span>
               <CloseIcon fontSize="small" />
             </button>
           </NavAction>
@@ -108,7 +101,13 @@ export default function Sidebar({ open, toggleDrawer }) {
           <NavLink name="BLOG" link="blog" />
         </List>
         <List className="text-gray-400" disablePadding>
-          <NavAction name="DARKMODE">{<SwitchMode />}</NavAction>
+          <NavAction name="DARKMODE">
+            {
+              <button onClick={toggleDrawer(false)}>
+                <SwitchMode />
+              </button>
+            }
+          </NavAction>
         </List>
       </Drawer>
     </>

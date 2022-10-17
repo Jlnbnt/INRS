@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
+
 import { useStateContext } from "../../../context/StateProvider";
 
 export const TagInfo = (props) => {
   const { setSearchQuery } = useStateContext();
+
   return (
     <Link
       onClick={() => setSearchQuery(props.tag)}

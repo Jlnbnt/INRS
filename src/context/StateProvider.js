@@ -1,12 +1,21 @@
-import React from "react";
-import { createContext, useState, useContext } from "react";
+import React, { createContext, useState, useContext } from "react";
 
 const StateContext = createContext();
 
 export const StateProvider = ({ children }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchActive, setSearchActive] = useState(false);
-  const [allTags, setAllTags] = useState("");
+  const [open, setOpen] = useState(false);
+
+  const toggleDrawer = (open) => (event) => {
+    if (
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
+      return;
+    }
+    setOpen(open);
+  };
 
   return (
     <StateContext.Provider
@@ -15,8 +24,9 @@ export const StateProvider = ({ children }) => {
         setSearchQuery,
         searchActive,
         setSearchActive,
-        allTags,
-        setAllTags,
+        open,
+        setOpen,
+        toggleDrawer,
       }}
     >
       {children}

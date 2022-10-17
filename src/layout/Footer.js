@@ -1,25 +1,27 @@
-import { Button, ListItem } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
+
+import { Button, ListItem } from "@mui/material";
+
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import AirplaneTicketIcon from "@mui/icons-material/AirplaneTicket";
+
 const Footer = () => {
-  /* Colonne menu, props : title, subtitle1, link1, subtitle2, link2 */
   const FooterCol = (props) => {
     return (
       <div>
         <h2 className="mb-6 text-sm font-semibold uppercase">{props.title}</h2>
         <ul>
-          <Link to={props.link1} className="hover:text-gray-400 duration-300">
+          <Link to={props.link1} className="customHover dark:before:bg-light">
             {props.subtitle1}
           </Link>
           <li className="mb-4"></li>
           <li>
-            <Link to={props.link2} className="hover:text-gray-400 duration-300">
+            <Link to={props.link2} className="customHover dark:before:bg-light">
               {props.subtitle2}
             </Link>
           </li>
@@ -32,7 +34,7 @@ const Footer = () => {
     return (
       <ListItem
         disablePadding
-        className="text-light dark:text-dark hover:text-gray-400 hover:bg-transparent duration-300"
+        className="text-light dark:text-dark hover:text-gray-400 hover:bg-transparent  dark:hover:text-gray-400 duration-300"
       >
         <Link to={props.link}>{props.icon}</Link>
       </ListItem>
@@ -42,10 +44,10 @@ const Footer = () => {
     <footer className="p-4 bg-alabaster sm:p-6 dark:bg-pewter">
       <div className="md:flex md:justify-around">
         <div className="mb-6 md:mb-0">
-          <Button className="p-0">
+          <Button className="p-0 bg-transparent">
             <Link to="/" className="flex items-center">
               <AirplaneTicketIcon className="text-light dark:text-dark mr-3 h-8" />
-              <span className="text-light font-semibold dark:text-dark text-lg hover:bg-transparent">
+              <span className="text-light font-semibold dark:text-dark text-lg ">
                 TravelCompany
               </span>
             </Link>
@@ -79,7 +81,7 @@ const Footer = () => {
       <div className="sm:flex sm:items-center sm:justify-between text-light dark:text-dark">
         <Link to="/home" className="text-sm sm:text-center">
           ©2022
-          <span className="hover:text-gray-400 duration-300">
+          <span className="customHover dark:before:bg-light">
             TravelCompany™
           </span>
           . All Rights Reserved.

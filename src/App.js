@@ -1,17 +1,24 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Layout from "./layout/Layout";
-import Homepage from "./pages/Homepage";
-import Missing from "./pages/Missing";
-import About from "./pages/About";
-import AllNews from "./pages/AllNews";
-
 import { useThemeContext } from "./context/ThemeProvider";
 import ScrollToTop from "./context/ScrollToTop";
-import AllEvents from "./pages/AllEvents";
-import SingleNews from "./pages/SingleNews";
-import SingleEvent from "./pages/SingleEvent";
-import SearchResults from "./pages/SearchResults";
+
+import Layout from "./layout/Layout";
+
+import Homepage from "./pages/HomePage/Homepage";
+
+import About from "./pages/About/About";
+import Missing from "./pages/Missing/Missing";
+
+import AllNews from "./pages/News/AllNews";
+import SingleNews from "./pages/News/SingleNews";
+
+import AllEvents from "./pages/Events/AllEvents";
+import SingleEvent from "./pages/Events/SingleEvent";
+
+import SinglePost from "./pages/Posts/SinglePost";
+
+import SearchResults from "./pages/Search/SearchResults";
 
 function App() {
   const { themeChoice } = useThemeContext();
@@ -30,6 +37,7 @@ function App() {
               <Route path="/evenements" element={<AllEvents />} />
               <Route path="/actualite/:id" element={<SingleNews />} />
               <Route path="/evenement/:id" element={<SingleEvent />} />
+              <Route path="/post/:id" element={<SinglePost />} />
             </Route>
             {/* Catch All */}
             <Route path="*" element={<Missing />} />
