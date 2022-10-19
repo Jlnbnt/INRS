@@ -30,3 +30,15 @@ export const SocialLinkIcon = (props) => {
     </li>
   );
 };
+
+export const MobileSocialLink = (props) => {
+  return (
+    <a
+      target="_blank"
+      className="text-light dark:text-dark hover:text-gray-400 dark:hover:text-gray-400 duration-300 text-xl font-semibold "
+      href={props.link}
+    >
+      {props.icon}
+    </a>
+  );
+};

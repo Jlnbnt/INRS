@@ -1,6 +1,7 @@
 import React from "react";
 
 import { useStateContext } from "../../context/StateProvider";
+import { useThemeContext } from "../../context/ThemeProvider";
 
 import { Link } from "react-router-dom";
 
@@ -16,47 +17,15 @@ import ListItemText from "@mui/material/ListItemText";
 import CloseIcon from "@mui/icons-material/Close";
 import AirplaneTicketIcon from "@mui/icons-material/AirplaneTicket";
 
-export default function Sidebar({ open, toggleDrawer }) {
-  const { setSearchActive, setSearchQuery } = useStateContext();
+import {
+  NavLink,
+  NavAction,
+} from "../../components/Links/Sidebar/SidebarComponents";
 
-  const NavLink = (props) => {
-    return (
-      <>
-        <Link to={props.link}>
-          <ListItem
-            className="hover:bg-white dark:hover:bg-gray-700 duration-300"
-            onClick={toggleDrawer(false)}
-            onKeyDown={toggleDrawer(false)}
-          >
-            <ListItemButton className="hover:bg-transparent " disableRipple>
-              <ListItemText disableTypography>{props.name}</ListItemText>
-              {props.children}
-            </ListItemButton>
-          </ListItem>
-        </Link>
-        <Divider />
-      </>
-    );
-  };
-
-  const NavAction = (props) => {
-    return (
-      <>
-        <ListItem className="p-5 hover:bg-white dark:hover:bg-gray-700 flex justify-between duration-300">
-          <div>
-            <Link to={props.link} onClick={props.clear}>
-              <div onClick={props.reset}>
-                <ListItemText onClick={props.customFunc} disableTypography>
-                  {props.name}
-                </ListItemText>
-              </div>
-            </Link>
-          </div>
-          <div>{props.children}</div>
-        </ListItem>
-      </>
-    );
-  };
+export default function Sidebar() {
+  const { setSearchActive, setSearchQuery, toggleDrawer, open } =
+    useStateContext();
+  const { themeChoice } = useThemeContext();
 
   return (
     <>
@@ -77,7 +46,7 @@ export default function Sidebar({ open, toggleDrawer }) {
             "bg-light dark:bg-dark w-[300px] text-light dark:text-dark font-semibold",
         }}
       >
-        <List disablePadding className="text-xs">
+        <List className="p-0 text-xs">
           <NavAction
             name={<AirplaneTicketIcon />}
             link="/"
@@ -95,13 +64,14 @@ export default function Sidebar({ open, toggleDrawer }) {
           </NavAction>
           <Divider />
         </List>
-        <List disablePadding>
+        <List className="p-0">
           <NavLink name="HOME" link="/" />
           <NavLink name="ABOUT" link="about" />
-          <NavLink name="BLOG" link="blog" />
+          <NavLink name="ACTUALITES" link="actualites" />
+          <NavLink name="EVENEMENTS" link="evenements" />
         </List>
-        <List className="text-gray-400" disablePadding>
-          <NavAction name="DARKMODE">
+        <List className="text-gray-400 p-0">
+          <NavAction name={themeChoice === "dark" ? "LIGHTMODE" : "DARKMODE"}>
             {
               <button onClick={toggleDrawer(false)}>
                 <SwitchMode />

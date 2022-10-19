@@ -10,7 +10,7 @@ const SearchResults = () => {
   const { searchQuery } = useStateContext();
 
   return (
-    <>
+    <div className="p-8">
       <CardGridRow
         rowName="Actualités"
         searchQuery={searchQuery}
@@ -23,7 +23,7 @@ const SearchResults = () => {
         query={GET_EVENTS_PREVIEWS}
         type="evenements"
       />
-    </>
+    </div>
   );
 };
 

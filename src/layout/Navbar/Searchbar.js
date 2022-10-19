@@ -11,7 +11,7 @@ const Searchbar = ({ setSearchActive }) => {
 
   const { setSearchQuery, searchQuery } = useStateContext();
 
-  const tsearchFunc = (e) => {
+  const searchFunc = (e) => {
     e.preventDefault();
     console.log("sumbitted");
     navigate("/search");
@@ -20,7 +20,7 @@ const Searchbar = ({ setSearchActive }) => {
 
   return (
     <form
-      onSubmit={(e) => tsearchFunc(e)}
+      onSubmit={(e) => searchFunc(e)}
       className="text-light dark:text-dark w-full flex justify-between items-center h-full bg-light dark:bg-dark"
     >
       <input

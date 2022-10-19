@@ -20,28 +20,22 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import SearchIcon from "@mui/icons-material/Search";
 import AirplaneTicketIcon from "@mui/icons-material/AirplaneTicket";
 
-export default function Navbar({ toggleDrawer }) {
-  const { searchActive, setSearchActive } = useStateContext();
+import { SocialLink } from "../../components/Links/Navbar/NavbarComponents";
+
+export default function Navbar() {
+  const {
+    searchActive,
+    setSearchActive,
+    toggleDrawer,
+    awayFromTop,
+    listenToScroll,
+  } = useStateContext();
 
   const path = useLocation().pathname;
 
   useEffect(() => {
     setSearchActive(false);
   }, [path]);
-
-  const [awayFromTop, setAwayfromTop] = useState();
-
-  const listenToScroll = () => {
-    let heightToHideFrom = 200;
-    const winScroll =
-      document.body.scrollTop || document.documentElement.scrollTop;
-
-    if (winScroll > heightToHideFrom) {
-      setAwayfromTop(false);
-    } else {
-      setAwayfromTop(true);
-    }
-  };
 
   useEffect(() => {
     window.addEventListener("scroll", listenToScroll);
@@ -59,16 +53,6 @@ export default function Navbar({ toggleDrawer }) {
     }
   }, [searchActive]);
 
-  const SocialLink = (props) => {
-    return (
-      <ListItem
-        disablePadding
-        className="text-light dark:text-dark hover:text-gray-400 duration-300  hover:bg-transparent dark:hover:text-gray-400"
-      >
-        <Link to={props.link}>{props.icon}</Link>
-      </ListItem>
-    );
-  };
   return (
     <>
       <AppBar position="sticky" className="bg-light dark:bg-dark border-none">
@@ -110,15 +94,15 @@ export default function Navbar({ toggleDrawer }) {
                 <div className="hidden sm:flex gap-3">
                   <SocialLink
                     icon={<InstagramIcon fontSize="small" />}
-                    link="/about"
+                    link="https://www.instagram.com"
                   />
                   <SocialLink
                     icon={<TwitterIcon fontSize="small" />}
-                    link="/about"
+                    link="https://www.twitter.com"
                   />
                   <SocialLink
                     icon={<FacebookIcon fontSize="small" />}
-                    link="/about"
+                    link="https://www.facebook.com"
                   />
                 </div>
                 <div className="flex sm:hidden">

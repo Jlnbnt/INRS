@@ -6,6 +6,7 @@ export const StateProvider = ({ children }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchActive, setSearchActive] = useState(false);
   const [open, setOpen] = useState(false);
+  const [awayFromTop, setAwayfromTop] = useState();
 
   const toggleDrawer = (open) => (event) => {
     if (
@@ -17,6 +18,17 @@ export const StateProvider = ({ children }) => {
     setOpen(open);
   };
 
+  const listenToScroll = () => {
+    let heightToHideFrom = 200;
+    const winScroll =
+      document.body.scrollTop || document.documentElement.scrollTop;
+
+    if (winScroll > heightToHideFrom) {
+      setAwayfromTop(false);
+    } else {
+      setAwayfromTop(true);
+    }
+  };
   return (
     <StateContext.Provider
       value={{
@@ -27,6 +39,8 @@ export const StateProvider = ({ children }) => {
         open,
         setOpen,
         toggleDrawer,
+        listenToScroll,
+        awayFromTop,
       }}
     >
       {children}

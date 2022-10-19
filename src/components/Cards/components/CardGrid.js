@@ -17,7 +17,7 @@ const CardGrid = ({ searchQuery, graphlQLQuery, postType }) => {
     },
   });
 
-  if (loading) return <CircularProgress className="m-8" />;
+  if (loading) return <CircularProgress disableShrink className="m-8" />;
   if (error) return `Error! ${error.message}`;
 
   return (
@@ -25,7 +25,15 @@ const CardGrid = ({ searchQuery, graphlQLQuery, postType }) => {
       {data && data?.[postType]?.nodes.length ? (
         <>
           {data?.[postType]?.nodes
-            ?.slice(0, 4)
+
+            .slice(
+              0,
+              location === "/actualites" ||
+                location === "/evenements" ||
+                location === "/search"
+                ? data?.[postType]?.nodes.length
+                : 4
+            )
             .map((post) =>
               postType === "actualites" ? (
                 <NewsCard key={post.title} post={post} />
@@ -35,28 +43,36 @@ const CardGrid = ({ searchQuery, graphlQLQuery, postType }) => {
                 <div>NOTHING</div>
               )
             )}
-          {location !== "/actualites" && location !== "/evenements" && (
-            <span className="w-full mb-6 font-light text-[5vw] lg:text-[1.5vw] text-center text-light dark:text-dark">
-              {postType === "evenements" && "L'agenda"}
-              {postType === "actualites" && "Latest News"}
-              <Link
-                to={`/${postType}`}
+          {location !== "/actualites" &&
+            location !== "/evenements" &&
+            location !== "/search" && (
+              <span className="w-full my-6 font-light text-[5vw] sm:text-[3vw] lg:text-[2vw] text-center text-light dark:text-dark">
+                {location !== "/search" &&
+                  postType === "evenements" &&
+                  "L'agenda"}
+                {location !== "/search" &&
+                  postType === "actualites" &&
+                  "Latest News"}
 
-                /* className="ml-2 text-light dark:text-dark font-semibold customHover dark:before:bg-light" */
-              >
-                <span className="font-semibold">
-                  {" "}
-                  &rarr;{" "}
-                  <span className="customHover dark:before:bg-light">
-                    {/* <span className="underline underline-offset-8 decoration-gray-300/30 hover:decoration-gray-300 duration-300"> */}
-                    Voir plus
+                <Link
+                  to={`/${postType}`}
+
+                  /* className="ml-2 text-light dark:text-dark font-semibold customHover dark:before:bg-light" */
+                >
+                  <span className="font-semibold">
+                    {" "}
+                    &rarr;{" "}
+                    <span className="customHover dark:before:bg-light">
+                      {/* <span className="underline underline-offset-8 decoration-gray-300/30 hover:decoration-gray-300 duration-300"> */}
+                      Voir plus
+                    </span>
                   </span>
-                </span>
-                {/*  Voir plus */}
-                {/* AFFICHER PLUS D'{postType.toUpperCase()} */}
-              </Link>
-            </span>
-          )}
+
+                  {/*  Voir plus */}
+                  {/* AFFICHER PLUS D'{postType.toUpperCase()} */}
+                </Link>
+              </span>
+            )}
         </>
       ) : (
         <h2 className="text-light dark:text-dark opacity-50 text-sm font-semibold p-8">

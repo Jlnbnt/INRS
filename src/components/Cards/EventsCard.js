@@ -75,7 +75,7 @@ const EventsCard = ({ post }) => {
                 })}`}</h4>
               </div>
               <hr className="my-4 border-light sm:mx-auto dark:border-dark" />
-              <div className="flex justify-between ">
+              <div className="flex justify-between h-[48px]">
                 <div className="flex items-center flex-wrap flex-1" href="#">
                   <img
                     alt={`${post?.author?.node?.name}'s avatar`}

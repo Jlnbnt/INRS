@@ -1,54 +1,57 @@
 import React from "react";
 
 import { useQuery } from "@apollo/client";
-import { GET_POST_BY_TITLE } from "../../../graphql/Queries";
+
+import { GET_ALL_HIGHLIGHTS } from "../../../graphql/Queries";
 
 import { Link } from "react-router-dom";
 import { CircularProgress } from "@mui/material";
 
 const SecondArticle = () => {
-  const { loading, error, data } = useQuery(GET_POST_BY_TITLE, {
+  const { loading, error, data } = useQuery(GET_ALL_HIGHLIGHTS, {
     variables: {
-      title: "Deuxième Article",
+      article1: false,
+      article2: true,
+      title: "Accueil - Article 2",
     },
   });
 
-  if (loading) return <CircularProgress className="m-8" />;
+  if (loading) return <CircularProgress disableShrink className="m-8" />;
   if (error) return `Error! ${error.message}`;
 
-  const acf = data?.layouts?.nodes[0]?.layouts_acf;
+  const article = data?.layouts?.nodes[0]?.miseEnPage?.accueil?.article2;
 
   return (
     <div className="flex w-full flex-wrap  align-center">
       {data && data?.layouts?.nodes?.length ? (
-        <div className="mb-16 flex w-full justify-center items-center flex-col">
+        <div className="pb-16 flex w-full justify-center items-center flex-col">
           <h2 className="text-[11vw]  text-light dark:text-dark text-center">
-            {acf?.mainTitle}
+            {article?.titre}
           </h2>
           <h2 className="mb-6 font-semibold text-[4vw] lg:text-[2vw] text-center text-light dark:text-dark">
-            {acf?.subTitle} -
-            <span className="font-light"> {acf?.subTitleSpan}</span>
+            {article?.baselineGras} -
+            <span className="font-light"> {article?.baselineLight}</span>
           </h2>
           <Link
             to={`/post/${data.layouts.nodes[0].id}`}
             className="w-full
-              justify-center flex"
+              justify-center flex hover:scale-[99%] duration-700"
           >
             <img
-              className="h-[40vh] lg:h-[70vh] w-11/12 object-cover mb-6 rounded-2xl"
-              src={acf?.mainImage.sourceUrl}
-              alt={acf?.mainImage.altText}
+              className="h-[40vh] lg:h-[70vh] w-[95%] object-cover mb-6 rounded-2xl"
+              src={article?.image?.sourceUrl}
+              alt={article?.image?.altText}
             />
           </Link>
           <h2 className="justify-center flex flex-wrap mb-6 font-light text-[4vw] lg:text-[2vw] text-center text-light dark:text-dark">
-            {acf?.thirdTitle}
+            {article?.lienGras}
             <span className="font-semibold ml-2">
               &rarr;&nbsp;
               <Link
                 to={`/post/${data.layouts.nodes[0].id}`}
                 className="customHover dark:before:bg-light"
               >
-                {acf?.thirdTitleSpan}
+                {article?.lienLight}
               </Link>
             </span>
           </h2>

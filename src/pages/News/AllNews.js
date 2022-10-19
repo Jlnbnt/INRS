@@ -10,12 +10,14 @@ const AllNews = () => {
   const { searchQuery } = useStateContext();
 
   return (
-    <CardGridRow
-      rowName="Actualités"
-      searchQuery={searchQuery}
-      query={GET_NEWS_PREVIEWS}
-      type="actualites"
-    />
+    <div className="p-8">
+      <CardGridRow
+        rowName="Actualités"
+        searchQuery={searchQuery}
+        query={GET_NEWS_PREVIEWS}
+        type="actualites"
+      />
+    </div>
   );
 };
 

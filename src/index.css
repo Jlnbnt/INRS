@@ -32,11 +32,21 @@ code {
     monospace;
 }
 
+iframe {
+  max-width: 100%;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer components {
+  .filter-dark {
+    filter: brightness(0%);
+  }
+  .filter-light {
+    filter: brightness(0) invert(1);
+  }
   .customHover {
     position: relative;
     padding-bottom: 2px;

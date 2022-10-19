@@ -19,31 +19,39 @@ import SingleEvent from "./pages/Events/SingleEvent";
 import SinglePost from "./pages/Posts/SinglePost";
 
 import SearchResults from "./pages/Search/SearchResults";
+import PDC from "./pages/CGU/PDC";
+import CGU from "./pages/CGU/CGU";
 
 function App() {
   const { themeChoice } = useThemeContext();
 
   return (
-    <div className={`${themeChoice}`}>
-      <BrowserRouter>
-        <ScrollToTop>
-          <Routes>
-            {/* Routes inside Layout Component */}
-            <Route path="/" element={<Layout />}>
-              <Route path="/" element={<Homepage />} />
-              <Route path="/search" element={<SearchResults />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/actualites" element={<AllNews />} />
-              <Route path="/evenements" element={<AllEvents />} />
-              <Route path="/actualite/:id" element={<SingleNews />} />
-              <Route path="/evenement/:id" element={<SingleEvent />} />
-              <Route path="/post/:id" element={<SinglePost />} />
-            </Route>
-            {/* Catch All */}
-            <Route path="*" element={<Missing />} />
-          </Routes>
-        </ScrollToTop>
-      </BrowserRouter>
+    <div
+      className={`${themeChoice} flex flex-col w-full justify-center items-center `}
+    >
+      <div className="max-w-[2000px] w-full">
+        <BrowserRouter>
+          <ScrollToTop>
+            <Routes>
+              {/* Routes inside Layout Component */}
+              <Route path="/" element={<Layout />}>
+                <Route path="/" element={<Homepage />} />
+                <Route path="/pdc" element={<PDC />} />
+                <Route path="/cgu" element={<CGU />} />
+                <Route path="/search" element={<SearchResults />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/actualites" element={<AllNews />} />
+                <Route path="/evenements" element={<AllEvents />} />
+                <Route path="/actualite/:id" element={<SingleNews />} />
+                <Route path="/evenement/:id" element={<SingleEvent />} />
+                <Route path="/post/:id" element={<SinglePost />} />
+              </Route>
+              {/* Catch All */}
+              <Route path="*" element={<Missing />} />
+            </Routes>
+          </ScrollToTop>
+        </BrowserRouter>
+      </div>
     </div>
   );
 }

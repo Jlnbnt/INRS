@@ -20,9 +20,9 @@ const Homepage = () => {
   }, []);
 
   return (
-    <>
-      <FirstArticle />
-      <SecondArticle />
+    <div className="p-5">
+      <FirstArticle postType="article1" />
+      {<SecondArticle postType="article2" />}
 
       <div className="relative">
         <span id="anchorCards" className="absolute -top-20" />
@@ -41,7 +41,7 @@ const Homepage = () => {
       </div>
 
       <QuoteCards />
-    </>
+    </div>
   );
 };
 
