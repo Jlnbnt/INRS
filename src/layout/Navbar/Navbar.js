@@ -22,6 +22,9 @@ import AirplaneTicketIcon from "@mui/icons-material/AirplaneTicket";
 
 import { SocialLink } from "../../components/Links/Navbar/NavbarComponents";
 
+import { ReactComponent as INRSLOGO } from "../../components/Assets/INRSLOGO.svg";
+import { ReactComponent as INRSISO } from "../../components/Assets/INRSISO.svg";
+
 export default function Navbar() {
   const {
     searchActive,
@@ -86,9 +89,12 @@ export default function Navbar() {
                   </button>
                 </div>
                 <Link to="/">
-                  <Button className="text-light font-semibold dark:text-dark text-lg hover:bg-transparent lg:mr-14 mr-6 sm:mr-0">
-                    <AirplaneTicketIcon className="text-light dark:text-dark mr-3 h-8" />
-                    {awayFromTop === true && <span>TravelCompany</span>}
+                  <Button className="text-light font-semibold dark:text-dark text-lg hover:bg-transparent lg:mr-14 mr-6 sm:mr-0 ">
+                    {awayFromTop ? (
+                      <INRSLOGO className="fill-light dark:fill-dark mr-3 h-8" />
+                    ) : (
+                      <INRSISO className="fill-light dark:fill-dark mr-3 h-10 rotate-90" />
+                    )}
                   </Button>
                 </Link>
                 <div className="hidden sm:flex gap-3">

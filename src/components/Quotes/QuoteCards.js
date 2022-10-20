@@ -19,7 +19,7 @@ const QuoteCards = () => {
   return (
     <>
       <h1 className="text-light dark:text-dark">NOS CLIENTS</h1>
-      <div className="pb-16 grid grid-cols-1 sm:grid-cols-2  gap-4 w-full flex-wrap align-center justify-center items-center p-4">
+      <div className="pb-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full flex-wrap align-center justify-center items-center p-4">
         {data && avis ? (
           <>
             {avis?.map((avi) => (

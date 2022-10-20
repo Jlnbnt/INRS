@@ -9,8 +9,8 @@ import { useThemeContext } from "../../context/ThemeProvider";
 
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TwitterIcon from "@mui/icons-material/Twitter";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
-import GitHubIcon from "@mui/icons-material/GitHub";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import { AboutIcon } from "../Links/About/AboutComponents";
 const AboutHeader = () => {
   const { themeChoice } = useThemeContext();
@@ -42,10 +42,10 @@ const AboutHeader = () => {
         <div>
           <h2 className="font-semibold mb-2">{acf.titreLiens}</h2>
           <ul className="flex gap-4">
-            <AboutIcon link={acf.liens.facebook} icon={<WhatsAppIcon />} />
-            <AboutIcon link={acf.liens.github} icon={<GitHubIcon />} />
+            <AboutIcon link={acf.liens.github} icon={<FacebookIcon />} />
             <AboutIcon link={acf.liens.instagram} icon={<InstagramIcon />} />
             <AboutIcon link={acf.liens.twitter} icon={<TwitterIcon />} />
+            <AboutIcon link={acf.liens.facebook} icon={<LinkedInIcon />} />
           </ul>
         </div>
       </div>

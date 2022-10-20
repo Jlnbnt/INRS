@@ -2,7 +2,7 @@ import { gql } from "@apollo/client";
 
 export const GET_NEWS_PREVIEWS = gql`
   query GetPreviewPosts($reactQuery: String) {
-    actualites(where: { reactQuery: $reactQuery }) {
+    actualites(where: { reactQuery: $reactQuery }, first: 50) {
       nodes {
         actualites_acf {
           mainImage {
@@ -30,15 +30,20 @@ export const GET_NEWS_PREVIEWS = gql`
 
 export const GET_EVENTS_PREVIEWS = gql`
   query GetPreviewPosts($reactQuery: String) {
-    evenements(where: { reactQuery: $reactQuery }) {
+    evenements(where: { reactQuery: $reactQuery }, first: 50) {
       nodes {
         evenements_acf {
           mainImage {
             altText
             sourceUrl(size: THUMBNAIL)
           }
+          eventprice
           tag
           mainTitle
+          eventDate
+          eventHour
+          inscriptionLink
+          eventPlace
         }
         author {
           node {
@@ -48,7 +53,6 @@ export const GET_EVENTS_PREVIEWS = gql`
             name
           }
         }
-        date
         title
         id
       }
@@ -59,6 +63,7 @@ export const GET_EVENTS_PREVIEWS = gql`
 export const GET_NEWS_BY_ID = gql`
   query GetNewsById($id: ID!) {
     actualite(id: $id) {
+      date
       title
       author {
         node {
@@ -68,7 +73,6 @@ export const GET_NEWS_BY_ID = gql`
           name
         }
       }
-      date
       actualites_acf {
         mainImage {
           altText
@@ -94,7 +98,6 @@ export const GET_EVENT_BY_ID = gql`
           name
         }
       }
-      date
       evenements_acf {
         mainImage {
           altText
@@ -103,32 +106,14 @@ export const GET_EVENT_BY_ID = gql`
         mainTitle
         tag
         maintext
+        eventDate
+        eventHour
+        eventprice
+        inscriptionLink
       }
     }
   }
 `;
-
-/* export const GET_POST_BY_TITLE = gql`
-  query GetPostByTitle($title: String = "Deuxième article") {
-    layouts(where: { title: $title }) {
-      nodes {
-        title
-        id
-        layouts_acf {
-          mainImage {
-            altText
-            sourceUrl(size: _1536X1536)
-          }
-          mainTitle
-          subTitle
-          subTitleSpan
-          thirdTitle
-          thirdTitleSpan
-        }
-      }
-    }
-  }
-`; */
 
 export const GET_POST_BY_ID = gql`
   query GetPostById($id: ID!) {

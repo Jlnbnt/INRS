@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TwitterIcon from "@mui/icons-material/Twitter";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 const TeamCard = (props) => {
   const acf = props?.props?.equipe_acf;
@@ -33,7 +33,7 @@ const TeamCard = (props) => {
                   <ul className="flex gap-3 p-4 text-dark">
                     <SocialLinkIcon
                       link="https://www.instagram.com/"
-                      icon={<InstagramIcon />}
+                      icon={<LinkedInIcon />}
                     />
                     <SocialLinkIcon
                       link="https://www.twitter.com/"
@@ -41,7 +41,7 @@ const TeamCard = (props) => {
                     />
                     <SocialLinkIcon
                       link="https://www.instagram.com/"
-                      icon={<WhatsAppIcon />}
+                      icon={<InstagramIcon />}
                     />
                   </ul>
                 </div>
@@ -58,7 +58,7 @@ const TeamCard = (props) => {
               <div className="flex gap-4 md:hidden">
                 <MobileSocialLink
                   link="https://www.instagram.com"
-                  icon={<InstagramIcon />}
+                  icon={<LinkedInIcon />}
                 />
                 <MobileSocialLink
                   link="https://www.instagram.com"
@@ -66,7 +66,7 @@ const TeamCard = (props) => {
                 />
                 <MobileSocialLink
                   link="https://www.instagram.com"
-                  icon={<WhatsAppIcon />}
+                  icon={<InstagramIcon />}
                 />
               </div>
               <hr className="my-4 border-light sm:mx-auto dark:border-dark" />

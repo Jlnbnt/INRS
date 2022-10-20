@@ -44,30 +44,30 @@ const SingleEvent = () => {
               {acf?.mainTitle?.toUpperCase()}
             </h2>
 
-            <div className="flex items-center gap-2 italic">
-              <span>Ecrit par</span>
-              <img
-                alt={`${data?.evenement?.author?.node?.name}'s avatar`}
-                className="rounded-full w-[16px] h-[16px]"
-                src={data?.evenement?.author?.node?.avatar?.url}
-              />
-              <span className="text-gray-400">
-                {data?.evenement?.author?.node?.name}
-              </span>
-              <span>le</span>
-              <h4 className="text-gray-400">{`${new Date(
-                data?.evenement?.date
-              ).toLocaleString("fr-FR", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              })}`}</h4>
+            <div className="flex items-center justify-between gap-2 italic">
+              <h4>
+                Le{" "}
+                <span className="italic font-semibold  ">{acf?.eventDate}</span>{" "}
+                à{" "}
+                <span className="italic font-semibold  ">{acf?.eventHour}</span>
+              </h4>
+              <h3 className="text-sm">
+                Prix :{" "}
+                <span className="font-semibold italic">{acf?.eventprice}</span>
+              </h3>
             </div>
           </div>
           <div
             className="max-w-[90%] md:max-w-5xl self-center"
             dangerouslySetInnerHTML={{ __html: acf?.maintext }}
           />
+          <a
+            target="_blank"
+            href={acf?.inscriptionLink}
+            className="self-center text-5xl mt-8 customHover dark:before:bg-light font-semibold cursor-pointer"
+          >
+            S'inscrire <span className="font-light">✓</span>
+          </a>
         </div>
       )}
     </>

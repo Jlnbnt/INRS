@@ -25,7 +25,8 @@ const Homepage = () => {
       {<SecondArticle postType="article2" />}
 
       <div className="relative">
-        <span id="anchorCards" className="absolute -top-20" />
+        <span id="anchorCards" className="absolute  -top-20 " />
+
         <CardGridRow
           rowName="Actualités"
           searchQuery={searchQuery}
@@ -40,7 +41,7 @@ const Homepage = () => {
         />
       </div>
 
-      <QuoteCards />
+      {/*  <QuoteCards /> */}
     </div>
   );
 };

@@ -62,7 +62,7 @@ const SinglePost = () => {
                 data?.layout?.date
               ).toLocaleString("fr-FR", {
                 year: "numeric",
-                month: "long",
+                month: "numeric",
                 day: "numeric",
               })}`}</h4>
             </div>

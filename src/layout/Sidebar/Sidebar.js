@@ -16,6 +16,7 @@ import ListItemText from "@mui/material/ListItemText";
 
 import CloseIcon from "@mui/icons-material/Close";
 import AirplaneTicketIcon from "@mui/icons-material/AirplaneTicket";
+import { ReactComponent as INRSLOGO } from "../../components/Assets/INRSLOGO.svg";
 
 import {
   NavLink,
@@ -48,7 +49,8 @@ export default function Sidebar() {
       >
         <List className="p-0 text-xs">
           <NavAction
-            name={<AirplaneTicketIcon />}
+            /*       name={<AirplaneTicketIcon />} */
+            name={<INRSLOGO className="w-[80px] fill-light dark:fill-dark" />}
             link="/"
             customFunc={toggleDrawer(false)}
             reset={() => setSearchActive(false)}
@@ -58,7 +60,9 @@ export default function Sidebar() {
               onClick={toggleDrawer(false)}
               className="text-light dark:text-dark flex items-center justify-end gap-1 p-0 m-0"
             >
-              <span className="customHover dark:before:bg-light">CLOSE</span>
+              <span className="customHover dark:before:bg-light mt-0.5">
+                CLOSE
+              </span>
               <CloseIcon fontSize="small" />
             </button>
           </NavAction>
@@ -66,9 +70,9 @@ export default function Sidebar() {
         </List>
         <List className="p-0">
           <NavLink name="HOME" link="/" />
-          <NavLink name="ABOUT" link="about" />
           <NavLink name="ACTUALITES" link="actualites" />
           <NavLink name="EVENEMENTS" link="evenements" />
+          <NavLink name="ABOUT" link="about" />
         </List>
         <List className="text-gray-400 p-0">
           <NavAction name={themeChoice === "dark" ? "LIGHTMODE" : "DARKMODE"}>
