@@ -6,7 +6,6 @@ import { CircularProgress } from "@mui/material";
 import { Link } from "react-router-dom";
 
 import { GET_ALL_HIGHLIGHTS } from "../../../graphql/Queries";
-import { faArrowAltCircleDown } from "@fortawesome/free-solid-svg-icons";
 
 const FirstArticle = () => {
   const { loading, error, data } = useQuery(GET_ALL_HIGHLIGHTS, {
