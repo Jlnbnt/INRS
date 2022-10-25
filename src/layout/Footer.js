@@ -59,10 +59,8 @@ const Footer = () => {
           <div className="pb-2  flex flex-col sm:flex-row items-center  justify-between text-light dark:text-dark">
             <Link to="/cgu" className="text-sm sm:text-center">
               ©2022
-              <span className="customHover dark:before:bg-light">
-                TravelCompany™
-              </span>
-              . All Rights Reserved.
+              <span className="customHover dark:before:bg-light">INRS™</span>.
+              All Rights Reserved.
             </Link>
             <div className="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
               <FooterLink

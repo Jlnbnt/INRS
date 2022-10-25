@@ -548,3 +548,21 @@ export const SEND_JOB_FORM = gql`
     }
   }
 `;
+
+export const GET_VIDEO = gql`
+  query NewQuery {
+    layouts(where: { title: "Accueil - Video" }) {
+      edges {
+        node {
+          miseEnPage {
+            accueil {
+              video {
+                mediaItemUrl
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;

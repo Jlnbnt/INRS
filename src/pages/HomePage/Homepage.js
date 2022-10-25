@@ -9,6 +9,9 @@ import AboutFooter from "../../components/About/AboutFooter";
 import HomepageServices from "../../components/Homepage/HomepageServices";
 import ModalForm from "../../components/Form/ModalForm";
 
+import { GET_VIDEO } from "../../graphql/Queries";
+import { useQuery } from "@apollo/client";
+import { CircularProgress } from "@mui/material";
 const Homepage = () => {
   const { setSearchQuery, setSearchActive, handleContactOpen } =
     useStateContext();
@@ -19,6 +22,12 @@ const Homepage = () => {
     // eslint-disable-next-line
   }, []);
 
+  const { loading, error, data } = useQuery(GET_VIDEO);
+
+  if (loading) return <CircularProgress disableShrink className="m-8" />;
+
+  if (error) return `Error! ${error.message}`;
+
   return (
     <>
       <div className="text-white dark:bg-black/60 bg-gray-100  flex flex-col justify-center items-center ">
@@ -28,7 +37,10 @@ const Homepage = () => {
             autoPlay
             muted
             className="sm:w-full absolute  z-10 w-full h-full object-cover top-0 left-0"
-            src="http://travelcompany.local/wp-content/uploads/2022/10/VideoComp.mp4"
+            src={
+              data?.layouts?.edges[0]?.node?.miseEnPage?.accueil?.video
+                ?.mediaItemUrl
+            }
           ></video>
           <div className="bg-dark h-full w-full absolute left-0 top-0 z-20  opacity-80" />
 
