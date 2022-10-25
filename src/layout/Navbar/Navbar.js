@@ -11,14 +11,12 @@ import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
-import ListItem from "@mui/material/ListItem";
 
 import MenuIcon from "@mui/icons-material/Menu";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import TwitterIcon from "@mui/icons-material/Twitter";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import SearchIcon from "@mui/icons-material/Search";
-import AirplaneTicketIcon from "@mui/icons-material/AirplaneTicket";
+import EmailIcon from "@mui/icons-material/Email";
 
 import { SocialLink } from "../../components/Links/Navbar/NavbarComponents";
 
@@ -32,6 +30,7 @@ export default function Navbar() {
     toggleDrawer,
     awayFromTop,
     listenToScroll,
+    handleContactOpen,
   } = useStateContext();
 
   const path = useLocation().pathname;
@@ -99,16 +98,16 @@ export default function Navbar() {
                 </Link>
                 <div className="hidden sm:flex gap-3">
                   <SocialLink
-                    icon={<InstagramIcon fontSize="small" />}
-                    link="https://www.instagram.com"
-                  />
-                  <SocialLink
-                    icon={<TwitterIcon fontSize="small" />}
-                    link="https://www.twitter.com"
+                    icon={<LinkedInIcon fontSize="small" />}
+                    link="https://www.linkedin.com"
                   />
                   <SocialLink
                     icon={<FacebookIcon fontSize="small" />}
                     link="https://www.facebook.com"
+                  />
+                  <SocialLink
+                    icon={<EmailIcon fontSize="small" />}
+                    customFunc={handleContactOpen}
                   />
                 </div>
                 <div className="flex sm:hidden">

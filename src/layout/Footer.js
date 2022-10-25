@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TwitterIcon from "@mui/icons-material/Twitter";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import EmailIcon from "@mui/icons-material/Email";
 
 import { ReactComponent as INRSLOGO } from "../components/Assets/INRSLOGO.svg";
 import {
@@ -13,30 +13,23 @@ import {
   FooterLink,
 } from "../components/Links/Footer/FooterComponents";
 
+import { useStateContext } from "../context/StateProvider";
 import { useLocation } from "react-router-dom";
 
 const Footer = () => {
   const pathname = useLocation().pathname;
-
+  const { handleContactOpen } = useStateContext();
   return (
     <>
       {!pathname.includes("/jobs") && (
         <footer className="p-4 bg-alabaster sm:p-6 dark:bg-pewter">
-          <div className="md:flex md:justify-around">
+          <div className="sm:flex sm:justify-around">
             <div className="mb-6 md:mb-0">
               <Link to="/" className="flex items-center">
                 <INRSLOGO className="w-[150px] md:w-[200px] fill-light dark:fill-dark" />{" "}
               </Link>
             </div>
-            <div className="flex gap-16 md:justify-between text-light dark:text-dark">
-              <FooterCol
-                blank={true}
-                title="Ressources"
-                link1="https://reactjs.org/"
-                subtitle1="React JS"
-                link2="https://tailwindcss.com/"
-                subtitle2="Tailwind CSS"
-              />
+            <div className="py-4 md:py-0 flex flex-col sm:flex-row gap-4 md:gap-16 md:justify-between text-light dark:text-dark">
               <FooterCol
                 blank={true}
                 title="Reseaux"
@@ -44,6 +37,14 @@ const Footer = () => {
                 subtitle1="Github"
                 link2="https://www.discord.com/"
                 subtitle2="Discord"
+              />
+              <FooterCol
+                blank={false}
+                title="INRS"
+                link1="/about"
+                subtitle1="A propos"
+                link2="/jobs"
+                subtitle2="Recrutement"
               />
               <FooterCol
                 title="Legal"
@@ -81,8 +82,8 @@ const Footer = () => {
                 link="https://www.github.com/"
               />
               <FooterLink
-                icon={<WhatsAppIcon fontSize="small" />}
-                link="https://www.whatsapp.com/"
+                icon={<EmailIcon fontSize="small" />}
+                customFunc={handleContactOpen}
               />
             </div>
           </div>
