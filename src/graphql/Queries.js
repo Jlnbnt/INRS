@@ -156,6 +156,11 @@ export const GET_TEAM = gql`
           poste
           interets
           description
+          socials {
+            instagram
+            linkedin
+            twitter
+          }
         }
       }
     }
@@ -431,6 +436,115 @@ export const GET_ABOUT_HEADER = gql`
           }
         }
       }
+    }
+  }
+`;
+
+export const SEND_CONTACT_FORM = gql`
+  mutation SendContactForm(
+    $email: String = ""
+    $phone: String = ""
+    $message: String = ""
+    $firstName: String = ""
+    $lastName: String = ""
+  ) {
+    contactSubmission(
+      input: {
+        email: $email
+        firstName: $firstName
+        lastName: $lastName
+        message: $message
+        phone: $phone
+      }
+    ) {
+      data
+      success
+    }
+  }
+`;
+export const GET_JOB_PREVIEW = gql`
+  query GetJobPreview {
+    jobs {
+      nodes {
+        jobs_acf {
+          titre
+          entreprise {
+            nom
+            lieu
+            logo {
+              altText
+              sourceUrl(size: THUMBNAIL)
+            }
+          }
+          remote
+        }
+        id
+        date
+      }
+    }
+  }
+`;
+
+export const GET_JOB_BY_ID = gql`
+  query GetJobById($id: ID!) {
+    job(id: $id) {
+      title
+      date
+      jobs_acf {
+        domaine
+        experience
+        remote
+        texte
+        titre
+        entreprise {
+          editeur {
+            avatar {
+              altText
+              sourceUrl(size: THUMBNAIL)
+            }
+            nom
+            linkedin
+            poste
+            prenom
+          }
+          lieu
+          nom
+          nombre
+          logo {
+            altText
+            sourceUrl(size: THUMBNAIL)
+          }
+        }
+        typeDeTravail
+      }
+      date
+    }
+  }
+`;
+
+export const SEND_JOB_FORM = gql`
+  mutation SendContactForm(
+    $email: String = ""
+    $phone: String = ""
+    $message: String = ""
+    $firstName: String = ""
+    $lastName: String = ""
+    $file: String = ""
+    $intitule: String = ""
+  ) {
+    jobSubmission(
+      input: {
+        email: $email
+        message: $message
+        phone: $phone
+        firstName: $firstName
+        lastName: $lastName
+        file: $file
+        intitule: $intitule
+      }
+    ) {
+      data
+      success
     }
   }
 `;

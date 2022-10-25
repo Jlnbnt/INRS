@@ -19,8 +19,6 @@ const FirstArticle = () => {
   if (loading) return <CircularProgress disableShrink className="m-8" />;
   if (error) return `Error! ${error.message}`;
 
-  /*   const acf = data?.layouts?.nodes[0]?.layouts_acf; */
-
   const article = data?.layouts?.nodes[0]?.miseEnPage?.accueil?.article1;
 
   return (

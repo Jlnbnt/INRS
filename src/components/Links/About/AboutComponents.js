@@ -1,6 +1,6 @@
 export const ServicesIcon = ({ icon, alt, title, text }) => {
   return (
-    <div className="p-1 flex flex-col text-center justify-center items-center">
+    <div className="self-start p-1 flex flex-col text-center justify-center items-center">
       <img
         className="filter-dark dark:filter-light w-14 h-14 pb-2"
         src={icon}

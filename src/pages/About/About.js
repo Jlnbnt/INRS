@@ -7,16 +7,6 @@ import TeamCard from "../../components/Team/TeamCard";
 
 import { CircularProgress } from "@mui/material";
 
-import InstagramIcon from "@mui/icons-material/Instagram";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
-import GitHubIcon from "@mui/icons-material/GitHub";
-
-import AdbIcon from "@mui/icons-material/Adb";
-import CameraIcon from "@mui/icons-material/Camera";
-import CookieIcon from "@mui/icons-material/Cookie";
-import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
-import { Link } from "react-router-dom";
 import AboutFooter from "../../components/About/AboutFooter";
 import AboutNewsletter from "../../components/About/AboutNewsletter";
 import AboutHeader from "../../components/About/AboutHeader";
@@ -53,10 +43,11 @@ const About = () => {
         </div>
         {
           <div
-            className="p-8 justify-around items-center bg-gray-200 dark:bg-dark flex gap-6 text-light dark:text-dark flex-wrap
+            className="p-8 justify-around items-center bg-gray-200 dark:bg-dark flex  text-light dark:text-dark flex-wrap
          rounded-b-xl w-full"
           >
             <AboutFooter />
+
             <AboutNewsletter />
           </div>
         }

@@ -18,14 +18,13 @@ const QuoteCards = () => {
 
   return (
     <>
-      <h1 className="text-light dark:text-dark">NOS CLIENTS</h1>
-      <div className="pb-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full flex-wrap align-center justify-center items-center p-4">
+      <div className="py-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full flex-wrap align-center justify-center items-center p-4">
         {data && avis ? (
           <>
-            {avis?.map((avi) => (
+            {avis?.slice(0, 4).map((avi) => (
               <div
                 key={avi.id}
-                className="hover:scale-[99%] duration-300 ease-in-out rounded p-4 overflow-hidden shadow-lg bg-alabaster dark:bg-pewter text-light dark:text-dark"
+                className="hover:scale-[99%] duration-300 ease-in-out rounded p-4 overflow-hidden shadow-lg bg-light dark:bg-dark text-light dark:text-dark"
               >
                 <div className="flex gap-4 items-center">
                   <img

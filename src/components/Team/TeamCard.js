@@ -1,12 +1,9 @@
 import React from "react";
 
 import {
-  TagInfo,
   SocialLinkIcon,
   MobileSocialLink,
 } from "../Cards/components/CardComponents";
-
-import { Link } from "react-router-dom";
 
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TwitterIcon from "@mui/icons-material/Twitter";
@@ -21,28 +18,32 @@ const TeamCard = (props) => {
         <div className="w-full sm:w-1/2 md:w-1/3 lg:my-4 lg:px-4 lg:w-1/4 p-4 ">
           <article className="overflow-hidden shadow-lg bg-alabaster dark:bg-pewter text-light dark:text-dark rounded-lg">
             <div className="group relative w-full h-full overflow-hidden bg:light dark:bg-dark">
-              <Link to="">
-                <img
-                  alt={acf?.photo?.altText}
-                  className="max-w-full w-full group-hover:scale-110 duration-700 ease-in-out"
-                  src={acf?.photo?.sourceUrl}
-                />
-              </Link>
+              <img
+                alt={acf?.photo?.altText}
+                className="max-w-full w-full group-hover:scale-110 duration-700 ease-in-out"
+                src={acf?.photo?.sourceUrl}
+              />
               <div className="hidden md:block">
                 <div className="absolute left-0 top-0">
                   <ul className="flex gap-3 p-4 text-dark">
-                    <SocialLinkIcon
-                      link="https://www.instagram.com/"
-                      icon={<LinkedInIcon />}
-                    />
-                    <SocialLinkIcon
-                      link="https://www.twitter.com/"
-                      icon={<TwitterIcon />}
-                    />
-                    <SocialLinkIcon
-                      link="https://www.instagram.com/"
-                      icon={<InstagramIcon />}
-                    />
+                    {acf?.socials?.linkedin && (
+                      <SocialLinkIcon
+                        link={acf?.socials?.linkedin}
+                        icon={<LinkedInIcon />}
+                      />
+                    )}
+                    {acf?.socials?.twitter && (
+                      <SocialLinkIcon
+                        link={acf?.socials?.twitter}
+                        icon={<TwitterIcon />}
+                      />
+                    )}
+                    {acf?.socials?.instagram && (
+                      <SocialLinkIcon
+                        link={acf?.socials?.instagram}
+                        icon={<InstagramIcon />}
+                      />
+                    )}
                   </ul>
                 </div>
               </div>
@@ -56,18 +57,24 @@ const TeamCard = (props) => {
                 <p>{acf.description}</p>
               </div>
               <div className="flex gap-4 md:hidden">
-                <MobileSocialLink
-                  link="https://www.instagram.com"
-                  icon={<LinkedInIcon />}
-                />
-                <MobileSocialLink
-                  link="https://www.instagram.com"
-                  icon={<TwitterIcon />}
-                />
-                <MobileSocialLink
-                  link="https://www.instagram.com"
-                  icon={<InstagramIcon />}
-                />
+                {acf?.socials?.linkedin && (
+                  <MobileSocialLink
+                    link={acf?.socials?.linkedin}
+                    icon={<LinkedInIcon />}
+                  />
+                )}
+                {acf?.socials?.twitter && (
+                  <MobileSocialLink
+                    link={acf?.socials?.twitter}
+                    icon={<TwitterIcon />}
+                  />
+                )}
+                {acf?.socials?.instagram && (
+                  <MobileSocialLink
+                    link={acf?.socials?.instagram}
+                    icon={<InstagramIcon />}
+                  />
+                )}
               </div>
               <hr className="my-4 border-light sm:mx-auto dark:border-dark" />
               <div className="flex  gap-4 items-center text-xs h-[32px]">

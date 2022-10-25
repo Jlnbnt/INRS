@@ -11,8 +11,7 @@ import ReplyIcon from "@mui/icons-material/Reply";
 
 const EventsCard = ({ post }) => {
   const acf = post?.evenements_acf;
-  console.log(acf);
-  console.log(typeof acf?.eventprice);
+
   return (
     <>
       {post && (

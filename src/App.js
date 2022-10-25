@@ -16,11 +16,14 @@ import SingleNews from "./pages/News/SingleNews";
 import AllEvents from "./pages/Events/AllEvents";
 import SingleEvent from "./pages/Events/SingleEvent";
 
+import AllJobs from "./pages/Jobs/AllJobs";
+
 import SinglePost from "./pages/Posts/SinglePost";
 
 import SearchResults from "./pages/Search/SearchResults";
 import PDC from "./pages/CGU/PDC";
 import CGU from "./pages/CGU/CGU";
+import Blog from "./pages/Blog/Blog";
 
 function App() {
   const { themeChoice } = useThemeContext();
@@ -36,15 +39,25 @@ function App() {
               {/* Routes inside Layout Component */}
               <Route path="/" element={<Layout />}>
                 <Route path="/" element={<Homepage />} />
+
+                <Route path="/blog" element={<Blog />} />
+
+                <Route path="/actualites" element={<AllNews />} />
+                <Route path="/actualite/:id" element={<SingleNews />} />
+
+                <Route path="/evenements" element={<AllEvents />} />
+                <Route path="/evenement/:id" element={<SingleEvent />} />
+
+                <Route path="/jobs" element={<AllJobs />} />
+
+                <Route path="/post/:id" element={<SinglePost />} />
+
+                <Route path="/about" element={<About />} />
+
+                <Route path="/search" element={<SearchResults />} />
+
                 <Route path="/pdc" element={<PDC />} />
                 <Route path="/cgu" element={<CGU />} />
-                <Route path="/search" element={<SearchResults />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/actualites" element={<AllNews />} />
-                <Route path="/evenements" element={<AllEvents />} />
-                <Route path="/actualite/:id" element={<SingleNews />} />
-                <Route path="/evenement/:id" element={<SingleEvent />} />
-                <Route path="/post/:id" element={<SinglePost />} />
               </Route>
               {/* Catch All */}
               <Route path="*" element={<Missing />} />

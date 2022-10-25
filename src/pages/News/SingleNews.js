@@ -14,6 +14,7 @@ const SingleNews = () => {
 
   useEffect(() => {
     setSearchQuery("");
+    // eslint-disable-next-line
   }, []);
 
   const id = useParams();

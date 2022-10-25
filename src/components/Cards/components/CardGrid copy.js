@@ -10,7 +10,6 @@ import { CircularProgress } from "@mui/material";
 
 const CardGrid = ({ searchQuery, graphlQLQuery, postType }) => {
   const location = useLocation().pathname;
-  const [slicer, setSlicer] = useState(4);
 
   const { loading, error, data } = useQuery(graphlQLQuery, {
     variables: {
@@ -27,7 +26,14 @@ const CardGrid = ({ searchQuery, graphlQLQuery, postType }) => {
         <>
           {data?.[postType]?.nodes
 
-            .slice(0, slicer)
+            .slice(
+              0,
+              location === "/actualites" ||
+                location === "/evenements" ||
+                location === "/search"
+                ? data?.[postType]?.nodes.length
+                : 4
+            )
             .map((post) =>
               postType === "actualites" ? (
                 <NewsCard key={post.title} post={post} />
@@ -67,16 +73,6 @@ const CardGrid = ({ searchQuery, graphlQLQuery, postType }) => {
                 </Link>
               </span>
             )}
-          {data && data?.[postType]?.nodes.length > slicer && (
-            <div className="flex flex-col justify-content items-center w-full">
-              <button
-                onClick={() => setSlicer(slicer + 4)}
-                className="customHover my-6 font-light text-lg text-center text-light dark:text-dark dark:before:bg-light"
-              >
-                Show More...
-              </button>
-            </div>
-          )}
         </>
       ) : (
         <h2 className="text-light dark:text-dark opacity-50 text-sm font-semibold p-8">

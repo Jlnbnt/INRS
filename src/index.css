@@ -39,6 +39,17 @@ iframe {
 @tailwind utilities;
 
 @layer components {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  .scrollbar-show::-webkit-scrollbar {
+    display: block;
+    -ms-overflow-style: block; /* IE and Edge */
+    scrollbar-width: block; /* Firefox */
+  }
+
   .filter-dark {
     filter: brightness(0%);
   }

@@ -2,47 +2,81 @@ import React, { useEffect } from "react";
 
 import { useStateContext } from "../../context/StateProvider";
 
-import { GET_NEWS_PREVIEWS, GET_EVENTS_PREVIEWS } from "../../graphql/Queries";
-
-import CardGridRow from "../../components/Cards/components/CardGridRow";
-
-import FirstArticle from "../Posts/Articles/FirstArticle";
-import SecondArticle from "../Posts/Articles/SecondArticle";
-
 import QuoteCards from "../../components/Quotes/QuoteCards";
+import { Link } from "react-router-dom";
+import AboutNewsletter from "../../components/About/AboutNewsletter";
+import AboutFooter from "../../components/About/AboutFooter";
+import HomepageServices from "../../components/Homepage/HomepageServices";
+import ModalForm from "../../components/Form/ModalForm";
 
 const Homepage = () => {
-  const { searchQuery, setSearchQuery, setSearchActive } = useStateContext();
+  const { setSearchQuery, setSearchActive, handleContactOpen } =
+    useStateContext();
 
   useEffect(() => {
     setSearchQuery("");
     setSearchActive(false);
+    // eslint-disable-next-line
   }, []);
 
   return (
-    <div className="p-5">
-      <FirstArticle postType="article1" />
-      {<SecondArticle postType="article2" />}
+    <>
+      <div className="text-white dark:bg-black/60 bg-gray-100  flex flex-col justify-center items-center ">
+        <div className="h-screen mb-16">
+          <video
+            loop
+            autoPlay
+            muted
+            className="sm:w-full absolute  z-10 w-full h-full object-cover top-0 left-0"
+            src="http://travelcompany.local/wp-content/uploads/2022/10/VideoComp.mp4"
+          ></video>
+          <div className="bg-dark h-full w-full absolute left-0 top-0 z-20  opacity-80" />
 
-      <div className="relative">
-        <span id="anchorCards" className="absolute  -top-20 " />
+          <div className="bg-red-500/0 w-full h-[calc(100%-56px)] sm:h-[calc(100%-64px)] absolute top-0 left-0 z-20 mt-[56px] sm:mt-[64px] p-4 flex items-center">
+            <div className="w-full h-3/4 bg-green-500/0 p-8  text-dark font-semibold text-7xl flex flex-col justify-between items-center">
+              <div className=" text-center flex flex-col items-center gap-4">
+                <h1 className="text-8xl sm:text-9xl">INRS</h1>
+                <h2 className="text-5xl sm:text-5xl italic">
+                  "It is not Rocket Science..."
+                </h2>
+              </div>
+              <div className="flex items-center gap-4">
+                <Link
+                  to="about"
+                  className="text-center min-w-[117px] border-[0.5px] border-dark p-2 rounded-lg text-xl hover:bg-light/30 duration-300"
+                >
+                  Discover
+                </Link>
+                <button
+                  onClick={handleContactOpen}
+                  className="min-w-[117px] border-[0.5px] border-dark p-2 rounded-lg text-xl hover:bg-light/30 duration-300"
+                >
+                  Contact Us
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="relative top-[-65px] w-[90%] md:w-[97%]">
+          <HomepageServices />
+          <div className="h-full my-8 w-full flex justify-around bg-red-500">
+            <h2>Agenda</h2>
+            <h2>Journal</h2>
+            <h2>Blog</h2>
+          </div>
+          <div
+            className="p-8 justify-around items-center bg-gray-200 dark:bg-dark flex   text-light dark:text-dark flex-wrap
+          w-full"
+          >
+            <AboutFooter />
+          </div>
+          <QuoteCards />
 
-        <CardGridRow
-          rowName="Actualités"
-          searchQuery={searchQuery}
-          query={GET_NEWS_PREVIEWS}
-          type="actualites"
-        />
-        <CardGridRow
-          rowName="Événements"
-          searchQuery={searchQuery}
-          query={GET_EVENTS_PREVIEWS}
-          type="evenements"
-        />
+          <AboutNewsletter />
+          <ModalForm />
+        </div>
       </div>
-
-      {/*  <QuoteCards /> */}
-    </div>
+    </>
   );
 };
 

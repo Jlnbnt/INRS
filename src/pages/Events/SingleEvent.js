@@ -14,6 +14,7 @@ const SingleEvent = () => {
 
   useEffect(() => {
     setSearchQuery("");
+    // eslint-disable-next-line
   }, []);
 
   const id = useParams();
@@ -62,6 +63,7 @@ const SingleEvent = () => {
             dangerouslySetInnerHTML={{ __html: acf?.maintext }}
           />
           <a
+            rel="noreferrer"
             target="_blank"
             href={acf?.inscriptionLink}
             className="self-center text-5xl mt-8 customHover dark:before:bg-light font-semibold cursor-pointer"

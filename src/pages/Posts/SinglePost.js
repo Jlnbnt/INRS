@@ -14,6 +14,7 @@ const SinglePost = () => {
 
   useEffect(() => {
     setSearchQuery("");
+    // eslint-disable-next-line
   }, []);
 
   const id = useParams();

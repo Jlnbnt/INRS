@@ -70,6 +70,8 @@ export default function Sidebar() {
         </List>
         <List className="p-0">
           <NavLink name="HOME" link="/" />
+          <NavLink name="BLOG" link="blog" />
+          <NavLink name="JOBS" link="jobs" />
           <NavLink name="ACTUALITES" link="actualites" />
           <NavLink name="EVENEMENTS" link="evenements" />
           <NavLink name="ABOUT" link="about" />

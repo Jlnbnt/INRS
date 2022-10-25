@@ -2,9 +2,9 @@ import React, { useState } from "react";
 
 import { useQuery } from "@apollo/client";
 
-import { useThemeContext } from "../../context/ThemeProvider";
 import { GET_ABOUT_NEWSLETTER } from "../../graphql/Queries";
 import { CircularProgress, Snackbar } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const AboutNewsletter = () => {
   const { loading, error, data } = useQuery(GET_ABOUT_NEWSLETTER);
@@ -89,12 +89,12 @@ const AboutNewsletter = () => {
               </div>
             </div>
             <div className="mx-auto max-w-screen-sm text-sm text-left text-gray-500 newsletter-form-footer dark:text-gray-300">
-              <a
-                href="#"
+              <Link
+                to="cgu"
                 className="font-medium text-primary-600 dark:text-primary-500 hover:underline"
               >
                 {acf?.input?.texte}
-              </a>
+              </Link>
               .
             </div>
           </form>
