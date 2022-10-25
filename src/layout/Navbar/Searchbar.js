@@ -13,7 +13,6 @@ const Searchbar = ({ setSearchActive }) => {
 
   const searchFunc = (e) => {
     e.preventDefault();
-    console.log("sumbitted");
     navigate("/search");
     setSearchQuery(searchQuery);
   };
