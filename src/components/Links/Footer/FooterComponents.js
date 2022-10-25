@@ -46,7 +46,6 @@ export const FooterCol = (props) => {
 };
 
 export const FooterLink = (props) => {
-  console.log(props);
   return (
     <span className="p-0 text-light dark:text-dark hover:text-gray-400 hover:bg-transparent  dark:hover:text-gray-400 duration-300">
       {props.link && (
