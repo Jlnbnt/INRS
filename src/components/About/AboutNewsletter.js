@@ -90,7 +90,7 @@ const AboutNewsletter = () => {
             </div>
             <div className="mx-auto max-w-screen-sm text-sm text-left text-gray-500 newsletter-form-footer dark:text-gray-300">
               <Link
-                to="cgu"
+                to="/cgu"
                 className="font-medium text-primary-600 dark:text-primary-500 hover:underline"
               >
                 {acf?.input?.texte}
