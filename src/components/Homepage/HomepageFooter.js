@@ -12,7 +12,6 @@ const HomepageFooter = () => {
   if (loading) return <CircularProgress disableShrink className="m-8" />;
   if (error) return `Error! ${error.message}`;
 
-  console.log(data);
   const acf = data?.layouts?.nodes[0]?.miseEnPage?.accueil?.footer;
 
   return (

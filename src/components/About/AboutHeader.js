@@ -16,7 +16,12 @@ const AboutHeader = () => {
   const { themeChoice } = useThemeContext();
   const { loading, error, data } = useQuery(GET_ABOUT_HEADER);
 
-  if (loading) return <CircularProgress disableShrink className="m-8" />;
+  if (loading)
+    return (
+      <div className="bg-light dark:bg-dark h-screen w-full flex items-center justify-center">
+        <CircularProgress disableShrink className="m-8" />;
+      </div>
+    );
   if (error) return `Error! ${error.message}`;
 
   const acf = data?.layouts?.nodes[0]?.miseEnPage?.apropos?.header;

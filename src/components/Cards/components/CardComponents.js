@@ -4,7 +4,7 @@ import { useStateContext } from "../../../context/StateProvider";
 
 export const TagInfo = (props) => {
   const { setSearchQuery } = useStateContext();
-
+  console.log(props);
   return (
     <Link
       onClick={() => setSearchQuery(props.tag)}

@@ -61,11 +61,11 @@ const EventsCard = ({ post }) => {
               </div>*/}
             </div>
             <div className="p-4">
-              <h3 className="text-sm font-semibold h-[50px]">
+              <h3 className="text-sm font-semibold h-[60px] line-clamp-3">
                 {acf?.mainTitle}
               </h3>
-              <div className="flex justify-between text-xs py-3">
-                <h4 className="text-[12px]">
+              <div className="flex justify-between text-xs">
+                <h4 className="text-[12px] min-h-[32px]">
                   À{" "}
                   <span className="italic font-semibold  ">
                     {acf?.eventPlace}
@@ -84,7 +84,7 @@ const EventsCard = ({ post }) => {
               </div>
               <hr className="my-4 border-light sm:mx-auto dark:border-dark" />
               <div className="flex justify-between h-[48px]">
-                <div className="flex items-center flex-wrap flex-1">
+                <div className="flex items-center flex-wrap">
                   <a
                     target="_blank"
                     href={acf?.inscriptionLink}

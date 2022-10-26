@@ -2,7 +2,11 @@ import React from "react";
 
 import { useStateContext } from "../../context/StateProvider";
 
-import { GET_NEWS_PREVIEWS, GET_EVENTS_PREVIEWS } from "../../graphql/Queries";
+import {
+  GET_NEWS_PREVIEWS,
+  GET_EVENTS_PREVIEWS,
+  GET_BLOGS_PREVIEWS,
+} from "../../graphql/Queries";
 
 import CardGridRow from "../../components/Cards/components/CardGridRow";
 
@@ -22,6 +26,12 @@ const SearchResults = () => {
         searchQuery={searchQuery}
         query={GET_EVENTS_PREVIEWS}
         type="evenements"
+      />
+      <CardGridRow
+        rowName="Blogs"
+        searchQuery={searchQuery}
+        query={GET_BLOGS_PREVIEWS}
+        type="blogs"
       />
     </div>
   );

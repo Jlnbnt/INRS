@@ -5,27 +5,22 @@ import { useParams } from "react-router-dom";
 import { useStateContext } from "../../../context/StateProvider";
 
 import { useQuery } from "@apollo/client";
-import { GET_SINGLE_HIGHLIGHTS } from "../../../graphql/Queries";
+import { GET_BLOG_BY_ID } from "../../../graphql/Queries";
 
 import { CircularProgress } from "@mui/material";
 
-const SingleArticle = () => {
+const SingleBlog = () => {
   const { setSearchQuery } = useStateContext();
 
   useEffect(() => {
     setSearchQuery("");
-    window.scrollTo({
-      top: "0",
-      behavior: "smooth",
-    });
     // eslint-disable-next-line
   }, []);
 
   const id = useParams();
-  const { loading, error, data } = useQuery(GET_SINGLE_HIGHLIGHTS, {
+
+  const { loading, error, data } = useQuery(GET_BLOG_BY_ID, {
     variables: {
-      article1: id.id === "cG9zdDo5NDE=" ? true : false,
-      article2: id.id === "cG9zdDo5NDI=" ? true : false,
       id: id.id,
     },
   });
@@ -33,10 +28,7 @@ const SingleArticle = () => {
   if (loading) return <CircularProgress disableShrink className="m-8" />;
   if (error) return `Error! ${error.message}`;
 
-  const currentArticle = id.id === "cG9zdDo5NDE=" ? "article1" : "article2";
-
-  const acf = data?.layout?.miseEnPage?.blog?.[currentArticle];
-  console.log(id.id);
+  const acf = data?.blog?.blog_acf;
 
   return (
     <>
@@ -44,28 +36,28 @@ const SingleArticle = () => {
         <div className="pb-16 flex w-full flex-col text-light dark:text-dark p-4">
           <img
             className="h-[40vh] md:h-[70vh] w-11/12 object-cover mb-6 rounded-2xl self-center"
-            src={acf?.image?.sourceUrl}
-            alt={acf?.image?.altText}
+            src={acf?.mainImage?.sourceUrl}
+            alt=""
           />
 
           <div className="mb-6 flex flex-col justify-between gap-4">
             <h2 className="font-semibold text-[7vw] md:text-[5 vw] lg:text-[4.5vw] max-w-7xl">
-              {acf?.titre?.toUpperCase()}
+              {acf?.mainTitle?.toUpperCase()}
             </h2>
 
             <div className="flex items-center gap-2 italic">
               <span>Ecrit par</span>
               <img
-                alt={`${data?.layout?.author?.node?.name}'s avatar`}
+                alt={`${data?.blog?.author?.node?.name}'s avatar`}
                 className="rounded-full w-[16px] h-[16px]"
-                src={data?.layout?.author?.node?.avatar?.url}
+                src={data?.blog?.author?.node?.avatar?.url}
               />
               <span className="text-gray-400">
-                {data?.layout?.author?.node?.name}
+                {data?.blog?.author?.node?.name}
               </span>
               <span>le</span>
               <h4 className="text-gray-400">{`${new Date(
-                data?.layout?.date
+                data?.blog?.date
               ).toLocaleString("fr-FR", {
                 year: "numeric",
                 month: "numeric",
@@ -75,7 +67,7 @@ const SingleArticle = () => {
           </div>
           <div
             className="max-w-[90%] md:max-w-5xl self-center"
-            dangerouslySetInnerHTML={{ __html: acf?.contenu }}
+            dangerouslySetInnerHTML={{ __html: acf?.maintext }}
           />
         </div>
       )}
@@ -83,4 +75,4 @@ const SingleArticle = () => {
   );
 };
 
-export default SingleArticle;
+export default SingleBlog;

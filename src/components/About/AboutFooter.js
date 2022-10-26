@@ -22,9 +22,9 @@ const AboutFooter = () => {
             .slice(1)
             .map((icon) => (
               <Partner
-                key={icon.sourceUrl}
-                link={icon.sourceUrl}
-                alt={icon.altText}
+                key={icon?.sourceUrl}
+                link={icon?.sourceUrl}
+                alt={icon?.altText}
               />
             ))}
       </div>

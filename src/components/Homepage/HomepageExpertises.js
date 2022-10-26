@@ -8,7 +8,7 @@ import { CircularProgress } from "@mui/material";
 import { ServicesIcon } from "../Links/About/AboutComponents";
 import { Link } from "react-router-dom";
 
-const HomepageServices = () => {
+const HomepageExpertises = () => {
   const { loading, error, data } = useQuery(GET_HOMEPAGE_EXPERTISES);
 
   if (loading) return <CircularProgress disableShrink className="m-8" />;
@@ -78,4 +78,4 @@ const HomepageServices = () => {
   );
 };
 
-export default HomepageServices;
+export default HomepageExpertises;

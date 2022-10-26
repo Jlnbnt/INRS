@@ -186,92 +186,6 @@ export const GET_QUOTES = gql`
   }
 `;
 
-export const GET_ALL_HIGHLIGHTS = gql`
-  query GetPostByTitle(
-    $article1: Boolean!
-    $title: String!
-    $article2: Boolean!
-  ) {
-    layouts(where: { title: $title }) {
-      nodes {
-        miseEnPage {
-          blog {
-            article1 @include(if: $article1) {
-              baselineGras
-              baselineLight
-              contenu
-              lienGras
-              lienLight
-              titre
-              image {
-                altText
-                sourceUrl(size: _2048X2048)
-              }
-            }
-            article2 @include(if: $article2) {
-              baselineGras
-              baselineLight
-              contenu
-              lienGras
-              lienLight
-              titre
-              image {
-                altText
-                sourceUrl(size: _2048X2048)
-              }
-            }
-          }
-        }
-        id
-      }
-    }
-  }
-`;
-
-export const GET_SINGLE_HIGHLIGHTS = gql`
-  query GetPostByTitle($article1: Boolean!, $id: ID!, $article2: Boolean!) {
-    layout(id: $id) {
-      date
-      author {
-        node {
-          avatar {
-            url
-          }
-          name
-        }
-      }
-      miseEnPage {
-        blog {
-          article1 @include(if: $article1) {
-            baselineGras
-            baselineLight
-            contenu
-            lienGras
-            lienLight
-            titre
-            image {
-              altText
-              sourceUrl(size: _2048X2048)
-            }
-          }
-          article2 @include(if: $article2) {
-            baselineGras
-            baselineLight
-            contenu
-            lienGras
-            lienLight
-            titre
-            image {
-              altText
-              sourceUrl(size: _2048X2048)
-            }
-          }
-        }
-      }
-      id
-    }
-  }
-`;
 export const GET_ABOUT_FOOTER = gql`
   query GetPostByTitle {
     layouts(where: { search: "A propos - Footer" }) {
@@ -695,6 +609,81 @@ export const GET_HOMEPAGE_FOOTER = gql`
             }
           }
         }
+      }
+    }
+  }
+`;
+
+export const GET_BLOGS_PREVIEWS = gql`
+  query GetPreviewPosts($reactQuery: String) {
+    blogs(where: { reactQuery: $reactQuery }, first: 50) {
+      nodes {
+        blog_acf {
+          mainImage {
+            altText
+            sourceUrl(size: THUMBNAIL)
+          }
+          tag
+          mainTitle
+        }
+        author {
+          node {
+            avatar {
+              url
+            }
+            name
+          }
+        }
+        date
+        title
+        id
+      }
+    }
+  }
+`;
+
+export const GET_LATEST_BLOG = gql`
+  query GetPreviewPosts {
+    blogs(first: 1) {
+      nodes {
+        blog_acf {
+          mainImage {
+            altText
+            sourceUrl(size: _2048X2048)
+          }
+        }
+        author {
+          node {
+            name
+          }
+        }
+        title
+        id
+      }
+    }
+  }
+`;
+export const GET_BLOG_BY_ID = gql`
+  query GetNewsById($id: ID!) {
+    blog(id: $id) {
+      date
+      title
+      author {
+        node {
+          avatar {
+            url
+          }
+          name
+        }
+      }
+      blog_acf {
+        mainImage {
+          altText
+          sourceUrl(size: _1536X1536)
+        }
+        mainTitle
+        tag
+        maintext
       }
     }
   }

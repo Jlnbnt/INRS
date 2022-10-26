@@ -8,7 +8,8 @@ import AboutNewsletter from "../../components/About/AboutNewsletter";
 
 import HomepageFooter from "../../components/Homepage/HomepageFooter";
 import ModalForm from "../../components/Form/ModalForm";
-
+import HomepageExpertises from "../../components/Homepage/HomepageExpertises";
+import HomepageOthers from "../../components/Homepage/HomepageOthers";
 import { GET_VIDEO } from "../../graphql/Queries";
 import { useQuery } from "@apollo/client";
 import { CircularProgress } from "@mui/material";
@@ -24,7 +25,12 @@ const Homepage = () => {
 
   const { loading, error, data } = useQuery(GET_VIDEO);
 
-  if (loading) return <CircularProgress disableShrink className="m-8" />;
+  if (loading)
+    return (
+      <div className="h-full w-full min-h-[calc(100vh-56px)] sm:min-h-[calc(100vh-64px)] flex items-center justify-center">
+        <CircularProgress disableShrink className="m-8" />;
+      </div>
+    );
 
   if (error) return `Error! ${error.message}`;
 
@@ -70,11 +76,10 @@ const Homepage = () => {
           </div>
         </div>
         <div className="relative top-[-65px] w-[90%] md:w-[97%]">
-          <div className="h-full my-8 w-full flex justify-around bg-red-500">
-            <h2>Agenda</h2>
-            <h2>Journal</h2>
-            <h2>Blog</h2>
-          </div>
+          <HomepageExpertises />
+          <br />
+          <HomepageOthers />
+          <br />
           <div
             className="p-8 justify-around items-center bg-gray-200 dark:bg-dark flex   text-light dark:text-dark flex-wrap
           w-full"

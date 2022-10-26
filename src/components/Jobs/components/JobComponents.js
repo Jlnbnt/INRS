@@ -49,7 +49,7 @@ export const JobPreview = () => {
   return (
     <>
       <div
-        className=" w-full  md:w-1/2 lg:w-2/5 p-2 h-[calc(100vh-110px)] sm:h-[calc(100vh-128px)]"
+        className="w-full  md:w-1/2 lg:w-2/5 p-2 h-[calc(100vh-110px)] sm:h-[calc(100vh-128px)]"
         style={{
           display: isMobile && clicked ? "none" : "block",
         }}
@@ -59,7 +59,7 @@ export const JobPreview = () => {
             data?.jobs?.nodes?.slice(0, slicer).map((job) => (
               <div
                 key={job.id}
-                className="w-full py-4 flex gap-12 items-center relative"
+                className="dark:hover:bg-light/5 hover:bg-dark/5 p-2 w-full py-4 flex gap-12 items-center relative"
               >
                 <button
                   onClick={() => OpenIt(job)}

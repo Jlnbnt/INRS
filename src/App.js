@@ -18,12 +18,12 @@ import SingleEvent from "./pages/Events/SingleEvent";
 
 import AllJobs from "./pages/Jobs/AllJobs";
 
-import SingleArticle from "./pages/Blog/Articles/SingleArticle";
+import AllBlog from "./pages/Blog/AllBlog";
+import SingleBlog from "./pages/Blog/Articles/SingleBlog";
 
 import SearchResults from "./pages/Search/SearchResults";
 import PDC from "./pages/CGU/PDC";
 import CGU from "./pages/CGU/CGU";
-import Blog from "./pages/Blog/Blog";
 
 function App() {
   const { themeChoice } = useThemeContext();
@@ -40,7 +40,8 @@ function App() {
               <Route path="/" element={<Layout />}>
                 <Route path="/" element={<Homepage />} />
 
-                <Route path="/blog" element={<Blog />} />
+                <Route path="/blogs" element={<AllBlog />} />
+                <Route path="/blog/:id" element={<SingleBlog />} />
 
                 <Route path="/actualites" element={<AllNews />} />
                 <Route path="/actualite/:id" element={<SingleNews />} />
@@ -49,8 +50,6 @@ function App() {
                 <Route path="/evenement/:id" element={<SingleEvent />} />
 
                 <Route path="/jobs" element={<AllJobs />} />
-
-                <Route path="/post/:id" element={<SingleArticle />} />
 
                 <Route path="/about" element={<About />} />
 

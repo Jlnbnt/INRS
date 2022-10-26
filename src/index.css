@@ -39,6 +39,10 @@ iframe {
 @tailwind utilities;
 
 @layer components {
+  .test {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
     -ms-overflow-style: none; /* IE and Edge */
