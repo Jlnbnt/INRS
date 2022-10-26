@@ -5,8 +5,8 @@ import { useStateContext } from "../../context/StateProvider";
 import QuoteCards from "../../components/Quotes/QuoteCards";
 import { Link } from "react-router-dom";
 import AboutNewsletter from "../../components/About/AboutNewsletter";
-import AboutFooter from "../../components/About/AboutFooter";
-import HomepageServices from "../../components/Homepage/HomepageServices";
+
+import HomepageFooter from "../../components/Homepage/HomepageFooter";
 import ModalForm from "../../components/Form/ModalForm";
 
 import { GET_VIDEO } from "../../graphql/Queries";
@@ -70,7 +70,6 @@ const Homepage = () => {
           </div>
         </div>
         <div className="relative top-[-65px] w-[90%] md:w-[97%]">
-          <HomepageServices />
           <div className="h-full my-8 w-full flex justify-around bg-red-500">
             <h2>Agenda</h2>
             <h2>Journal</h2>
@@ -80,10 +79,9 @@ const Homepage = () => {
             className="p-8 justify-around items-center bg-gray-200 dark:bg-dark flex   text-light dark:text-dark flex-wrap
           w-full"
           >
-            <AboutFooter />
+            <HomepageFooter />
           </div>
           <QuoteCards />
-
           <AboutNewsletter />
           <ModalForm />
         </div>

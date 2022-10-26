@@ -2,36 +2,41 @@ import React, { useEffect } from "react";
 
 import { useParams } from "react-router-dom";
 
-import { useStateContext } from "../../context/StateProvider";
+import { useStateContext } from "../../../context/StateProvider";
 
 import { useQuery } from "@apollo/client";
-import { GET_SINGLE_HIGHLIGHTS } from "../../graphql/Queries";
+import { GET_SINGLE_HIGHLIGHTS } from "../../../graphql/Queries";
 
 import { CircularProgress } from "@mui/material";
 
-const SinglePost = () => {
+const SingleArticle = () => {
   const { setSearchQuery } = useStateContext();
 
   useEffect(() => {
     setSearchQuery("");
+    window.scrollTo({
+      top: "0",
+      behavior: "smooth",
+    });
     // eslint-disable-next-line
   }, []);
 
   const id = useParams();
   const { loading, error, data } = useQuery(GET_SINGLE_HIGHLIGHTS, {
     variables: {
-      article1: id.id === "cG9zdDozMTQ=" ? true : false,
-      article2: id.id === "cG9zdDozMjU=" ? true : false,
+      article1: id.id === "cG9zdDo5NDE=" ? true : false,
+      article2: id.id === "cG9zdDo5NDI=" ? true : false,
       id: id.id,
     },
   });
-
+  console.log(data);
   if (loading) return <CircularProgress disableShrink className="m-8" />;
   if (error) return `Error! ${error.message}`;
 
-  const currentArticle = id.id === "cG9zdDozMTQ=" ? "article1" : "article2";
+  const currentArticle = id.id === "cG9zdDo5NDE=" ? "article1" : "article2";
 
-  const acf = data?.layout?.miseEnPage?.accueil?.[currentArticle];
+  const acf = data?.layout?.miseEnPage?.blog?.[currentArticle];
+  console.log(id.id);
 
   return (
     <>
@@ -78,4 +83,4 @@ const SinglePost = () => {
   );
 };
 
-export default SinglePost;
+export default SingleArticle;

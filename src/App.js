@@ -18,7 +18,7 @@ import SingleEvent from "./pages/Events/SingleEvent";
 
 import AllJobs from "./pages/Jobs/AllJobs";
 
-import SinglePost from "./pages/Posts/SinglePost";
+import SingleArticle from "./pages/Blog/Articles/SingleArticle";
 
 import SearchResults from "./pages/Search/SearchResults";
 import PDC from "./pages/CGU/PDC";
@@ -50,7 +50,7 @@ function App() {
 
                 <Route path="/jobs" element={<AllJobs />} />
 
-                <Route path="/post/:id" element={<SinglePost />} />
+                <Route path="/post/:id" element={<SingleArticle />} />
 
                 <Route path="/about" element={<About />} />
 

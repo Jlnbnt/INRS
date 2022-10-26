@@ -12,14 +12,14 @@ const SecondArticle = () => {
     variables: {
       article1: false,
       article2: true,
-      title: "Accueil - Article 2",
+      title: "Blog - Article 2",
     },
   });
 
   if (loading) return <CircularProgress disableShrink className="m-8" />;
   if (error) return `Error! ${error.message}`;
 
-  const article = data?.layouts?.nodes[0]?.miseEnPage?.accueil?.article2;
+  const article = data?.layouts?.nodes[0]?.miseEnPage?.blog?.article2;
 
   return (
     <div className="flex w-full flex-wrap  align-center">

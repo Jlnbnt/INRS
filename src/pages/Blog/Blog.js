@@ -6,10 +6,8 @@ import { GET_NEWS_PREVIEWS, GET_EVENTS_PREVIEWS } from "../../graphql/Queries";
 
 import CardGridRow from "../../components/Cards/components/CardGridRow";
 
-import FirstArticle from "../Posts/Articles/FirstArticle";
-import SecondArticle from "../Posts/Articles/SecondArticle";
-
-import QuoteCards from "../../components/Quotes/QuoteCards";
+import FirstArticle from "./Articles/FirstArticle";
+import SecondArticle from "./Articles/SecondArticle";
 
 const Blog = () => {
   const { searchQuery, setSearchQuery, setSearchActive } = useStateContext();

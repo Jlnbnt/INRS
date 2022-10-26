@@ -195,7 +195,7 @@ export const GET_ALL_HIGHLIGHTS = gql`
     layouts(where: { title: $title }) {
       nodes {
         miseEnPage {
-          accueil {
+          blog {
             article1 @include(if: $article1) {
               baselineGras
               baselineLight
@@ -241,7 +241,7 @@ export const GET_SINGLE_HIGHLIGHTS = gql`
         }
       }
       miseEnPage {
-        accueil {
+        blog {
           article1 @include(if: $article1) {
             baselineGras
             baselineLight
@@ -274,7 +274,7 @@ export const GET_SINGLE_HIGHLIGHTS = gql`
 `;
 export const GET_ABOUT_FOOTER = gql`
   query GetPostByTitle {
-    layouts(where: { search: "Footer" }) {
+    layouts(where: { search: "A propos - Footer" }) {
       nodes {
         title
         miseEnPage {
@@ -558,6 +558,139 @@ export const GET_VIDEO = gql`
             accueil {
               video {
                 mediaItemUrl
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+export const GET_HOMEPAGE_EXPERTISES = gql`
+  query GetExpertises {
+    layouts(where: { search: "Expertises" }) {
+      nodes {
+        miseEnPage {
+          accueil {
+            expertises {
+              carte {
+                sousTitre
+                texte
+                image {
+                  altText
+                  sourceUrl(size: THUMBNAIL)
+                }
+              }
+              gridServices {
+                fieldGroupName
+                expertise1 {
+                  texte
+                  titre
+                  icone {
+                    altText
+                    sourceUrl(size: THUMBNAIL)
+                  }
+                }
+                expertise2 {
+                  texte
+                  titre
+                  icone {
+                    altText
+                    sourceUrl(size: THUMBNAIL)
+                  }
+                }
+                expertise3 {
+                  texte
+                  titre
+                  icone {
+                    altText
+                    sourceUrl(size: THUMBNAIL)
+                  }
+                }
+                expertise4 {
+                  texte
+                  titre
+                  icone {
+                    altText
+                    sourceUrl(size: THUMBNAIL)
+                  }
+                }
+                expertise5 {
+                  texte
+                  titre
+                  icone {
+                    altText
+                    sourceUrl(size: THUMBNAIL)
+                  }
+                }
+                expertise6 {
+                  texte
+                  titre
+                  icone {
+                    altText
+                    sourceUrl(size: THUMBNAIL)
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+export const GET_HOMEPAGE_FOOTER = gql`
+  query GetHomePageFooter {
+    layouts(where: { search: "Accueil - Footer" }) {
+      nodes {
+        title
+        miseEnPage {
+          accueil {
+            footer {
+              partenaires {
+                icone1 {
+                  altText
+                  sourceUrl(size: THUMBNAIL)
+                }
+                icone2 {
+                  altText
+                  sourceUrl(size: THUMBNAIL)
+                }
+                icone3 {
+                  altText
+                  sourceUrl(size: THUMBNAIL)
+                }
+                icone4 {
+                  altText
+                  sourceUrl(size: THUMBNAIL)
+                }
+                icone5 {
+                  altText
+                  sourceUrl(size: THUMBNAIL)
+                }
+                icone6 {
+                  altText
+                  sourceUrl(size: THUMBNAIL)
+                }
+              }
+              projets {
+                projet1 {
+                  nombre
+                  texte
+                  titre
+                }
+                projet2 {
+                  nombre
+                  texte
+                  titre
+                }
+                projet3 {
+                  nombre
+                  texte
+                  titre
+                }
               }
             }
           }
