@@ -1,6 +1,6 @@
 import { ApolloClient, InMemoryCache } from "@apollo/client";
 
-const API_URL = "https://inrs.epizy.com/graphql";
+const API_URL = "https://inrs.epizy.com/index.php?graphql";
 
 const client = new ApolloClient({
   uri: API_URL,
