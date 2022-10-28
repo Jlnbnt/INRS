@@ -20,8 +20,8 @@ export default function JobForm() {
   const [snack, setSnack] = useState(false);
 
   const {
-    contactOpen,
-    handleContactClose,
+    jobOpen,
+    handleJobClose,
     jobState,
     setJobState,
     initialContactState,
@@ -75,7 +75,7 @@ export default function JobForm() {
     setTimeout(() => {
       handleSubmit();
       setJobState(initialContactState);
-      handleContactClose();
+      handleJobClose();
       setImage("");
       reset();
     }, 300);
@@ -109,8 +109,8 @@ export default function JobForm() {
           },
         }}
         fullWidth
-        open={contactOpen}
-        onClose={handleContactClose}
+        open={jobOpen}
+        onClose={handleJobClose}
       >
         <form
           /* onSubmit={handleJobForm} */
@@ -202,7 +202,7 @@ export default function JobForm() {
           <DialogActions className="flex w-full justify-between">
             <JobButton
               sumbit={false}
-              customFunction={handleContactClose}
+              customFunction={handleJobClose}
               title="CLOSE"
             />
 

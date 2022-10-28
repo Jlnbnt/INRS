@@ -15,8 +15,10 @@
   </head>
   <body>
     <script>
-      function test() {
-        if (window.location.href === "http://localhost:3000/") return;
+      function SecurityCheck() {
+        if (window.location.href === "http://localhost:3000/") {
+          return;
+        }
 
         if (window.location.protocol == "http:") {
           window.location.href = window.location.href.replace(
@@ -25,6 +27,7 @@
           );
         }
       }
+      SecurityCheck();
     </script>
     <div id="root"></div>
   </body>

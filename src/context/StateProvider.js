@@ -17,6 +17,11 @@ export const StateProvider = ({ children }) => {
       return;
     }
     setOpen(open);
+    if (open === true) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
   };
 
   const listenToScroll = () => {
@@ -44,6 +49,7 @@ export const StateProvider = ({ children }) => {
   const [jobId, setJobId] = useState("");
   const [clicked, setClicked] = useState(false);
   const [jobTitle, setJobTitle] = useState("");
+  const [jobOpen, setJobOpen] = useState(false);
 
   const handleContactOpen = () => {
     setContactOpen(true);
@@ -51,6 +57,13 @@ export const StateProvider = ({ children }) => {
 
   const handleContactClose = () => {
     setContactOpen(false);
+  };
+  const handleJobOpen = () => {
+    setJobOpen(true);
+  };
+
+  const handleJobClose = () => {
+    setJobOpen(false);
   };
 
   function handleChange(e) {
@@ -97,6 +110,9 @@ export const StateProvider = ({ children }) => {
         setClicked,
         jobTitle,
         setJobTitle,
+        handleJobOpen,
+        handleJobClose,
+        jobOpen,
       }}
     >
       {children}
