@@ -9,11 +9,12 @@ import ModalForm from "../components/Form/ModalForm";
 import { useStateContext } from "../context/StateProvider";
 
 const Layout = () => {
-  const { handleContactClose } = useStateContext();
+  const { handleContactClose, setClicked } = useStateContext();
   const path = useLocation().pathname;
 
   useEffect(() => {
     handleContactClose();
+    setClicked(false);
   }, [path]);
 
   return (
