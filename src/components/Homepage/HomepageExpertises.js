@@ -15,7 +15,7 @@ const HomepageExpertises = () => {
   if (error) return `Error! ${error.message}`;
 
   const acf = data?.layouts?.nodes[0]?.miseEnPage?.accueil?.expertises;
-  console.log(data);
+
   return (
     <div
       className="p-8 justify-around items-center bg-gray-200 dark:bg-dark flex gap-16 flex-wrap  text-light dark:text-dark
