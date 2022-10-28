@@ -31,6 +31,7 @@ export default function Navbar() {
     awayFromTop,
     listenToScroll,
     handleContactOpen,
+    handleContactClose,
   } = useStateContext();
 
   const path = useLocation().pathname;

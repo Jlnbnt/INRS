@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 
 import { useThemeContext } from "./context/ThemeProvider";
 import ScrollToTop from "./context/ScrollToTop";
@@ -24,6 +24,8 @@ import SingleBlog from "./pages/Blog/Articles/SingleBlog";
 import SearchResults from "./pages/Search/SearchResults";
 import PDC from "./pages/CGU/PDC";
 import CGU from "./pages/CGU/CGU";
+
+import ModalForm from "./components/Form/ModalForm";
 
 function App() {
   const { themeChoice } = useThemeContext();

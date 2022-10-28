@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import AboutNewsletter from "../../components/About/AboutNewsletter";
 
 import HomepageFooter from "../../components/Homepage/HomepageFooter";
-import ModalForm from "../../components/Form/ModalForm";
+
 import HomepageExpertises from "../../components/Homepage/HomepageExpertises";
 import HomepageOthers from "../../components/Homepage/HomepageOthers";
 import { GET_VIDEO } from "../../graphql/Queries";
@@ -88,7 +88,6 @@ const Homepage = () => {
           </div>
           <QuoteCards />
           <AboutNewsletter />
-          <ModalForm />
         </div>
       </div>
     </>

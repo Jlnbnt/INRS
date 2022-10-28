@@ -15,8 +15,15 @@
   </head>
   <body>
     <script>
-      if (window.location.protocol == "http:") {
-        window.location.href = window.location.href.replace("http:", "https:");
+      function test() {
+        if (window.location.href === "http://localhost:3000/") return;
+
+        if (window.location.protocol == "http:") {
+          window.location.href = window.location.href.replace(
+            "http:",
+            "https:"
+          );
+        }
       }
     </script>
     <div id="root"></div>

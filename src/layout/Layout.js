@@ -1,12 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 
 import Navbar from "./Navbar/Navbar";
 import Footer from "./Footer";
 import Sidebar from "./Sidebar/Sidebar";
+import ModalForm from "../components/Form/ModalForm";
+import { useStateContext } from "../context/StateProvider";
 
 const Layout = () => {
+  const { handleContactClose } = useStateContext();
+  const path = useLocation().pathname;
+
+  useEffect(() => {
+    handleContactClose();
+  }, [path]);
+
   return (
     <>
       <Sidebar />
@@ -15,6 +24,7 @@ const Layout = () => {
         <Outlet />
       </div>
       <Footer />
+      <ModalForm />
     </>
   );
 };
