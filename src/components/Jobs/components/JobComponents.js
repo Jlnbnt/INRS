@@ -113,7 +113,7 @@ export const JobPreview = () => {
 
 export const JobDescription = () => {
   const isMobile = useIsMobile().isMobile;
-  const { jobId, clicked, setClicked, setJobTitle, handleContactOpen } =
+  const { jobId, clicked, setClicked, setJobTitle, handleJobOpen } =
     useStateContext();
 
   const closeIt = () => {
@@ -121,7 +121,7 @@ export const JobDescription = () => {
   };
 
   const handlePostul = () => {
-    handleContactOpen();
+    handleJobOpen();
     setJobTitle(data?.job?.title);
   };
   const { loading, error, data } = useQuery(GET_JOB_BY_ID, {
