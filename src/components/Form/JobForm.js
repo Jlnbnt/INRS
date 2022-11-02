@@ -115,7 +115,7 @@ export default function JobForm() {
         <form
           /* onSubmit={handleJobForm} */
           onSubmit={uploadImage}
-          className="space-y-6 px-4 py-5 sm:p-4 shadow sm:overflow-hidden"
+          className="space-y-4 px-4 py-5 sm:p-4 shadow sm:overflow-hidden"
         >
           <h2 className="text-4xl pb-2 text-center">Candidature</h2>
           <div className="flex flex-col sm:flex-row gap-4">

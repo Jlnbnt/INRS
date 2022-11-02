@@ -54,7 +54,7 @@ const HomepageOthers = () => {
         />
         <HomepageMediaLink
           text="MEDIA"
-          link="http://inrs.local/wp-content/uploads/2022/10/VideoComp.mp4"
+          link="https://alpha.inrscience.com/wp-content/uploads/2022/10/VideoComp.mp4"
           icon={<YouTubeIcon className="w-[50px] h-[50px]" />}
         />
         <HomepageLink

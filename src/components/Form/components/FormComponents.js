@@ -93,12 +93,12 @@ export const ContactTextArea = ({ title, placeHolder, subTitle, name }) => {
 export const JobButton = ({ customFunction, title, sumbit }) => {
   const { themeChoice } = useThemeContext();
   const { jobState } = useStateContext();
-  const test = [];
+  const newArray = [];
 
   if (jobState === !null) {
     Object.values(jobState).map((item) => {
       if (item === !null) {
-        test.push(item.length);
+        newArray.push(item.length);
       }
     });
   }
@@ -106,7 +106,7 @@ export const JobButton = ({ customFunction, title, sumbit }) => {
   return (
     <Button
       type={sumbit ? "submit" : "button"}
-      disabled={sumbit && test?.includes(0)}
+      disabled={sumbit && newArray?.includes(0)}
       sx={{
         color: themeChoice === "light" ? "#36454F" : "#F9F6EE",
       }}
@@ -119,12 +119,12 @@ export const JobButton = ({ customFunction, title, sumbit }) => {
 export const ContactButton = ({ customFunction, title, sumbit }) => {
   const { themeChoice } = useThemeContext();
   const { formState } = useStateContext();
-  const test = [];
+  const newArray = [];
 
   if (formState === !null) {
     Object.values(formState).map((item) => {
       if (item === !null) {
-        test.push(item.length);
+        newArray.push(item.length);
       }
     });
   }
@@ -132,7 +132,7 @@ export const ContactButton = ({ customFunction, title, sumbit }) => {
   return (
     <Button
       type={sumbit ? "submit" : "button"}
-      disabled={sumbit && test?.includes(0)}
+      disabled={sumbit && newArray?.includes(0)}
       sx={{
         color: themeChoice === "light" ? "#36454F" : "#F9F6EE",
       }}

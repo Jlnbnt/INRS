@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { useStateContext } from "../../context/StateProvider";
 import { useThemeContext } from "../../context/ThemeProvider";
 
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import SwitchMode from "./SwitchMode";
 
@@ -27,7 +27,11 @@ export default function Sidebar() {
   const { setSearchActive, setSearchQuery, toggleDrawer, open } =
     useStateContext();
   const { themeChoice } = useThemeContext();
+  const path = useLocation().pathname;
 
+  useEffect(() => {
+    toggleDrawer(false);
+  }, [path]);
   return (
     <>
       {open && (
@@ -44,47 +48,66 @@ export default function Sidebar() {
         onClose={toggleDrawer(false)}
         PaperProps={{
           className:
-            "bg-light dark:bg-dark w-[300px] text-light dark:text-dark font-semibold",
+            "bg-light dark:bg-dark w-[300px] text-light dark:text-dark font-semibold justify-between",
         }}
       >
-        <List className="p-0 text-xs">
-          <NavAction
-            /*       name={<AirplaneTicketIcon />} */
-            name={<INRSLOGO className="w-[80px] fill-light dark:fill-dark" />}
-            link="/"
-            customFunc={toggleDrawer(false)}
-            reset={() => setSearchActive(false)}
-            clear={() => setSearchQuery("")}
-          >
-            <button
-              onClick={toggleDrawer(false)}
-              className="text-light dark:text-dark flex items-center justify-end gap-1 p-0 m-0"
+        <div>
+          <List className="p-0 text-xs">
+            <NavAction
+              /*       name={<AirplaneTicketIcon />} */
+              name={<INRSLOGO className="w-[80px] fill-light dark:fill-dark" />}
+              link="/"
+              customFunc={toggleDrawer(false)}
+              reset={() => setSearchActive(false)}
+              clear={() => setSearchQuery("")}
             >
-              <span className="customHover dark:before:bg-light mt-0.5">
-                CLOSE
-              </span>
-              <CloseIcon fontSize="small" />
-            </button>
-          </NavAction>
-          <Divider />
-        </List>
-        <List className="p-0">
-          <NavLink name="HOME" link="/" />
-          <NavLink name="BLOG" link="blogs" />
-          <NavLink name="JOBS" link="jobs" />
-          <NavLink name="ACTUALITES" link="actualites" />
-          <NavLink name="EVENEMENTS" link="evenements" />
-          <NavLink name="ABOUT" link="about" />
-        </List>
-        <List className="text-gray-400 p-0">
-          <NavAction name={themeChoice === "dark" ? "LIGHTMODE" : "DARKMODE"}>
-            {
-              <button onClick={toggleDrawer(false)}>
-                <SwitchMode />
+              <button
+                onClick={toggleDrawer(false)}
+                className="text-light dark:text-dark flex items-center justify-end gap-1 p-0 m-0"
+              >
+                <span className="customHover dark:before:bg-light mt-0.5">
+                  CLOSE
+                </span>
+                <CloseIcon fontSize="small" />
               </button>
-            }
-          </NavAction>
-        </List>
+            </NavAction>
+            <Divider />
+          </List>
+          <List className="p-0">
+            <NavLink name="HOME" link="/" />
+            <NavLink name="BLOG" link="blogs" />
+            <NavLink name="JOBS" link="jobs" />
+            <NavLink name="ACTUALITES" link="actualites" />
+            <NavLink name="EVENEMENTS" link="evenements" />
+            <NavLink name="ABOUT" link="about" />
+          </List>
+          <List className="text-gray-400 p-0">
+            <NavAction name={themeChoice === "dark" ? "LIGHTMODE" : "DARKMODE"}>
+              {
+                <button onClick={toggleDrawer(false)}>
+                  <SwitchMode />
+                </button>
+              }
+            </NavAction>
+          </List>
+        </div>
+        <div className="m-5 font-light text-xs text-gray-500 dark:text-gray-400">
+          <a
+            target="_blank"
+            href="https://alpha.inrscience.com/wp-login.php?action=register"
+            className="customHover dark:before:bg-light"
+          >
+            Register
+          </a>{" "}
+          /{" "}
+          <a
+            target="_blank"
+            href="https://alpha.inrscience.com/wp-login.php"
+            className="customHover dark:before:bg-light"
+          >
+            Login
+          </a>
+        </div>
       </Drawer>
     </>
   );

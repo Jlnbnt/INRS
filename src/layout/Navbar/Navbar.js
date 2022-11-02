@@ -17,6 +17,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import SearchIcon from "@mui/icons-material/Search";
 import EmailIcon from "@mui/icons-material/Email";
+import PersonIcon from "@mui/icons-material/Person";
 
 import { SocialLink } from "../../components/Links/Navbar/NavbarComponents";
 
@@ -87,15 +88,15 @@ export default function Navbar() {
                     <SearchIcon />
                   </button>
                 </div>
-                <Link to="/">
-                  <Button className="text-light font-semibold dark:text-dark text-lg hover:bg-transparent lg:mr-14 mr-6 sm:mr-0 ">
+                <button className="text-light font-semibold dark:text-dark text-lg hover:bg-transparent lg:mr-14 mr-6 sm:mr-0 ">
+                  <Link to="/">
                     {awayFromTop ? (
-                      <INRSLOGO className="fill-light dark:fill-dark mr-3 h-8" />
-                    ) : (
                       <INRSISO className="fill-light dark:fill-dark mr-3 h-10 rotate-90" />
+                    ) : (
+                      <INRSLOGO className="fill-light dark:fill-dark mr-3 h-8" />
                     )}
-                  </Button>
-                </Link>
+                  </Link>
+                </button>
                 <div className="hidden sm:flex gap-3">
                   <SocialLink
                     icon={<LinkedInIcon fontSize="small" />}

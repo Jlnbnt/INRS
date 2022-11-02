@@ -6,9 +6,8 @@ export const StateProvider = ({ children }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchActive, setSearchActive] = useState(false);
   const [open, setOpen] = useState(false);
-  const [awayFromTop, setAwayfromTop] = useState();
-  const [contactOpen, setContactOpen] = useState(false);
 
+  /* Sidebar Opener */
   const toggleDrawer = (open) => (event) => {
     if (
       event.type === "keydown" &&
@@ -24,19 +23,19 @@ export const StateProvider = ({ children }) => {
     }
   };
 
+  /* Navbar logo transform */
+  const [awayFromTop, setAwayfromTop] = useState(false);
   const listenToScroll = () => {
-    let heightToHideFrom = 200;
     const winScroll =
       document.body.scrollTop || document.documentElement.scrollTop;
-
-    if (winScroll > heightToHideFrom) {
-      setAwayfromTop(false);
-    } else {
+    if (winScroll > 200) {
       setAwayfromTop(true);
+    } else {
+      setAwayfromTop(false);
     }
   };
 
-  /* Forms */
+  /* Forms Contact & Job */
   const initialContactState = {
     firstName: "",
     lastName: "",
@@ -44,6 +43,7 @@ export const StateProvider = ({ children }) => {
     phone: "",
     email: "",
   };
+  const [contactOpen, setContactOpen] = useState(false);
   const [formState, setFormState] = useState(initialContactState);
   const [jobState, setJobState] = useState(initialContactState);
   const [jobId, setJobId] = useState("");

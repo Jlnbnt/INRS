@@ -250,6 +250,12 @@ export const JobDescription = () => {
             dangerouslySetInnerHTML={{ __html: acf?.texte }}
           ></span>
         </div>
+        <button
+          onClick={handlePostul}
+          className="self-center md:self-start flex gap-4 mt-4 text-xl bg-blue-500 w-[90px] p-2 justify-center items-center rounded-lg text-dark"
+        >
+          Postuler
+        </button>
       </div>
     </div>
   );

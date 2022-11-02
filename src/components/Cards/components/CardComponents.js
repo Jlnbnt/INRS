@@ -8,7 +8,7 @@ export const TagInfo = (props) => {
   return (
     <Link
       onClick={() => setSearchQuery(props.tag)}
-      to={`/${props?.type?.toLowerCase()}`}
+      to={`/search`}
       className="text-white dark:text-dark hover:text-gray-400 dark:hover:text-gray-400 duration-300 text-xl font-semibold "
     >
       <span

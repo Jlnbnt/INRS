@@ -26,6 +26,7 @@ const CardGrid = ({ searchQuery, graphlQLQuery, postType }) => {
       </div>
     );
   if (error) return `Error! ${error.message}`;
+
   return (
     <div className="flex w-full flex-wrap align-center">
       {data && data?.[postType]?.nodes.length ? (
@@ -89,6 +90,15 @@ const CardGrid = ({ searchQuery, graphlQLQuery, postType }) => {
                   >
                     Show More...
                   </button>
+                  {/*  {location === "/blogs" && (
+                    <a
+                      target="_blank"
+                      href="#"
+                      className="customHover before:bg-gray-400 dark:before:bg-gray-500 font-light cursor-pointer text-gray-400 dark:text-gray-500"
+                    >
+                      Proposez votre article de blog !{" "}
+                    </a>
+                  )} */}
                 </div>
               )
             /*   ) */

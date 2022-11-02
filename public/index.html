@@ -14,21 +14,6 @@
     <title>INRS</title>
   </head>
   <body>
-    <script>
-      function SecurityCheck() {
-        if (window.location.href === "http://localhost:3000/") {
-          return;
-        }
-
-        if (window.location.protocol == "http:") {
-          window.location.href = window.location.href.replace(
-            "http:",
-            "https:"
-          );
-        }
-      }
-      SecurityCheck();
-    </script>
     <div id="root"></div>
   </body>
 </html>

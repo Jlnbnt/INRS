@@ -11,13 +11,17 @@ import { StateProvider } from "./context/StateProvider";
 import { ApolloProvider } from "@apollo/client";
 import client from "./graphql/apollo";
 
+import HttpsRedirect from "react-https-redirect";
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <ApolloProvider client={client}>
-    <StateProvider>
-      <ThemeProvider>
-        <App />
-      </ThemeProvider>
-    </StateProvider>
-  </ApolloProvider>
+  <HttpsRedirect>
+    <ApolloProvider client={client}>
+      <StateProvider>
+        <ThemeProvider>
+          <App />
+        </ThemeProvider>
+      </StateProvider>
+    </ApolloProvider>
+  </HttpsRedirect>
 );
