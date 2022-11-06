@@ -22,7 +22,7 @@ export const JobPreview = () => {
     isMobile && setClicked(true);
   };
   useEffect(() => {
-    setJobId(data?.jobs?.nodes[0]?.id);
+    setJobId(data?.jobs?.nodes[0]?.id); // eslint-disable-next-line
   }, [loading]);
 
   if (loading)
@@ -221,7 +221,11 @@ export const JobDescription = () => {
           Postuler
         </button>
         <div className="my-4 flex items-center gap-4">
-          <a target="_blank" href={acf?.entreprise?.editeur?.linkedin}>
+          <a
+            rel="noreferrer"
+            target="_blank"
+            href={acf?.entreprise?.editeur?.linkedin}
+          >
             <img
               src={acf?.entreprise?.editeur?.avatar?.sourceUrl}
               alt={acf?.entreprise?.editeur?.avatar?.altText}
@@ -230,6 +234,7 @@ export const JobDescription = () => {
           </a>
           <div>
             <a
+              rel="noreferrer"
               target="_blank"
               href={acf?.entreprise?.editeur?.linkedin}
               className="font-semibold customHover dark:before:bg-light"

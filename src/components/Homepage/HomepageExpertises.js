@@ -22,15 +22,19 @@ const HomepageExpertises = () => {
          rounded-t-xl w-full"
     >
       <div className="text-center flex-1 w-full p-2 flex-col h-full gap-8 flex justify-between items-center ">
-        <h4 className="self-center text-5xl pb-4">{acf.carte.sousTitre}</h4>
+        <span className="self-center font-semibold text-3xl sm:text-5xl pb-4">
+          {acf.carte.sousTitre}
+        </span>
         <div className="flex flex-col gap-4 sm:max-w-xl self-center">
-          <p className="text-lg">{acf?.carte?.texte}</p>
-          <p>{acf?.carte?.texte}</p>
-          <p>{acf?.carte?.texte}</p>
+          <p
+            className="text-lg text-left"
+            dangerouslySetInnerHTML={{ __html: acf?.carte?.texte }}
+          ></p>
+          {/* <p className="text-lg">{acf?.carte?.texte}</p> */}
         </div>
         <Link
           to="about"
-          className="self-center border-[0.5px] border-light dark:border-dark p-2 rounded-lg text-xl hover:bg-dark/10 hover:hover:bg-light/10 duration-300"
+          className="self-center border-[0.5px] border-light dark:border-dark p-2 rounded-sm text-xl hover:bg-dark/10 hover:hover:bg-light/10 duration-300"
         >
           Discover
         </Link>

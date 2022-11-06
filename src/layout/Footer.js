@@ -25,7 +25,11 @@ const Footer = () => {
         <footer className="p-4 bg-alabaster sm:p-6 dark:bg-pewter">
           <div className="sm:flex sm:justify-around">
             <div className="mb-6 md:mb-0">
-              <Link to="/" className="flex items-center">
+              <Link
+                aria-label="footer-link"
+                to="/"
+                className="flex items-center"
+              >
                 <INRSLOGO className="w-[150px] md:w-[200px] fill-light dark:fill-dark" />{" "}
               </Link>
             </div>
@@ -57,7 +61,11 @@ const Footer = () => {
           </div>
           <hr className="my-6 border-light sm:mx-auto dark:border-dark lg:my-8" />
           <div className="pb-2  flex flex-col sm:flex-row items-center  justify-between text-light dark:text-dark">
-            <Link to="/cgu" className="text-sm sm:text-center">
+            <Link
+              to="/cgu"
+              className="text-sm sm:text-center"
+              aria-label="footer-link"
+            >
               ©2022
               <span className="customHover dark:before:bg-light">INRS™</span>.
               All Rights Reserved.

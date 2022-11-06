@@ -5,12 +5,13 @@ import { useParams } from "react-router-dom";
 import { useStateContext } from "../../context/StateProvider";
 
 import { useQuery } from "@apollo/client";
-import { GET_EVENT_BY_ID } from "../../graphql/Queries";
+import { GET_EVENTS_PREVIEWS, GET_EVENT_BY_ID } from "../../graphql/Queries";
 
 import { CircularProgress } from "@mui/material";
+import CardGrid from "../../components/Cards/components/CardGrid";
 
 const SingleEvent = () => {
-  const { setSearchQuery } = useStateContext();
+  const { setSearchQuery, searchQuery } = useStateContext();
 
   useEffect(() => {
     setSearchQuery("");
@@ -25,7 +26,13 @@ const SingleEvent = () => {
     },
   });
 
-  if (loading) return <CircularProgress disableShrink className="m-8" />;
+  if (loading)
+    return (
+      <div className="bg-light dark:bg-dark h-screen w-full flex items-center justify-center">
+        <CircularProgress disableShrink className="m-8" />;
+      </div>
+    );
+
   if (error) return `Error! ${error.message}`;
 
   const acf = data?.evenement?.evenements_acf;
@@ -40,10 +47,8 @@ const SingleEvent = () => {
             alt=""
           />
 
-          <div className="mb-6 flex flex-col justify-between gap-4">
-            <h2 className=" font-semibold text-[6vw] md:text-[5 vw] lg:text-[4.5vw] max-w-7xl">
-              {acf?.mainTitle?.toUpperCase()}
-            </h2>
+          <div className="mb-6 flex flex-col justify-between gap-6 self-center max-w-7xl">
+            <h2 className=" font-semibold">{acf?.mainTitle?.toUpperCase()}</h2>
 
             <div className="flex items-center justify-between gap-2 italic">
               <h4>
@@ -57,19 +62,24 @@ const SingleEvent = () => {
                 <span className="font-semibold italic">{acf?.eventprice}</span>
               </h3>
             </div>
+            <div
+              className="max-w-[90%] md:max-w-5xl self-center"
+              dangerouslySetInnerHTML={{ __html: acf?.maintext }}
+            />
+            <a
+              rel="noreferrer"
+              target="_blank"
+              href={acf?.inscriptionLink}
+              className="self-center text-3xl mt-8 customHover dark:before:bg-light font-semibold cursor-pointer"
+            >
+              S'inscrire <span className="font-light">✓</span>
+            </a>
           </div>
-          <div
-            className="max-w-[90%] md:max-w-5xl self-center"
-            dangerouslySetInnerHTML={{ __html: acf?.maintext }}
+          <CardGrid
+            postType={"evenements"}
+            searchQuery={searchQuery}
+            graphlQLQuery={GET_EVENTS_PREVIEWS}
           />
-          <a
-            rel="noreferrer"
-            target="_blank"
-            href={acf?.inscriptionLink}
-            className="self-center text-5xl mt-8 customHover dark:before:bg-light font-semibold cursor-pointer"
-          >
-            S'inscrire <span className="font-light">✓</span>
-          </a>
         </div>
       )}
     </>

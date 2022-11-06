@@ -32,25 +32,25 @@ const AboutHeader = () => {
       style={{
         backgroundImage: `url(${
           themeChoice === "dark"
-            ? acf?.backgroundDark.sourceUrl
-            : acf?.backgroundLight.sourceUrl
+            ? acf?.backgroundDark?.sourceUrl
+            : acf?.backgroundLight?.sourceUrl
         })`,
       }}
     >
       <div className="w-full h-full bg-white/[0.09] flex items-center justify-center text-light dark:text-dark flex-col gap-6 text-center">
         <h1 className="font-semibold text-5xl lg:text-7xl">
-          {acf.baselineGras}
+          {acf?.baselineGras}
         </h1>
         <h2 className="text-lg dark:text-gray-200 max-w-[80%] md:max-w-[50%] text-center">
-          {acf.baselineLight}
+          {acf?.baselineLight}
         </h2>
         <div>
-          <h2 className="font-semibold mb-2">{acf.titreLiens}</h2>
+          <h2 className="font-semibold mb-2">{acf?.titreLiens}</h2>
           <ul className="flex gap-4">
-            <AboutIcon link={acf.liens.github} icon={<FacebookIcon />} />
-            <AboutIcon link={acf.liens.instagram} icon={<InstagramIcon />} />
-            <AboutIcon link={acf.liens.twitter} icon={<TwitterIcon />} />
-            <AboutIcon link={acf.liens.facebook} icon={<LinkedInIcon />} />
+            <AboutIcon link={acf?.liens?.github} icon={<FacebookIcon />} />
+            <AboutIcon link={acf?.liens?.instagram} icon={<InstagramIcon />} />
+            <AboutIcon link={acf?.liens?.twitter} icon={<TwitterIcon />} />
+            <AboutIcon link={acf?.liens?.facebook} icon={<LinkedInIcon />} />
           </ul>
         </div>
       </div>

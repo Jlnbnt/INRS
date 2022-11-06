@@ -24,7 +24,7 @@ export const TagInfo = (props) => {
 export const SocialLinkIcon = (props) => {
   return (
     <li className="hover:text-gray-400 hover:border-gray-300 flex justify-center items-center p-4 duration-300 transition-all opacity-0 group-hover:opacity-100 ease-in-out rounded-full w-8 h-8 border-[1px] border-white ">
-      <a target="_blank" href={props.link}>
+      <a target="_blank" href={props.link} rel="noreferrer">
         {props.icon}
       </a>
     </li>
@@ -34,6 +34,7 @@ export const SocialLinkIcon = (props) => {
 export const MobileSocialLink = (props) => {
   return (
     <a
+      rel="noreferrer"
       target="_blank"
       className="text-light dark:text-dark hover:text-gray-400 dark:hover:text-gray-400 duration-300 text-xl font-semibold "
       href={props.link}

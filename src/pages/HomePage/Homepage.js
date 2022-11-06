@@ -47,7 +47,7 @@ const Homepage = () => {
               data?.layouts?.edges[0]?.node?.miseEnPage?.accueil?.video
                 ?.mediaItemUrl
             }
-          ></video>
+          />
           <div className="bg-dark h-full w-full absolute left-0 top-0 z-20  opacity-80" />
 
           <div className="bg-red-500/0 w-full h-[calc(100%-56px)] sm:h-[calc(100%-64px)] absolute top-0 left-0 z-20 mt-[56px] sm:mt-[64px] p-4 flex items-center">
@@ -61,13 +61,13 @@ const Homepage = () => {
               <div className="flex items-center gap-4">
                 <Link
                   to="about"
-                  className="text-center min-w-[117px] border-[0.5px] border-dark p-2 rounded-lg text-xl hover:bg-light/30 duration-300"
+                  className="text-center min-w-[117px] border-[0.5px] border-dark p-2 rounded-sm text-xl hover:bg-light/30 duration-300"
                 >
                   Discover
                 </Link>
                 <button
                   onClick={handleContactOpen}
-                  className="min-w-[117px] border-[0.5px] border-dark p-2 rounded-lg text-xl hover:bg-light/30 duration-300"
+                  className="min-w-[117px] border-[0.5px] border-dark p-2 rounded-sm text-xl hover:bg-light/30 duration-300"
                 >
                   Contact Us
                 </button>

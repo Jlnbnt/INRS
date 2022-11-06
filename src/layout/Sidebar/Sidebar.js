@@ -3,19 +3,15 @@ import React, { useEffect } from "react";
 import { useStateContext } from "../../context/StateProvider";
 import { useThemeContext } from "../../context/ThemeProvider";
 
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 import SwitchMode from "./SwitchMode";
 
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemText from "@mui/material/ListItemText";
 
 import CloseIcon from "@mui/icons-material/Close";
-import AirplaneTicketIcon from "@mui/icons-material/AirplaneTicket";
 import { ReactComponent as INRSLOGO } from "../../components/Assets/INRSLOGO.svg";
 
 import {
@@ -31,6 +27,7 @@ export default function Sidebar() {
 
   useEffect(() => {
     toggleDrawer(false);
+    // eslint-disable-next-line
   }, [path]);
   return (
     <>
@@ -54,7 +51,6 @@ export default function Sidebar() {
         <div>
           <List className="p-0 text-xs">
             <NavAction
-              /*       name={<AirplaneTicketIcon />} */
               name={<INRSLOGO className="w-[80px] fill-light dark:fill-dark" />}
               link="/"
               customFunc={toggleDrawer(false)}
@@ -75,10 +71,10 @@ export default function Sidebar() {
           </List>
           <List className="p-0">
             <NavLink name="HOME" link="/" />
-            <NavLink name="BLOG" link="blogs" />
-            <NavLink name="JOBS" link="jobs" />
             <NavLink name="ACTUALITES" link="actualites" />
             <NavLink name="EVENEMENTS" link="evenements" />
+            <NavLink name="BLOG" link="blogs" />
+            <NavLink name="JOBS" link="jobs" />
             <NavLink name="ABOUT" link="about" />
           </List>
           <List className="text-gray-400 p-0">
@@ -93,6 +89,7 @@ export default function Sidebar() {
         </div>
         <div className="m-5 font-light text-xs text-gray-500 dark:text-gray-400">
           <a
+            rel="noreferrer"
             target="_blank"
             href="https://alpha.inrscience.com/wp-login.php?action=register"
             className="customHover dark:before:bg-light"
@@ -101,6 +98,7 @@ export default function Sidebar() {
           </a>{" "}
           /{" "}
           <a
+            rel="noreferrer"
             target="_blank"
             href="https://alpha.inrscience.com/wp-login.php"
             className="customHover dark:before:bg-light"

@@ -25,8 +25,6 @@ import SearchResults from "./pages/Search/SearchResults";
 import PDC from "./pages/CGU/PDC";
 import CGU from "./pages/CGU/CGU";
 
-import ModalForm from "./components/Form/ModalForm";
-
 function App() {
   const { themeChoice } = useThemeContext();
 

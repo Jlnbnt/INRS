@@ -5,12 +5,12 @@ import { useParams } from "react-router-dom";
 import { useStateContext } from "../../../context/StateProvider";
 
 import { useQuery } from "@apollo/client";
-import { GET_BLOG_BY_ID } from "../../../graphql/Queries";
+import { GET_BLOGS_PREVIEWS, GET_BLOG_BY_ID } from "../../../graphql/Queries";
 
 import { CircularProgress } from "@mui/material";
-
+import CardGrid from "../../../components/Cards/components/CardGrid";
 const SingleBlog = () => {
-  const { setSearchQuery } = useStateContext();
+  const { setSearchQuery, searchQuery } = useStateContext();
 
   useEffect(() => {
     setSearchQuery("");
@@ -24,8 +24,14 @@ const SingleBlog = () => {
       id: id.id,
     },
   });
-  console.log(data);
-  if (loading) return <CircularProgress disableShrink className="m-8" />;
+
+  if (loading)
+    return (
+      <div className="bg-light dark:bg-dark h-screen w-full flex items-center justify-center">
+        <CircularProgress disableShrink className="m-8" />;
+      </div>
+    );
+
   if (error) return `Error! ${error.message}`;
 
   const acf = data?.blog?.blog_acf;
@@ -40,8 +46,8 @@ const SingleBlog = () => {
             alt=""
           />
 
-          <div className="mb-6 flex flex-col justify-between gap-4">
-            <h2 className="font-semibold text-[7vw] md:text-[5 vw] lg:text-[4.5vw] max-w-7xl">
+          <div className="mb-6 flex flex-col justify-between gap-6 p-4 self-center max-w-7xl">
+            <h2 className="font-semibold text-4xl sm:text-6xl">
               {acf?.mainTitle?.toUpperCase()}
             </h2>
 
@@ -64,10 +70,15 @@ const SingleBlog = () => {
                 day: "numeric",
               })}`}</h4>
             </div>
+            <div
+              className="max-w-[90%] md:max-w-5xl "
+              dangerouslySetInnerHTML={{ __html: acf?.maintext }}
+            />
           </div>
-          <div
-            className="max-w-[90%] md:max-w-5xl self-center"
-            dangerouslySetInnerHTML={{ __html: acf?.maintext }}
+          <CardGrid
+            postType={"blogs"}
+            searchQuery={searchQuery}
+            graphlQLQuery={GET_BLOGS_PREVIEWS}
           />
         </div>
       )}

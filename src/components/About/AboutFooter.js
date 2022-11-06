@@ -34,10 +34,10 @@ const AboutFooter = () => {
             .slice(1)
             .map((projet) => (
               <Project
-                key={projet.__typename}
-                nombre={projet.nombre}
-                texte={projet.texte}
-                titre={projet.titre}
+                key={projet?.__typename}
+                nombre={projet?.nombre}
+                texte={projet?.texte}
+                titre={projet?.titre}
               />
             ))}
       </div>

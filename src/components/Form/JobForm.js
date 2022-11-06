@@ -113,7 +113,6 @@ export default function JobForm() {
         onClose={handleJobClose}
       >
         <form
-          /* onSubmit={handleJobForm} */
           onSubmit={uploadImage}
           className="space-y-4 px-4 py-5 sm:p-4 shadow sm:overflow-hidden"
         >

@@ -22,9 +22,9 @@ const HomepageFooter = () => {
             .slice(1)
             .map((icon) => (
               <Partner
-                key={icon.sourceUrl}
-                link={icon.sourceUrl}
-                alt={icon.altText}
+                key={icon?.sourceUrl}
+                link={icon?.sourceUrl}
+                alt={icon?.altText}
               />
             ))}
       </div>
@@ -35,9 +35,9 @@ const HomepageFooter = () => {
             .map((projet) => (
               <Project
                 key={projet.__typename}
-                nombre={projet.nombre}
-                texte={projet.texte}
-                titre={projet.titre}
+                nombre={projet?.nombre}
+                texte={projet?.texte}
+                titre={projet?.titre}
               />
             ))}
       </div>

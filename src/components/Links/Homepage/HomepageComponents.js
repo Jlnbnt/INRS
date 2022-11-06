@@ -15,6 +15,7 @@ export const HomepageLink = ({ text, link, icon }) => {
 export const HomepageMediaLink = ({ text, link, icon }) => {
   return (
     <a
+      rel="noreferrer"
       target="_blank"
       href={link}
       className="flex justify-center items-center flex-col gap-2 font-semibold hover:text-light/50 dark:hover:text-dark/50 duration-700"

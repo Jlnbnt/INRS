@@ -115,32 +115,6 @@ export const GET_EVENT_BY_ID = gql`
   }
 `;
 
-export const GET_POST_BY_ID = gql`
-  query GetPostById($id: ID!) {
-    layout(id: $id) {
-      title
-      layouts_acf {
-        mainImage {
-          altText
-          sourceUrl(size: _1536X1536)
-        }
-        mainTitle
-        subTitle
-        maintext
-      }
-      date
-      author {
-        node {
-          avatar {
-            url
-          }
-          name
-        }
-      }
-    }
-  }
-`;
-
 export const GET_TEAM = gql`
   query GetTeam {
     equipes {
@@ -684,6 +658,30 @@ export const GET_BLOG_BY_ID = gql`
         mainTitle
         tag
         maintext
+      }
+    }
+  }
+`;
+
+export const GET_CGU = gql`
+  query CGU {
+    allCGU {
+      nodes {
+        cgu {
+          cgu
+        }
+      }
+    }
+  }
+`;
+
+export const GET_PDC = gql`
+  query PDC {
+    allPDC {
+      nodes {
+        pdc {
+          pdc
+        }
       }
     }
   }

@@ -15,7 +15,7 @@ export const ServicesIcon = ({ icon, alt, title, text }) => {
 export const AboutIcon = (props) => {
   return (
     <li className="hover:text-gray-400 hover:border-gray-300 flex justify-center items-center p-4 duration-300 transition-all  ease-in-out rounded-full w-8 h-8">
-      <a target="_blank" href={props.link}>
+      <a rel="noreferrer" target="_blank" href={props.link}>
         {props.icon}
       </a>
     </li>

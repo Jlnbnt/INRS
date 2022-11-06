@@ -31,7 +31,6 @@ const BlogsCard = ({ post }) => {
                 {acf?.mainTitle}
               </h3>
               <div className="flex justify-between text-xs py-3">
-                {/*   <h4 className="text-[12px]">From Japan</h4> */}
                 <h4 className="text-[12px]">
                   Posté le{" "}
                   <span className="italic font-semibold  ">

@@ -9,13 +9,8 @@ import ModalForm from "../components/Form/ModalForm";
 import { useStateContext } from "../context/StateProvider";
 
 const Layout = () => {
-  const {
-    handleContactClose,
-    handleJobClose,
-    toggleDrawer,
-    setClicked,
-    setSearchQuery,
-  } = useStateContext();
+  const { handleContactClose, handleJobClose, setClicked, setSearchQuery } =
+    useStateContext();
   const path = useLocation().pathname;
 
   useEffect(() => {

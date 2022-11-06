@@ -4,7 +4,7 @@ import { useStateContext } from "../../../context/StateProvider";
 
 export const ContactInput = ({ title, placeHolder, type, autofocus, name }) => {
   const { themeChoice } = useThemeContext();
-  const { formState, setFormState, handleChange } = useStateContext();
+  const { formState, handleChange } = useStateContext();
   return (
     <div className="w-full sm:w-1/2">
       <h2 className=" text-sm font-medium">{title}</h2>
@@ -26,7 +26,7 @@ export const ContactInput = ({ title, placeHolder, type, autofocus, name }) => {
 };
 export const JobInput = ({ title, placeHolder, type, autofocus, name }) => {
   const { themeChoice } = useThemeContext();
-  const { formState, setFormState, handleJobChange } = useStateContext();
+  const { formState, handleJobChange } = useStateContext();
   return (
     <div className="w-full sm:w-1/2">
       <h2 className=" text-sm font-medium">{title}</h2>

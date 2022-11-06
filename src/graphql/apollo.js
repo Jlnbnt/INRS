@@ -6,6 +6,7 @@ const TEST_URL = "https://alpha.inrscience.com/?graphql";
 const client = new ApolloClient({
   uri: window.location.hostname === "localhost" ? TEST_URL : API_URL,
   cache: new InMemoryCache(),
+  fetchPolicy: "network-only",
 });
 
 export default client;

@@ -57,13 +57,6 @@ export default function ModalForm() {
       handleContactClose();
       reset();
     }, 300);
-
-    /* setTimeout(() => {
-      handleSubmit();
-    }, 300);
-    setTimeout(() => {
-      window.location.reload();
-    }, 2000); */
   }
 
   return (
@@ -155,7 +148,6 @@ export default function ModalForm() {
                 sx={{
                   color: themeChoice === "light" ? "#36454F" : "#F9F6EE",
                 }}
-                /*    onClick={() => handleForm(formState)} */
               />
             )}
           </DialogActions>

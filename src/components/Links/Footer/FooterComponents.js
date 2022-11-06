@@ -10,6 +10,7 @@ export const FooterCol = (props) => {
         <ul className="flex items-center gap-4 sm:block">
           <li className="sm:mb-4">
             <a
+              rel="noreferrer"
               target="_blank"
               href={props.link1}
               className="customHover dark:before:bg-light"
@@ -19,6 +20,7 @@ export const FooterCol = (props) => {
           </li>
           <li>
             <a
+              rel="noreferrer"
               target="_blank"
               href={props.link2}
               className="customHover dark:before:bg-light"
@@ -49,12 +51,19 @@ export const FooterLink = (props) => {
   return (
     <span className="p-0 text-light dark:text-dark hover:text-gray-400 hover:bg-transparent  dark:hover:text-gray-400 duration-300">
       {props.link && (
-        <a target="_blank" href={props.link}>
+        <a
+          rel="noreferrer"
+          target="_blank"
+          href={props.link}
+          aria-label="footer-link"
+        >
           {props.icon}
         </a>
       )}
       {props.customFunc && (
-        <button onClick={props.customFunc}>{props.icon}</button>
+        <button aria-label={props.icon} onClick={props.customFunc}>
+          {props.icon}{" "}
+        </button>
       )}
     </span>
   );

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 
 import { useStateContext } from "../../context/StateProvider";
 
@@ -10,14 +10,12 @@ import Searchbar from "./Searchbar";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
-import Button from "@mui/material/Button";
 
 import MenuIcon from "@mui/icons-material/Menu";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import SearchIcon from "@mui/icons-material/Search";
 import EmailIcon from "@mui/icons-material/Email";
-import PersonIcon from "@mui/icons-material/Person";
 
 import { SocialLink } from "../../components/Links/Navbar/NavbarComponents";
 
@@ -37,12 +35,12 @@ export default function Navbar() {
   const path = useLocation().pathname;
 
   useEffect(() => {
-    setSearchActive(false);
+    setSearchActive(false); // eslint-disable-next-line
   }, [path]);
 
   useEffect(() => {
     window.addEventListener("scroll", listenToScroll);
-    return () => window.removeEventListener("scroll", listenToScroll);
+    return () => window.removeEventListener("scroll", listenToScroll); // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
@@ -82,14 +80,21 @@ export default function Navbar() {
               <div className="flex w-full justify-between">
                 <div className="invisible sm:visible flex">
                   <button
+                    aria-label="search-icon"
                     className="text-light dark:text-dark hover:text-gray-400 duration-300 dark:hover:text-gray-400"
                     onClick={() => setSearchActive(true)}
                   >
                     <SearchIcon />
                   </button>
                 </div>
-                <button className="text-light font-semibold dark:text-dark text-lg hover:bg-transparent lg:mr-14 mr-6 sm:mr-0 ">
-                  <Link to="/">
+                <button
+                  aria-label="home-logo"
+                  className="text-light font-semibold dark:text-dark text-lg hover:bg-transparent lg:mr-14 mr-6 sm:mr-0 "
+                >
+                  <Link to="/" aria-label="Homepage-link">
+                    {window.location.hostname === "localhost" && (
+                      <span>DEV</span>
+                    )}
                     {awayFromTop ? (
                       <INRSISO className="fill-light dark:fill-dark mr-3 h-10 rotate-90" />
                     ) : (
@@ -97,7 +102,7 @@ export default function Navbar() {
                     )}
                   </Link>
                 </button>
-                <div className="hidden sm:flex gap-3">
+                <ul className="hidden sm:flex gap-3">
                   <SocialLink
                     icon={<LinkedInIcon fontSize="small" />}
                     link="https://www.linkedin.com"
@@ -110,9 +115,10 @@ export default function Navbar() {
                     icon={<EmailIcon fontSize="small" />}
                     customFunc={handleContactOpen}
                   />
-                </div>
+                </ul>
                 <div className="flex sm:hidden">
                   <button
+                    aria-label="search-icon"
                     className="text-light dark:text-dark hover:text-gray-400 duration-300 dark:hover:text-gray-400"
                     onClick={() => setSearchActive(true)}
                   >
