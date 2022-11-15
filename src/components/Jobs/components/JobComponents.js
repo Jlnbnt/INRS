@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import AcUnitIcon from "@mui/icons-material/AcUnit";
 
+import WorkIcon from "@mui/icons-material/Work";
+import BusinessIcon from "@mui/icons-material/Business";
 import { useQuery } from "@apollo/client";
 import { GET_JOB_PREVIEW, GET_JOB_BY_ID } from "../../../graphql/Queries";
 
@@ -10,10 +11,11 @@ import useIsMobile from "../../../context/useIsMobile";
 import { CircularProgress } from "@mui/material";
 
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+import DOMPurify from "dompurify";
 
 export const JobPreview = () => {
   const isMobile = useIsMobile().isMobile;
-  const [slicer, setSlicer] = useState(3);
+  const [slicer, setSlicer] = useState(4);
   const { loading, error, data } = useQuery(GET_JOB_PREVIEW);
 
   const { setJobId, clicked, setClicked } = useStateContext();
@@ -59,7 +61,7 @@ export const JobPreview = () => {
             data?.jobs?.nodes?.slice(0, slicer).map((job) => (
               <div
                 key={job.id}
-                className="dark:hover:bg-light/5 hover:bg-dark/5 p-2 w-full py-4 flex gap-12 items-center relative"
+                className="dark:hover:bg-light/5 hover:bg-dark/5 p-2 w-full py-4 flex gap-4 sm:gap-12 items-center relative"
               >
                 <button
                   onClick={() => OpenIt(job)}
@@ -68,14 +70,16 @@ export const JobPreview = () => {
                 <img
                   src={job?.jobs_acf?.entreprise?.logo?.sourceUrl}
                   alt={job?.jobs_acf?.entreprise?.logo?.altText}
-                  className="hidden sm:block w-[60px] h-[60px] rounded-full"
+                  className="w-[40px] h-[40px] sm:w-[60px] sm:h-[60px] rounded-full"
                 />
                 <div>
-                  <h2 className="text-2xl font-semibold">
+                  <h2 className="text-orange-500 text-lg sm:text-2xl font-semibold">
                     {job?.jobs_acf?.titre}
                   </h2>
-                  <h3 className="text-lg">{job?.jobs_acf?.entreprise?.nom}</h3>
-                  <p className="text-lg max-w-[90%] md:max-w-full">
+                  <h3 className="text-blue-500 text-lg">
+                    {job?.jobs_acf?.entreprise?.nom}
+                  </h3>
+                  <p className="text-red-500 text-lg max-w-[90%] md:max-w-full">
                     {job?.jobs_acf?.entreprise?.lieu}{" "}
                     <span className="text-sm text-gray-500 dark:text-gray-400">
                       ({job?.jobs_acf?.remote})
@@ -101,7 +105,7 @@ export const JobPreview = () => {
                 onClick={() => setSlicer(slicer + 4)}
                 className="customHover my-6 font-light text-lg text-center text-light dark:text-dark dark:before:bg-light"
               >
-                Show More...
+                Voir plus...
               </button>
             </div>
           )}
@@ -189,7 +193,7 @@ export const JobDescription = () => {
           marginTop: isMobile ? "20px" : 0,
         }}
       >
-        <h2 className="text-5xl ">{acf?.titre}</h2>
+        <h2 className="text-2xl sm:text-4xl sm:max-w-[80%]">{acf?.titre}</h2>
 
         <p className="text-lg">
           {acf?.entreprise?.nom} · {acf?.entreprise?.lieu} ({acf?.remote})
@@ -206,17 +210,17 @@ export const JobDescription = () => {
 
         <ul className="text-lg flex flex-col gap-4 mt-4">
           <li className="flex gap-2 items-center">
-            <AcUnitIcon />
+            <WorkIcon />
             {acf?.typeDeTravail} · {acf?.experience}
           </li>
           <li className="flex gap-2 items-center">
-            <AcUnitIcon />
+            <BusinessIcon />
             {acf?.entreprise?.nombre} · {acf?.domaine}
           </li>
         </ul>
         <button
           onClick={handlePostul}
-          className="flex gap-4 mt-4 text-xl bg-blue-500 w-[90px] p-2 justify-center items-center rounded-lg text-dark"
+          className="hover:bg-gray-400 duration-300 self-center md:self-start flex gap-4 mt-4 text-xl bg-blue-500 w-[90px] p-2 justify-center items-center rounded-lg text-dark"
         >
           Postuler
         </button>
@@ -229,7 +233,7 @@ export const JobDescription = () => {
             <img
               src={acf?.entreprise?.editeur?.avatar?.sourceUrl}
               alt={acf?.entreprise?.editeur?.avatar?.altText}
-              className="w-[50px] h-[50px] rounded-full"
+              className="w-[50px] h-[50px] rounded-full object-cover"
             />
           </a>
           <div>
@@ -252,12 +256,12 @@ export const JobDescription = () => {
         <div>
           <span
             className="flex flex-col gap-2"
-            dangerouslySetInnerHTML={{ __html: acf?.texte }}
+            dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(acf?.texte) }}
           ></span>
         </div>
         <button
           onClick={handlePostul}
-          className="self-center md:self-start flex gap-4 mt-4 text-xl bg-blue-500 w-[90px] p-2 justify-center items-center rounded-lg text-dark"
+          className="hover:bg-gray-400 duration-300 self-center md:self-start flex gap-4 mt-4 text-xl bg-blue-500 w-[90px] p-2 justify-center items-center rounded-lg text-dark"
         >
           Postuler
         </button>

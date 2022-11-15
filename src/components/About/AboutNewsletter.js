@@ -35,13 +35,14 @@ const AboutNewsletter = () => {
         anchorOrigin={{ vertical: "top", horizontal: "center" }}
         open={snack}
         onClose={() => setSnack(false)}
-        message={`Merci ! Vous recevrez notre newsletter : ${email} `}
+        message={`Merci ! Vous recevrez notre newsletter par mail : ${email} `}
         autoHideDuration={3000}
         ContentProps={{
           sx: {
             backgroundColor: "rgb(134 239 172)",
             color: "rgb(75 85 99)",
             fontWeight: "500",
+            textAlign: "center",
           },
         }}
       />
@@ -51,7 +52,7 @@ const AboutNewsletter = () => {
             <h2 className="mx-auto lg:m-0 mb-4 max-w-2xl text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl dark:text-white">
               {acf?.titre}
             </h2>
-            <p className="sm:text-center lg:text-left mx-auto lg:m-0 mb-8 max-w-2xl font-light text-gray-500 md:mb-12 sm:text-xl dark:text-gray-400">
+            <p className="sm:text-center lg:text-left mx-auto lg:m-0 mb-8 max-w-2xl font-light text-gray-500 md:mb-12 sm:text-lg dark:text-gray-400">
               {acf?.texte}
             </p>
           </div>

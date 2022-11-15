@@ -30,7 +30,12 @@ export const NavAction = (props) => {
         <div>
           <Link to={props.link} onClick={props.clear}>
             <div onClick={props.reset}>
-              <ListItemText onClick={props.customFunc} disableTypography>
+              <ListItemText
+                onClick={props.customFunc}
+                disableTypography
+                className="text-xs italic"
+                style={{ cursor: props.name === "DARK" && "default" }}
+              >
                 {props.name}
               </ListItemText>
             </div>

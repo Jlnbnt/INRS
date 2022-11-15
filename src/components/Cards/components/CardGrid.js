@@ -43,7 +43,7 @@ const CardGrid = ({ searchQuery, graphlQLQuery, postType }) => {
               ) : postType === "blogs" ? (
                 <BlogsCard key={post.title} post={post} />
               ) : (
-                <div>NOTHING</div>
+                <div>Rien à afficher</div>
               )
             )}
           {location !== "/actualites" &&
@@ -78,7 +78,7 @@ const CardGrid = ({ searchQuery, graphlQLQuery, postType }) => {
                 onClick={() => setSlicer(slicer + 4)}
                 className="customHover my-6 font-light text-lg text-center text-light dark:text-dark dark:before:bg-light"
               >
-                Show More...
+                Voir plus...
               </button>
             </div>
           )}

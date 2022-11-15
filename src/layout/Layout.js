@@ -17,7 +17,6 @@ const Layout = () => {
     handleContactClose();
     handleJobClose();
     setClicked(false);
-    setSearchQuery("");
   }, [path]);
 
   return (

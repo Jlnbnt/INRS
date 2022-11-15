@@ -9,6 +9,7 @@ import { GET_BLOGS_PREVIEWS, GET_BLOG_BY_ID } from "../../../graphql/Queries";
 
 import { CircularProgress } from "@mui/material";
 import CardGrid from "../../../components/Cards/components/CardGrid";
+import DOMPurify from "dompurify";
 const SingleBlog = () => {
   const { setSearchQuery, searchQuery } = useStateContext();
 
@@ -55,7 +56,7 @@ const SingleBlog = () => {
               <span>Ecrit par</span>
               <img
                 alt={`${data?.blog?.author?.node?.name}'s avatar`}
-                className="rounded-full w-[16px] h-[16px]"
+                className="rounded-full w-[32px] h-[32px]"
                 src={data?.blog?.author?.node?.avatar?.url}
               />
               <span className="text-gray-400">
@@ -72,9 +73,12 @@ const SingleBlog = () => {
             </div>
             <div
               className="max-w-[90%] md:max-w-5xl "
-              dangerouslySetInnerHTML={{ __html: acf?.maintext }}
+              dangerouslySetInnerHTML={{
+                __html: DOMPurify.sanitize(acf?.maintext),
+              }}
             />
           </div>
+          <span className="text-3xl">A lire aussi :</span>
           <CardGrid
             postType={"blogs"}
             searchQuery={searchQuery}

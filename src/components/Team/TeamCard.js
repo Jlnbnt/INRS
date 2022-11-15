@@ -5,6 +5,7 @@ import {
   MobileSocialLink,
 } from "../Cards/components/CardComponents";
 
+import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
@@ -50,12 +51,15 @@ const TeamCard = (props) => {
             </div>
             <div className="p-4 ">
               <h3 className="text-sm font-semibold h-[40px]">
-                {acf.nom} {acf.prenom} -{" "}
+                {acf.prenom} {acf.nom} -{" "}
                 <span className="font-light">{acf.poste}</span>
               </h3>
-              <div className="flex justify-between text-xs py-3 h-[90px] items-center">
-                <p>{acf.description}</p>
-              </div>
+
+              <p className="flex justify-between text-xs py-3 min-h-[90px] items-center">
+                <FormatQuoteIcon className="self-start" />
+                {acf.description}
+              </p>
+
               <div className="flex gap-4 md:hidden">
                 {acf?.socials?.linkedin && (
                   <MobileSocialLink
@@ -78,7 +82,7 @@ const TeamCard = (props) => {
               </div>
               <hr className="my-4 border-light sm:mx-auto dark:border-dark" />
               <div className="flex  gap-4 items-center text-xs h-[32px]">
-                <span>Centres d'ntérêts :</span>
+                <span>Intérêts :</span>
                 <div className="flex gap-2">
                   {acf?.interets?.map((interet) => (
                     <span

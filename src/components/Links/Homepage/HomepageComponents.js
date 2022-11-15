@@ -25,3 +25,17 @@ export const HomepageMediaLink = ({ text, link, icon }) => {
     </a>
   );
 };
+
+export const ExpertisesIcons = ({ icon, alt, title, text }) => {
+  return (
+    <div className="self-start p-1 flex flex-col justify-center items-start">
+      <img
+        className="md:self-center filter-dark dark:filter-light w-14 h-14 pb-2"
+        src={icon}
+        alt={alt}
+      />
+      <h2 className="font-semibold md:self-center pb-2">{title}</h2>
+      <p>{text}</p>
+    </div>
+  );
+};

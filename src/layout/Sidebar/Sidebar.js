@@ -62,7 +62,7 @@ export default function Sidebar() {
                 className="text-light dark:text-dark flex items-center justify-end gap-1 p-0 m-0"
               >
                 <span className="customHover dark:before:bg-light mt-0.5">
-                  CLOSE
+                  FERMER
                 </span>
                 <CloseIcon fontSize="small" />
               </button>
@@ -70,20 +70,18 @@ export default function Sidebar() {
             <Divider />
           </List>
           <List className="p-0">
-            <NavLink name="HOME" link="/" />
-            <NavLink name="ACTUALITES" link="actualites" />
-            <NavLink name="EVENEMENTS" link="evenements" />
+            <NavLink name="ACCUEIL" link="/" />
+            <NavLink name="ACTUALITÉS" link="actualites" />
+            <NavLink name="ÉVÉNEMENTS" link="evenements" />
             <NavLink name="BLOG" link="blogs" />
-            <NavLink name="JOBS" link="jobs" />
-            <NavLink name="ABOUT" link="about" />
+            <NavLink name="EMPLOIS" link="jobs" />
+            <NavLink name="À PROPOS" link="about" />
           </List>
           <List className="text-gray-400 p-0">
-            <NavAction name={themeChoice === "dark" ? "LIGHTMODE" : "DARKMODE"}>
-              {
-                <button onClick={toggleDrawer(false)}>
-                  <SwitchMode />
-                </button>
-              }
+            <NavAction name="DARK">
+              {/* <span onClick={toggleDrawer(false)}> */}
+              <SwitchMode />
+              {/*  </span> */}
             </NavAction>
           </List>
         </div>
@@ -94,7 +92,7 @@ export default function Sidebar() {
             href="https://alpha.inrscience.com/wp-login.php?action=register"
             className="customHover dark:before:bg-light"
           >
-            Register
+            Inscrition
           </a>{" "}
           /{" "}
           <a
@@ -103,7 +101,7 @@ export default function Sidebar() {
             href="https://alpha.inrscience.com/wp-login.php"
             className="customHover dark:before:bg-light"
           >
-            Login
+            Connexion
           </a>
         </div>
       </Drawer>

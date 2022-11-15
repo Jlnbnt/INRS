@@ -9,6 +9,7 @@ import { GET_NEWS_BY_ID, GET_NEWS_PREVIEWS } from "../../graphql/Queries";
 
 import { CircularProgress } from "@mui/material";
 import CardGrid from "../../components/Cards/components/CardGrid";
+import DOMPurify from "dompurify";
 
 const SingleNews = () => {
   const { setSearchQuery, searchQuery } = useStateContext();
@@ -56,7 +57,7 @@ const SingleNews = () => {
               <span>Ecrit par</span>
               <img
                 alt={`${data?.actualite?.author?.node?.name}'s avatar`}
-                className="rounded-full w-[16px] h-[16px]"
+                className="rounded-full w-[32px] h-[32px]"
                 src={data?.actualite?.author?.node?.avatar?.url}
               />
               <span className="text-gray-400">
@@ -73,7 +74,9 @@ const SingleNews = () => {
             </div>
             <div
               className="max-w-[90%] md:max-w-5xl self-center"
-              dangerouslySetInnerHTML={{ __html: acf?.maintext }}
+              dangerouslySetInnerHTML={{
+                __html: DOMPurify.sanitize(acf?.maintext),
+              }}
             />
           </div>
           <span className="text-3xl">A lire aussi :</span>

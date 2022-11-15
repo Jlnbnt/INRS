@@ -38,14 +38,14 @@ const BlogArticle = () => {
             />
           </Link>
           <h2 className="mb-6 max-w-[90%] font-light text-[4vw] sm:text-[3vh] lg:text-[1.5vw] text-center text-light dark:text-dark">
-            CHECK IT
+            Ne manquez pas
             <span className="font-semibold ml-2">
               &rarr;&nbsp;
               <Link
                 to={`/blog/${data.blogs.nodes[0].id}`}
                 className="customHover dark:before:bg-light"
               >
-                Today's highlight
+                L'article du jour
               </Link>
             </span>
           </h2>

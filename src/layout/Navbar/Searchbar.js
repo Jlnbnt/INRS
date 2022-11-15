@@ -31,7 +31,7 @@ const Searchbar = ({ setSearchActive }) => {
         className="ml-4 sm:ml-0 w-full outline-none bg-transparent caret-light dark:caret-dark placeholder:opacity-60"
       />
       <button type="submit" className="hidden">
-        Sumbit search
+        Rechercher
       </button>
       <button
         onClick={() => {

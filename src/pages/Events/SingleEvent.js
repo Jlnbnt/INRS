@@ -9,6 +9,7 @@ import { GET_EVENTS_PREVIEWS, GET_EVENT_BY_ID } from "../../graphql/Queries";
 
 import { CircularProgress } from "@mui/material";
 import CardGrid from "../../components/Cards/components/CardGrid";
+import DOMPurify from "dompurify";
 
 const SingleEvent = () => {
   const { setSearchQuery, searchQuery } = useStateContext();
@@ -64,7 +65,9 @@ const SingleEvent = () => {
             </div>
             <div
               className="max-w-[90%] md:max-w-5xl self-center"
-              dangerouslySetInnerHTML={{ __html: acf?.maintext }}
+              dangerouslySetInnerHTML={{
+                __html: DOMPurify.sanitize(acf?.maintext),
+              }}
             />
             <a
               rel="noreferrer"
@@ -75,6 +78,7 @@ const SingleEvent = () => {
               S'inscrire <span className="font-light">✓</span>
             </a>
           </div>
+          <span className="text-3xl">A voir aussi :</span>
           <CardGrid
             postType={"evenements"}
             searchQuery={searchQuery}

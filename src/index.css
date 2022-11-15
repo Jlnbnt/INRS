@@ -32,6 +32,13 @@ code {
 
 iframe {
   max-width: 100%;
+  text-align: center;
+  position: static;
+  visibility: visible;
+  width: 550px;
+  height: 552px;
+  display: block;
+  flex-grow: 1;
 }
 
 @tailwind base;

@@ -2,15 +2,19 @@ import * as React from "react";
 
 import { useThemeContext } from "../../context/ThemeProvider";
 
+import { useStateContext } from "../../context/StateProvider";
+
 import Switch from "@mui/material/Switch";
 
 import { styled } from "@mui/material/styles";
 
 export default function CustomizedSwitches() {
   const { themeChoice, setThemeChoice } = useThemeContext();
+  const { toggleDrawer } = useStateContext();
   const IOSSwitch = styled((props) => (
     <Switch
       {...props}
+      onClick={toggleDrawer(false)}
       checked={themeChoice === "dark"}
       onChange={() =>
         themeChoice == `light`

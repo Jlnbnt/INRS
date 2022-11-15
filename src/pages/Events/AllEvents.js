@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { useStateContext } from "../../context/StateProvider";
 
@@ -7,7 +7,10 @@ import { GET_EVENTS_PREVIEWS } from "../../graphql/Queries";
 import CardGridRow from "../../components/Cards/components/CardGridRow";
 
 const AllNews = () => {
-  const { searchQuery } = useStateContext();
+  const { searchQuery, setSearchQuery } = useStateContext();
+  useEffect(() => {
+    setSearchQuery("");
+  }, []);
 
   return (
     <div className="p-8">

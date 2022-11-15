@@ -61,14 +61,14 @@ const NewsCard = ({ post }) => {
                   <TagInfo
                     type={`${post?.__typename}s`}
                     bgColor={
-                      acf?.tag === "Tech"
-                        ? "#957DAD"
-                        : acf?.tag === "Environnement"
-                        ? "#3CB371"
-                        : acf?.tag === "Business"
-                        ? "#898FAD"
-                        : acf?.tag === "Voyage"
-                        ? "#E9967A"
+                      acf?.tag === "Planète"
+                        ? "#70AF85"
+                        : acf?.tag === "Sciences"
+                        ? "#655D8A"
+                        : acf?.tag === "Tech"
+                        ? "#1572A1"
+                        : acf?.tag === "Santé"
+                        ? "#BB6464"
                         : null
                     }
                     tag={acf.tag}

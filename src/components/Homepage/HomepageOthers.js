@@ -1,12 +1,7 @@
 import React from "react";
 
-import { useQuery } from "@apollo/client";
-
-import { GET_HOMEPAGE_EXPERTISES } from "../../graphql/Queries";
-import { CircularProgress } from "@mui/material";
 import { ReactComponent as INRSISO } from "../Assets/INRSISO.svg";
-import { ServicesIcon } from "../Links/About/AboutComponents";
-import { Link } from "react-router-dom";
+
 import EventAvailableIcon from "@mui/icons-material/EventAvailable";
 import NewspaperIcon from "@mui/icons-material/Newspaper";
 import WorkIcon from "@mui/icons-material/Work";
@@ -29,7 +24,7 @@ const HomepageOthers = () => {
           icon={<EventAvailableIcon className="w-[50px] h-[50px]" />}
         />
         <HomepageLink
-          text="NEWS"
+          text="ACTUALITÉS"
           link="/actualites"
           icon={<ArticleIcon className="w-[50px] h-[50px]" />}
         />
@@ -41,7 +36,7 @@ const HomepageOthers = () => {
           }
         />
         <HomepageLink
-          text="RECRUTEMENT"
+          text="CARRIÈRE"
           link="/jobs"
           icon={<WorkIcon className="w-[50px] h-[50px]" />}
         />

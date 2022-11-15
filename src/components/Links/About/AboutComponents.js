@@ -1,13 +1,16 @@
-export const ServicesIcon = ({ icon, alt, title, text }) => {
+export const ServicesIcon = ({ icon, alt, title, text1, text2 }) => {
   return (
-    <div className="self-start p-1 flex flex-col text-center justify-center items-center">
+    <div className="self-start p-1 flex flex-col justify-center items-start">
       <img
-        className="filter-dark dark:filter-light w-14 h-14 pb-2"
+        className="md:self-center filter-dark dark:filter-light w-14 h-14 pb-2"
         src={icon}
         alt={alt}
       />
-      <h2>{title}</h2>
-      <p>{text}</p>
+      <h2 className="font-semibold md:self-center pb-2">{title}</h2>
+      <ul className="list-disc">
+        <li>{text1}</li>
+        <li>{text2}</li>
+      </ul>
     </div>
   );
 };
@@ -36,7 +39,7 @@ export const Partner = ({ link, alt }) => {
 
 export const Project = ({ nombre, texte, titre }) => {
   return (
-    <div className="flex flex-col items-center font-semibold gap-2">
+    <div className="flex flex-col items-center font-semibold gap-2 text-center">
       <span className="text-6xl text-blue-900 dark:text-blue-700">
         {nombre}
       </span>

@@ -92,13 +92,10 @@ export default function Navbar() {
                   className="text-light font-semibold dark:text-dark text-lg hover:bg-transparent lg:mr-14 mr-6 sm:mr-0 "
                 >
                   <Link to="/" aria-label="Homepage-link">
-                    {window.location.hostname === "localhost" && (
-                      <span>DEV</span>
-                    )}
                     {awayFromTop ? (
-                      <INRSISO className="fill-light dark:fill-dark mr-3 h-10 rotate-90" />
+                      <INRSISO className="fill-light dark:fill-dark mr-3 h-10 sm:h-11 rotate-90" />
                     ) : (
-                      <INRSLOGO className="fill-light dark:fill-dark mr-3 h-8" />
+                      <INRSLOGO className="fill-light dark:fill-dark mr-3 h-8 sm:h-9" />
                     )}
                   </Link>
                 </button>

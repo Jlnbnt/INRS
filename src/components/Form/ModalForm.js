@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useThemeContext } from "../../context/ThemeProvider";
 
-import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import { useStateContext } from "../../context/StateProvider";
@@ -10,7 +9,7 @@ import {
   ContactTextArea,
   ContactButton,
 } from "./components/FormComponents";
-import { gql, useMutation } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 import { SEND_CONTACT_FORM } from "../../graphql/Queries";
 import { CircularProgress, Snackbar } from "@mui/material";
 
@@ -100,7 +99,7 @@ export default function ModalForm() {
               name="firstName"
               autofocus={true}
               type="text"
-              title="Prenom"
+              title="Prénom"
               placeHolder="Votre prénom"
             />
             <ContactInput
@@ -126,15 +125,15 @@ export default function ModalForm() {
             <ContactInput
               name="phone"
               type="text"
-              title="Phone"
-              placeHolder="Votre phone"
+              title="Téléphone"
+              placeHolder="Votre numéro de téléphone"
             />
           </div>
           <DialogActions className="flex w-full justify-between">
             <ContactButton
               sumbit={false}
               customFunction={handleContactClose}
-              title="CLOSE"
+              title="FERMER"
             />
 
             {loading ? (
@@ -143,7 +142,7 @@ export default function ModalForm() {
               <span>Message envoyé ✓</span>
             ) : (
               <ContactButton
-                title="SEND"
+                title="ENVOYER"
                 sumbit={true}
                 sx={{
                   color: themeChoice === "light" ? "#36454F" : "#F9F6EE",

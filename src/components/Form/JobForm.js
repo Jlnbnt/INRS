@@ -122,7 +122,7 @@ export default function JobForm() {
               name="firstName"
               autofocus={true}
               type="text"
-              title="Prenom"
+              title="Prénom"
               placeHolder="Votre prénom"
             />
             <JobInput
@@ -136,7 +136,7 @@ export default function JobForm() {
             name="message"
             title="Lettre de motivation"
             subTitle="Décrivez vos motivations en quelques lignes."
-            placeHolder="Votre texte..."
+            placeHolder="Vos motivations..."
           />
           <div className="mt-1 flex justify-center rounded-md border-2 border-dashed border-gray-300 px-6 pt-5 pb-6">
             {!image?.name ? (
@@ -159,7 +159,7 @@ export default function JobForm() {
                         strokeLinejoin="round"
                       />
                     </svg>
-                    <span>Upload a file</span>
+                    <span>Télécharger un fichier</span>
                     <input
                       onChange={(e) => setImage(e.target.files[0])}
                       id="file-upload"
@@ -171,7 +171,7 @@ export default function JobForm() {
                   </label>
                 </div>
                 <p className="text-xs text-gray-500">
-                  PNG, JPG, PDF up to 10MB
+                  PNG, JPG, PDF (10MB .max)
                 </p>
               </div>
             ) : (
@@ -194,15 +194,15 @@ export default function JobForm() {
             <JobInput
               name="phone"
               type="text"
-              title="Phone"
-              placeHolder="Votre phone"
+              title="Téléphone"
+              placeHolder="Votre numéro de téléphone"
             />
           </div>
           <DialogActions className="flex w-full justify-between">
             <JobButton
               sumbit={false}
               customFunction={handleJobClose}
-              title="CLOSE"
+              title="FERMER"
             />
 
             {loading || sending ? (
@@ -211,7 +211,7 @@ export default function JobForm() {
               <span>Message envoyé ✓</span>
             ) : (
               <JobButton
-                title="SEND"
+                title="ENVOYER"
                 sumbit={true}
                 sx={{
                   color: themeChoice === "light" ? "#36454F" : "#F9F6EE",

@@ -1,12 +1,11 @@
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import { useThemeContext } from "./context/ThemeProvider";
+
 import ScrollToTop from "./context/ScrollToTop";
 
 import Layout from "./layout/Layout";
-
 import Homepage from "./pages/HomePage/Homepage";
-
 import About from "./pages/About/About";
 import Missing from "./pages/Missing/Missing";
 
@@ -22,6 +21,7 @@ import AllBlog from "./pages/Blog/AllBlog";
 import SingleBlog from "./pages/Blog/Articles/SingleBlog";
 
 import SearchResults from "./pages/Search/SearchResults";
+
 import PDC from "./pages/CGU/PDC";
 import CGU from "./pages/CGU/CGU";
 

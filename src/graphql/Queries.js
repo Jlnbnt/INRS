@@ -258,6 +258,7 @@ export const GET_ABOUT_SERVICES = gql`
               gridServices {
                 service1 {
                   texte
+                  texte2
                   titre
                   icone {
                     altText
@@ -266,6 +267,7 @@ export const GET_ABOUT_SERVICES = gql`
                 }
                 service2 {
                   texte
+                  texte2
                   titre
                   icone {
                     altText
@@ -274,6 +276,7 @@ export const GET_ABOUT_SERVICES = gql`
                 }
                 service3 {
                   texte
+                  texte2
                   titre
                   icone {
                     altText
@@ -282,6 +285,7 @@ export const GET_ABOUT_SERVICES = gql`
                 }
                 service4 {
                   texte
+                  texte2
                   titre
                   icone {
                     altText
@@ -465,10 +469,6 @@ export const GET_HOMEPAGE_EXPERTISES = gql`
               carte {
                 sousTitre
                 texte
-                image {
-                  altText
-                  sourceUrl(size: THUMBNAIL)
-                }
               }
               gridServices {
                 fieldGroupName
@@ -497,22 +497,6 @@ export const GET_HOMEPAGE_EXPERTISES = gql`
                   }
                 }
                 expertise4 {
-                  texte
-                  titre
-                  icone {
-                    altText
-                    sourceUrl(size: THUMBNAIL)
-                  }
-                }
-                expertise5 {
-                  texte
-                  titre
-                  icone {
-                    altText
-                    sourceUrl(size: THUMBNAIL)
-                  }
-                }
-                expertise6 {
                   texte
                   titre
                   icone {

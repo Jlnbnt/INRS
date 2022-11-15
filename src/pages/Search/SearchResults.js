@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { useStateContext } from "../../context/StateProvider";
 
@@ -12,6 +12,9 @@ import CardGridRow from "../../components/Cards/components/CardGridRow";
 
 const SearchResults = () => {
   const { searchQuery } = useStateContext();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="p-8">

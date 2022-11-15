@@ -11,17 +11,18 @@ const Missing = () => {
         <div className="max-w-md text-center">
           <h2 className="mb-8 font-extrabold text-9xl">404</h2>
           <p className="text-2xl font-semibold md:text-3xl">
-            Sorry, we couldn't find this page.
+            Désolé, nous n'avons pas trouvé cette page.
           </p>
           <p className="mt-4 mb-8">
-            But dont worry, you can find plenty of other things on our homepage.
+            Mais ne vous inquiétez pas, vous trouverez beaucoup de choses sur
+            notre page d'accueil.
           </p>
           <Link to="/">
             <Button
               className="text-light dark:text-dark border-light dark:border-dark hover:bg-gray-900 hover:bg-opacity-20"
               variant="outlined"
             >
-              Go to homepage
+              Accueil
             </Button>
           </Link>
         </div>

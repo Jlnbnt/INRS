@@ -31,8 +31,8 @@ const About = () => {
         <div className="relative text-light dark:text-dark bg-transparent p-8 ">
           <h1>L'EQUIPE</h1>
           <h2 className="text-lg text-gray-400 dark:text-gray-403">
-            "There's nothing I really wanted to do in life that I wasn't able to
-            get good at. That's my skill."
+            "Se réunir est un début, rester ensemble est un progrès, travailler
+            ensemble est la réussite."
           </h2>
           <div className="flex w-full flex-wrap align-center justify-center">
             {data && data?.equipes?.nodes?.length ? (
@@ -42,7 +42,7 @@ const About = () => {
                 ))}
               </>
             ) : (
-              <h1>Nothing</h1>
+              <h1>Rien à afficher</h1>
             )}
           </div>
         </div>
@@ -52,7 +52,6 @@ const About = () => {
          rounded-b-xl w-full"
           >
             <AboutFooter />
-
             <AboutNewsletter />
           </div>
         }

@@ -37,10 +37,10 @@ const Footer = () => {
               <FooterCol
                 blank={true}
                 title="Reseaux"
-                link1="https://www.github.com/"
-                subtitle1="Github"
-                link2="https://www.discord.com/"
-                subtitle2="Discord"
+                link1="https://www.linkedin.com/in/julien-benat/"
+                subtitle1="LinkedIn"
+                link2="https://github.com/Jlnbnt"
+                subtitle2="Github"
               />
               <FooterCol
                 blank={false}
@@ -48,7 +48,7 @@ const Footer = () => {
                 link1="/about"
                 subtitle1="A propos"
                 link2="/jobs"
-                subtitle2="Recrutement"
+                subtitle2="Carrière"
               />
               <FooterCol
                 title="Legal"
@@ -61,15 +61,14 @@ const Footer = () => {
           </div>
           <hr className="my-6 border-light sm:mx-auto dark:border-dark lg:my-8" />
           <div className="pb-2  flex flex-col sm:flex-row items-center  justify-between text-light dark:text-dark">
-            <Link
-              to="/cgu"
-              className="text-sm sm:text-center"
-              aria-label="footer-link"
-            >
-              ©2022
-              <span className="customHover dark:before:bg-light">INRS™</span>.
-              All Rights Reserved.
-            </Link>
+            <div className="text-sm  sm:text-center">
+              <Link to="/cgu" aria-label="footer-link">
+                <span className="customHover dark:before:bg-light">
+                  INRS Incorporated©
+                </span>{" "}
+              </Link>
+              2022. Tous droits réservés.
+            </div>
             <div className="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
               <FooterLink
                 icon={<FacebookIcon fontSize="small" />}
