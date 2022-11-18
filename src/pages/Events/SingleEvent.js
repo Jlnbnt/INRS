@@ -78,7 +78,7 @@ const SingleEvent = () => {
               S'inscrire <span className="font-light">✓</span>
             </a>
           </div>
-          <span className="text-3xl">A voir aussi :</span>
+          <span className="text-3xl">Plus d'événements :</span>
           <CardGrid
             postType={"evenements"}
             searchQuery={searchQuery}

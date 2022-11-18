@@ -73,13 +73,11 @@ export const JobPreview = () => {
                   className="w-[40px] h-[40px] sm:w-[60px] sm:h-[60px] rounded-full"
                 />
                 <div>
-                  <h2 className="text-orange-500 text-lg sm:text-2xl font-semibold">
+                  <h2 className="text-lg sm:text-2xl font-semibold">
                     {job?.jobs_acf?.titre}
                   </h2>
-                  <h3 className="text-blue-500 text-lg">
-                    {job?.jobs_acf?.entreprise?.nom}
-                  </h3>
-                  <p className="text-red-500 text-lg max-w-[90%] md:max-w-full">
+                  <h3 className="text-lg">{job?.jobs_acf?.entreprise?.nom}</h3>
+                  <p className="text-lg max-w-[90%] md:max-w-full">
                     {job?.jobs_acf?.entreprise?.lieu}{" "}
                     <span className="text-sm text-gray-500 dark:text-gray-400">
                       ({job?.jobs_acf?.remote})

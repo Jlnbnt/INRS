@@ -41,8 +41,8 @@ const HomepageOthers = () => {
           icon={<WorkIcon className="w-[50px] h-[50px]" />}
         />
         <HomepageMediaLink
-          text="MEDIA"
-          link="https://alpha.inrscience.com/wp-content/uploads/2022/10/VideoComp.mp4"
+          text="MÉDIAS"
+          link="https://www.youtube.com/"
           icon={<YouTubeIcon className="w-[50px] h-[50px]" />}
         />
         <HomepageLink

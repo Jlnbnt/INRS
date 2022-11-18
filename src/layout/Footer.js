@@ -36,17 +36,17 @@ const Footer = () => {
             <div className="py-4 md:py-0 flex flex-col sm:flex-row gap-4 md:gap-16 md:justify-between text-light dark:text-dark">
               <FooterCol
                 blank={true}
-                title="Reseaux"
+                title="Réseaux"
                 link1="https://www.linkedin.com/in/julien-benat/"
                 subtitle1="LinkedIn"
-                link2="https://github.com/Jlnbnt"
+                link2="https://github.com/Jlnbnt/INRS"
                 subtitle2="Github"
               />
               <FooterCol
                 blank={false}
                 title="INRS"
                 link1="/about"
-                subtitle1="A propos"
+                subtitle1="À propos"
                 link2="/jobs"
                 subtitle2="Carrière"
               />

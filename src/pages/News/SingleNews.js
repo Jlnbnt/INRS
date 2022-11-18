@@ -79,7 +79,7 @@ const SingleNews = () => {
               }}
             />
           </div>
-          <span className="text-3xl">A lire aussi :</span>
+          <span className="text-3xl">Plus d'actualités :</span>
           <CardGrid
             postType={"actualites"}
             searchQuery={searchQuery}
