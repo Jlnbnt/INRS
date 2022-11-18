@@ -20,6 +20,12 @@
 		c215,1192,437,1925,654,2162c66,72,104,93,166,93c175,0,352-319,526-948c59-217,53-201,66-179c18,33,78,220,108,337
 		c118,462,116,952-5,1395c-115,418-339,821-620,1114l-97,101h-868h-867L2679,4383z"></path>
 </g>
-</svg><style>@media (prefers-color-scheme: light) { :root { none; } }
-@media (prefers-color-scheme: dark) { :root { filter: filter: invert(100%); } }
+</svg><style>path {
+			fill: #000000;
+		}
+		@media ( prefers-color-scheme: dark ) {
+			path {
+				fill: #ffffff;
+			}
+		}
 </style></svg>
