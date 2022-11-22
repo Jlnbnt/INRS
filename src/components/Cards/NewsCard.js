@@ -27,10 +27,10 @@ const NewsCard = ({ post }) => {
               </Link>
             </div>
             <div className="p-4">
-              <h3 className="text-sm font-semibold h-[60px] line-clamp-3">
+              <h3 className="text-sm font-semibold card line-clamp-2">
                 {acf?.mainTitle}
               </h3>
-              <div className="flex justify-between text-xs py-3">
+              <div className="flex justify-between text-xs my-4">
                 <h4 className="text-[12px]">
                   Posté le{" "}
                   <span className="italic font-semibold  ">

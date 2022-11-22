@@ -29,7 +29,7 @@ const About = () => {
       <div className="relative top-[-50px] w-[90%] md:w-[97%] ">
         <AboutServices />
         <div className="relative text-light dark:text-dark bg-transparent p-8 ">
-          <h1>L'EQUIPE</h1>
+          <h1>L'ÉQUIPE</h1>
           <h2 className="text-lg text-gray-400 dark:text-gray-403">
             "Se réunir est un début, rester ensemble est un progrès, travailler
             ensemble est la réussite."

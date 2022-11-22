@@ -20,11 +20,12 @@ const EventsCard = ({ post }) => {
               </Link>
             </div>
             <div className="p-4">
-              <h3 className="text-sm font-semibold h-[60px] line-clamp-3">
+              <h3 className="text-sm font-semibold card line-clamp-2">
+                {/*  <h3 className="text-sm font-semibold h-[60px] line-clamp-3"> */}
                 {acf?.mainTitle}
               </h3>
-              <div className="flex justify-between text-xs">
-                <h4 className="text-[12px] min-h-[32px]">
+              <div className="flex justify-between text-xs my-4">
+                <h4 className="text-[12px] ">
                   À{" "}
                   <span className="italic font-semibold  ">
                     {acf?.eventPlace}

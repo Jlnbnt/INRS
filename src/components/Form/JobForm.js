@@ -7,6 +7,7 @@ import { SEND_JOB_FORM } from "../../graphql/Queries";
 
 import { JobInput, JobTextArea, JobButton } from "./components/FormComponents";
 
+import CloseIcon from "@mui/icons-material/Close";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import { CircularProgress, Snackbar } from "@mui/material";
@@ -114,22 +115,26 @@ export default function JobForm() {
       >
         <form
           onSubmit={uploadImage}
-          className="space-y-4 px-4 py-5 sm:p-4 shadow sm:overflow-hidden"
+          className="space-y-4 px-4 py-5 sm:p-4 shadow sm:overflow-hidden relative"
         >
+          <CloseIcon
+            className="absolute right-2 cursor-pointer"
+            onClick={handleJobClose}
+          />
           <h2 className="text-4xl pb-2 text-center">Candidature</h2>
           <div className="flex flex-col sm:flex-row gap-4">
+            <JobInput
+              name="lastName"
+              type="text"
+              title="Nom"
+              placeHolder="Votre nom"
+            />
             <JobInput
               name="firstName"
               autofocus={true}
               type="text"
               title="Prénom"
               placeHolder="Votre prénom"
-            />
-            <JobInput
-              name="lastName"
-              type="text"
-              title="Nom"
-              placeHolder="Votre nom"
             />
           </div>
           <JobTextArea

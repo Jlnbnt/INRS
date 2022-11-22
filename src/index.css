@@ -46,9 +46,13 @@ iframe {
 @tailwind utilities;
 
 @layer components {
-  .test {
+  .card {
+    --line-height: 1.5;
+    --lines-to-show: 2;
+    box-sizing: border-box;
+    line-height: var(--line-height);
     overflow: hidden;
-    text-overflow: ellipsis;
+    height: calc(var(--line-height) * var(--lines-to-show) * 1em);
   }
   .scrollbar-hide::-webkit-scrollbar {
     display: none;

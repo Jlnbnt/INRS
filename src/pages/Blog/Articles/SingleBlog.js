@@ -78,7 +78,7 @@ const SingleBlog = () => {
               }}
             />
           </div>
-          <span className="text-3xl">Pus d'articles :</span>
+          <span className="text-3xl">Plus d'articles :</span>
           <CardGrid
             postType={"blogs"}
             searchQuery={searchQuery}

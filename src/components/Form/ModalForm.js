@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useThemeContext } from "../../context/ThemeProvider";
 
+import CloseIcon from "@mui/icons-material/Close";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import { useStateContext } from "../../context/StateProvider";
@@ -91,22 +92,26 @@ export default function ModalForm() {
       >
         <form
           onSubmit={handleForm}
-          className="space-y-6 px-4 py-5 sm:p-4 shadow sm:overflow-hidden"
+          className="space-y-6 px-4 py-5 sm:p-4 shadow sm:overflow-hidden relative"
         >
+          <CloseIcon
+            className="absolute right-2 cursor-pointer"
+            onClick={handleContactClose}
+          />
           <h2 className="text-4xl pb-2 text-center">Contact</h2>
           <div className="flex flex-col sm:flex-row gap-4">
             <ContactInput
-              name="firstName"
               autofocus={true}
-              type="text"
-              title="Prénom"
-              placeHolder="Votre prénom"
-            />
-            <ContactInput
               name="lastName"
               type="text"
               title="Nom"
               placeHolder="Votre nom"
+            />
+            <ContactInput
+              name="firstName"
+              type="text"
+              title="Prénom"
+              placeHolder="Votre prénom"
             />
           </div>
           <ContactTextArea

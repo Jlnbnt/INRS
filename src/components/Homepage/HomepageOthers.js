@@ -29,7 +29,7 @@ const HomepageOthers = () => {
           icon={<ArticleIcon className="w-[50px] h-[50px]" />}
         />
         <HomepageLink
-          text="INRS"
+          text="À PROPOS"
           link="/about"
           icon={
             <INRSISO className="fill-light dark:fill-dark w-[50px] h-[50px] hover:fill-light/50 dark:hover:fill-dark/50 duration-700" />

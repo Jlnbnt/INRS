@@ -30,7 +30,7 @@ const BlogsCard = ({ post }) => {
               <h3 className="text-sm font-semibold h-[60px] line-clamp-3">
                 {acf?.mainTitle}
               </h3>
-              <div className="flex justify-between text-xs py-3">
+              <div className="flex justify-between text-xs my-4">
                 <h4 className="text-[12px]">
                   Posté le{" "}
                   <span className="italic font-semibold  ">
