@@ -82,6 +82,10 @@ export const GET_NEWS_BY_ID = gql`
         tag
         maintext
       }
+      seo {
+        metaDesc
+        title
+      }
     }
   }
 `;
@@ -110,6 +114,10 @@ export const GET_EVENT_BY_ID = gql`
         eventHour
         eventprice
         inscriptionLink
+      }
+      seo {
+        metaDesc
+        title
       }
     }
   }
@@ -621,7 +629,38 @@ export const GET_LATEST_BLOG = gql`
     }
   }
 `;
+
 export const GET_BLOG_BY_ID = gql`
+  query GetNewsById($id: ID!) {
+    blog(id: $id) {
+      date
+      title
+      author {
+        node {
+          avatar {
+            url
+          }
+          name
+        }
+      }
+      blog_acf {
+        mainImage {
+          altText
+          sourceUrl(size: _1536X1536)
+        }
+        mainTitle
+        tag
+        maintext
+      }
+      seo {
+        metaDesc
+        title
+      }
+    }
+  }
+`;
+
+/* export const GET_BLOG_BY_ID = gql`
   query GetNewsById($id: ID!) {
     blog(id: $id) {
       date
@@ -645,7 +684,7 @@ export const GET_BLOG_BY_ID = gql`
       }
     }
   }
-`;
+`; */
 
 export const GET_CGU = gql`
   query CGU {

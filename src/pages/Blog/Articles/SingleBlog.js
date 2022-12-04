@@ -10,6 +10,7 @@ import { GET_BLOGS_PREVIEWS, GET_BLOG_BY_ID } from "../../../graphql/Queries";
 import { CircularProgress } from "@mui/material";
 import CardGrid from "../../../components/Cards/components/CardGrid";
 import DOMPurify from "dompurify";
+import SEO from "../../../seo/SEO";
 const SingleBlog = () => {
   const { setSearchQuery, searchQuery } = useStateContext();
 
@@ -39,6 +40,10 @@ const SingleBlog = () => {
 
   return (
     <>
+      <SEO
+        title={data?.blog?.seo?.title}
+        description={data?.blog?.seo?.metaDesc}
+      />
       {data && (
         <div className="pb-16 flex w-full flex-col text-light dark:text-dark p-4">
           <img
@@ -46,12 +51,10 @@ const SingleBlog = () => {
             src={acf?.mainImage?.sourceUrl}
             alt=""
           />
-
           <div className="mb-6 flex flex-col justify-between gap-6 p-4 self-center max-w-7xl">
             <h2 className="font-semibold text-4xl sm:text-6xl">
               {acf?.mainTitle?.toUpperCase()}
             </h2>
-
             <div className="flex items-center gap-2 italic">
               <span>Ecrit par</span>
               <img

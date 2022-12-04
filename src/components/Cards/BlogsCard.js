@@ -2,12 +2,7 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 
-import { TagInfo, SocialLinkIcon } from "./components/CardComponents";
-
-import InstagramIcon from "@mui/icons-material/Instagram";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
-import ReplyIcon from "@mui/icons-material/Reply";
+import { TagInfo } from "./components/CardComponents";
 
 const BlogsCard = ({ post }) => {
   const acf = post?.blog_acf;

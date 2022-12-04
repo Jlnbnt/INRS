@@ -3,7 +3,7 @@ import { CircularProgress } from "@mui/material";
 import DOMPurify from "dompurify";
 import React from "react";
 import { GET_CGU } from "../../graphql/Queries";
-
+import SEO from "../../seo/SEO";
 const CGU = () => {
   const { loading, error, data } = useQuery(GET_CGU);
 
@@ -18,6 +18,10 @@ const CGU = () => {
   console.log(cgu);
   return (
     <div className="text-light dark:text-dark p-8">
+      <SEO
+        title="PDC"
+        description="INRS - It is not Rocket Science est un site d'information et de vulgarisation scientifique. Politique de confidentialité"
+      />
       <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(cgu) }} />
     </div>
   );

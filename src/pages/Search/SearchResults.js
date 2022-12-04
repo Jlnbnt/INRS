@@ -10,6 +10,8 @@ import {
 
 import CardGridRow from "../../components/Cards/components/CardGridRow";
 
+import SEO from "../../seo/SEO";
+
 const SearchResults = () => {
   const { searchQuery } = useStateContext();
   useEffect(() => {
@@ -18,6 +20,10 @@ const SearchResults = () => {
 
   return (
     <div className="p-8">
+      <SEO
+        title={`Recherche | ${searchQuery}`}
+        description="INRS - It is not Rocket Science est un site d'information et de vulgarisation scientifique. Retrouvez les actualités, les événements, les offres d'emplois du réseau INRS."
+      />
       <CardGridRow
         rowName="Actualités"
         searchQuery={searchQuery}

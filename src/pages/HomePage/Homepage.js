@@ -13,6 +13,8 @@ import HomepageOthers from "../../components/Homepage/HomepageOthers";
 import { GET_VIDEO } from "../../graphql/Queries";
 import { useQuery } from "@apollo/client";
 import { CircularProgress } from "@mui/material";
+
+import SEO from "../../seo/SEO";
 const Homepage = () => {
   const { setSearchQuery, setSearchActive, handleContactOpen } =
     useStateContext();
@@ -36,6 +38,10 @@ const Homepage = () => {
 
   return (
     <>
+      <SEO
+        title="Accueil"
+        description="INRS - It is not Rocket Science est un site d'information et de vulgarisation scientifique. Retrouvez les actualités, les événements, les offres d'emplois du réseau INRS."
+      />
       <div className="text-white dark:bg-black/60 bg-gray-100  flex flex-col justify-center items-center ">
         <div className="h-screen mb-16 ">
           <video
@@ -55,7 +61,7 @@ const Homepage = () => {
               <div className=" text-center flex flex-col items-center gap-4">
                 <h1 className="text-8xl sm:text-9xl font-black">INRS</h1>
                 <h2 className="text-5xl sm:text-5xl italic">
-                  "It is not Rocket Science..."
+                  "It is Not Rocket Science..."
                 </h2>
               </div>
               <div className="flex items-center gap-4">

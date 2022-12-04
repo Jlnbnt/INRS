@@ -96,6 +96,7 @@ export const JobButton = ({ customFunction, title, sumbit }) => {
   const newArray = [];
 
   if (jobState === !null) {
+    // eslint-disable-next-line
     Object.values(jobState).map((item) => {
       if (item === !null) {
         newArray.push(item.length);
@@ -122,6 +123,7 @@ export const ContactButton = ({ customFunction, title, sumbit }) => {
   const newArray = [];
 
   if (formState === !null) {
+    // eslint-disable-next-line
     Object.values(formState).map((item) => {
       if (item === !null) {
         newArray.push(item.length);

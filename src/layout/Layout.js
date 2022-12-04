@@ -9,14 +9,13 @@ import ModalForm from "../components/Form/ModalForm";
 import { useStateContext } from "../context/StateProvider";
 
 const Layout = () => {
-  const { handleContactClose, handleJobClose, setClicked, setSearchQuery } =
-    useStateContext();
+  const { handleContactClose, handleJobClose, setClicked } = useStateContext();
   const path = useLocation().pathname;
 
   useEffect(() => {
     handleContactClose();
     handleJobClose();
-    setClicked(false);
+    setClicked(false); // eslint-disable-next-line
   }, [path]);
 
   return (

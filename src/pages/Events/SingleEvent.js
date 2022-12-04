@@ -6,7 +6,7 @@ import { useStateContext } from "../../context/StateProvider";
 
 import { useQuery } from "@apollo/client";
 import { GET_EVENTS_PREVIEWS, GET_EVENT_BY_ID } from "../../graphql/Queries";
-
+import SEO from "../../seo/SEO";
 import { CircularProgress } from "@mui/material";
 import CardGrid from "../../components/Cards/components/CardGrid";
 import DOMPurify from "dompurify";
@@ -40,6 +40,10 @@ const SingleEvent = () => {
 
   return (
     <>
+      <SEO
+        title={data?.evenement?.seo?.title}
+        description={data?.evenement?.seo?.metaDesc}
+      />
       {data && (
         <div className="pb-16 flex w-full flex-col text-light dark:text-dark p-4">
           <img

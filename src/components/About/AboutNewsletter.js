@@ -83,7 +83,7 @@ const AboutNewsletter = () => {
               <div>
                 <button
                   type="submit"
-                  className="py-3 px-5 w-full text-sm font-medium text-center text-light dark:text-dark rounded-lg border cursor-pointer bg-primary-700 border-primary-600 sm:rounded-none sm:rounded-r-lg hover:bg-primary-800  dark:bg-primary-600 dark:hover:bg-primary-700 hover:bg-gray-100 duration-700"
+                  className="py-3 px-5 dark:hover:bg-gray-500 w-full text-sm font-medium text-center text-light dark:text-dark rounded-lg border cursor-pointer bg-primary-700 border-primary-600 sm:rounded-none sm:rounded-r-lg hover:bg-primary-800  dark:bg-primary-600 dark:hover:bg-primary-700 hover:bg-gray-100 duration-700"
                 >
                   {acf?.input?.bouton}
                 </button>

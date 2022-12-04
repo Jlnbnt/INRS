@@ -30,7 +30,7 @@ function App() {
 
   return (
     <div
-      className={`${themeChoice} flex flex-col w-full justify-center items-center `}
+      className={`${themeChoice} flex flex-col w-full justify-center items-center`}
     >
       <div className="max-w-[2000px] w-full">
         <BrowserRouter>

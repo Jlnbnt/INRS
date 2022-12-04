@@ -17,12 +17,12 @@ export default function CustomizedSwitches() {
       onClick={toggleDrawer(false)}
       checked={themeChoice === "dark"}
       onChange={() =>
-        themeChoice == `light`
+        themeChoice === `light`
           ? setThemeChoice(`dark`)
           : setThemeChoice(`light`)
       }
     />
-  ))(({}) => ({
+  ))(() => ({
     width: 42,
     height: 26,
     padding: 0,

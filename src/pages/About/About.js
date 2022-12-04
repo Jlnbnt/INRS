@@ -11,7 +11,7 @@ import AboutFooter from "../../components/About/AboutFooter";
 import AboutNewsletter from "../../components/About/AboutNewsletter";
 import AboutHeader from "../../components/About/AboutHeader";
 import AboutServices from "../../components/About/AboutServices";
-
+import SEO from "../../seo/SEO";
 const About = () => {
   const { loading, error, data } = useQuery(GET_TEAM);
 
@@ -25,6 +25,10 @@ const About = () => {
 
   return (
     <div className="p-0 m-0 flex justify-center items-center flex-col bg-gray-100 dark:bg-black/60">
+      <SEO
+        title="À propos"
+        description="INRS - It is not Rocket Science est un site d'information et de vulgarisation scientifique. Retrouvez les actualités, les événements, les offres d'emplois du réseau INRS."
+      />
       <AboutHeader />
       <div className="relative top-[-50px] w-[90%] md:w-[97%] ">
         <AboutServices />

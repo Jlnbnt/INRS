@@ -24,7 +24,7 @@ const useIsMobile = (breakpoint = 900) => {
         window.removeEventListener("load", handlePageResized);
         window.removeEventListener("reload", handlePageResized);
       }
-    };
+    }; // eslint-disable-next-line
   }, []);
 
   return {

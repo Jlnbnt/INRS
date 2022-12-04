@@ -8,8 +8,12 @@ import { useQuery } from "@apollo/client";
 import { GET_NEWS_BY_ID, GET_NEWS_PREVIEWS } from "../../graphql/Queries";
 
 import { CircularProgress } from "@mui/material";
+
 import CardGrid from "../../components/Cards/components/CardGrid";
+
 import DOMPurify from "dompurify";
+
+import SEO from "../../seo/SEO";
 
 const SingleNews = () => {
   const { setSearchQuery, searchQuery } = useStateContext();
@@ -37,9 +41,13 @@ const SingleNews = () => {
   if (error) return `Error! ${error.message}`;
 
   const acf = data?.actualite?.actualites_acf;
-
+  console.log(data);
   return (
     <>
+      <SEO
+        title={data?.actualite?.seo?.title}
+        description={data?.actualite?.seo?.metaDesc}
+      />
       {data && (
         <div className="pb-16 flex w-full flex-col text-light dark:text-dark p-4">
           <img

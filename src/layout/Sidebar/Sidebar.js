@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 
 import { useStateContext } from "../../context/StateProvider";
-import { useThemeContext } from "../../context/ThemeProvider";
 
 import { useLocation } from "react-router-dom";
 
@@ -22,7 +21,7 @@ import {
 export default function Sidebar() {
   const { setSearchActive, setSearchQuery, toggleDrawer, open } =
     useStateContext();
-  const { themeChoice } = useThemeContext();
+
   const path = useLocation().pathname;
 
   useEffect(() => {
