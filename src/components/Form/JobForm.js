@@ -124,6 +124,7 @@ export default function JobForm() {
           <h2 className="text-4xl pb-2 text-center">Candidature</h2>
           <div className="flex flex-col sm:flex-row gap-4">
             <JobInput
+              autofocus={true}
               name="lastName"
               type="text"
               title="Nom"
@@ -131,7 +132,6 @@ export default function JobForm() {
             />
             <JobInput
               name="firstName"
-              autofocus={true}
               type="text"
               title="Prénom"
               placeHolder="Votre prénom"

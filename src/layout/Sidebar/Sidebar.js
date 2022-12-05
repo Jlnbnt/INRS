@@ -88,7 +88,7 @@ export default function Sidebar() {
           <a
             rel="noreferrer"
             target="_blank"
-            href="https://alpha.inrscience.com/wp-login.php?action=register"
+            href="https://api.inrscience.com/wp-login.php?action=register"
             className="customHover dark:before:bg-light"
           >
             Inscrition
@@ -97,7 +97,7 @@ export default function Sidebar() {
           <a
             rel="noreferrer"
             target="_blank"
-            href="https://alpha.inrscience.com/wp-login.php"
+            href="https://api.inrscience.com/wp-login.php"
             className="customHover dark:before:bg-light"
           >
             Connexion
