@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Link } from "react-router-dom";
-
+import { TagInfo } from "./components/CardComponents";
 const EventsCard = ({ post }) => {
   const acf = post?.evenements_acf;
 
@@ -53,10 +53,28 @@ const EventsCard = ({ post }) => {
                   >
                     S'inscrire <span className="font-light">✓</span>
                   </a>
+                  <span className="ml-1 text-xs">{`(${acf?.eventprice})`}</span>
                 </div>
                 <div className="flex justify-end items-center gap-1 flex-1 flex-wrap">
-                  <span className="text-sm">{acf?.eventprice}</span>
+                  <TagInfo
+                    type={`${post?.__typename}s`}
+                    bgColor={
+                      acf?.tag === "Planète"
+                        ? "#70AF85"
+                        : acf?.tag === "Sciences"
+                        ? "#655D8A"
+                        : acf?.tag === "Tech"
+                        ? "#1572A1"
+                        : acf?.tag === "Santé"
+                        ? "#BB6464"
+                        : null
+                    }
+                    tag={acf.tag}
+                  />
                 </div>
+                {/*  <div className="flex justify-end items-center gap-1 flex-1 flex-wrap">
+                  <span className="text-sm">{acf?.eventprice}</span>
+                </div> */}
               </div>
             </div>
           </article>

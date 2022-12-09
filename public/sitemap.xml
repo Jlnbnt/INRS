@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url> <loc>https://www.inrscience.com/</loc> </url>
-<url> <loc>https://www.inrscience.com/</loc> </url>
+<url> <loc>https://inrscience.com/</loc> </url>
 <url> <loc>https://www.inrscience.com/</loc> </url>
 <url> <loc>https://www.inrscience.com/blogs</loc> </url>
-<url> <loc>https://www.inrscience.com/blog/:id</loc> </url>
 <url> <loc>https://www.inrscience.com/actualites</loc> </url>
-<url> <loc>https://www.inrscience.com/actualite/:id</loc> </url>
 <url> <loc>https://www.inrscience.com/evenements</loc> </url>
-<url> <loc>https://www.inrscience.com/evenement/:id</loc> </url>
 <url> <loc>https://www.inrscience.com/jobs</loc> </url>
 <url> <loc>https://www.inrscience.com/about</loc> </url>
 <url> <loc>https://www.inrscience.com/search</loc> </url>
 <url> <loc>https://www.inrscience.com/pdc</loc> </url>
 <url> <loc>https://www.inrscience.com/cgu</loc> </url>
-<url> <loc>https://www.inrscience.com/*</loc> </url>
 </urlset>

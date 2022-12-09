@@ -15,6 +15,7 @@ import { useQuery } from "@apollo/client";
 import { CircularProgress } from "@mui/material";
 
 import SEO from "../../seo/SEO";
+
 const Homepage = () => {
   const { setSearchQuery, setSearchActive, handleContactOpen } =
     useStateContext();
