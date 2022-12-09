@@ -4,7 +4,7 @@ export const HomepageLink = ({ text, link, icon }) => {
   return (
     <Link
       to={link}
-      className="flex justify-center items-center flex-col gap-2 font-semibold hover:text-light/50 dark:hover:text-dark/50 duration-700"
+      className="whitespace-nowrap flex justify-center items-center flex-col gap-2 font-semibold hover:text-light/50 dark:hover:text-dark/50 duration-700"
     >
       {icon}
       <span>{text}</span>

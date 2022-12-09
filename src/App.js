@@ -66,6 +66,7 @@ function App() {
                 <Route path="*" element={<Missing />} />
               </Routes>
             </ScrollToTop>
+            {/* Cookies */}
             {!cookies && (
               <CookieConsent
                 debug={true}
@@ -96,6 +97,7 @@ function App() {
                       Politique de Confidentialité
                     </Link>
                   </span>
+                  .
                 </div>
               </CookieConsent>
             )}
